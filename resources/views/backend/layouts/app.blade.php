@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ config('app.name') }}</title>
 
+    <link rel="icon" type="image/png" href="{{ asset('backend/images/techX.png') }}">
+
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/argon-dashboard/2.0.4/css/nucleo-icons.min.css" rel="stylesheet">
@@ -32,12 +34,13 @@
 
     @stack('css')
     <style>
-        .nav-item a:hover {
+        .nv-link:hover {
             background-color: #283255;
             border-radius: 0.5rem;
         }
-        .nav-item:hover {
+        .nv:hover {
             margin-left: 5px;
+            transition: .4s;
         }
     </style>
 </head>

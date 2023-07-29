@@ -23,6 +23,7 @@ class CreateAdminsTable extends Migration
             $table->date('Dob');
             $table->string('gender');
             $table->string('profile')->nullable();
+            $table->rememberToken()->nullable();
             $table->timestamps();
         });
     }

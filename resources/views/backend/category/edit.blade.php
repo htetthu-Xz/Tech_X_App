@@ -14,8 +14,8 @@
                 <h6>Edit Category <span class="text-primary">{{ $category->title }}</span></h6>
             </div>
             <hr class="hr mx-4">
-            @include('backend.layouts.page_info')
             <div class="card-body pt-0 pb-2">
+                @include('backend.layouts.page_info')
                 <form class="category-edit" action="{{ route('category.update', [$category->id]) }}" method="POST">
                     @csrf
                     @method('PATCH')

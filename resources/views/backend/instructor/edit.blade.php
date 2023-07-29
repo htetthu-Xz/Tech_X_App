@@ -14,8 +14,8 @@
                 <h6>Edit Instructor <span class="text-primary">{{ $instructor->name }}</span></h6>
             </div>
             <hr class="hr mx-4">
-            @include('backend.layouts.page_info')
             <div class="card-body pt-0 pb-2">
+                @include('backend.layouts.page_info')
                 <form class="instructor-edit" action="{{ route('instructor.update', [$instructor->id]) }}" method="POST">
                     @csrf
                     @method('PATCH')

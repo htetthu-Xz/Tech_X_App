@@ -1,25 +1,19 @@
 <?php
 
+use App\Http\Controllers\Backend\Auth\ResetPasswordController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\Auth\LoginController;
+use App\Http\Controllers\Backend\Auth\ForgotPasswordController;
 use App\Http\Controllers\Backend\InstructorController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 Route::prefix('/admin')->middleware('web')->group(function () {
     Route::get('/', function () {
         return view('backend.dashboard');
+        // dd(auth()->guard('admin')->user());
     })->name('admin.dashboard');
 
     #Admin CRUD
@@ -53,4 +47,16 @@ Route::prefix('/admin')->middleware('web')->group(function () {
     Route::get('category/{category:id}/edit', [CategoryController::class, 'edit'])->name('category.edit');
     Route::patch('category/{category:id}', [CategoryController::class, 'update'])->name('category.update');
     Route::delete('category/{category:id}', [CategoryController::class, 'destroy'])->name('category.destroy');
+
+    #auth -> login
+    Route::get('login', [LoginController::class, 'index'])->name('get.login');
+    Route::post('login', [LoginController::class, 'login'])->name('admin.login');
+    Route::get('logout', [LoginController::class, 'logout'])->name('admin.logout');
+    #auth->forgot-password
+    Route::get('forgot-password', [ForgotPasswordController::class, 'getForgotForm'])->name('admin.getForgot');
+    Route::post('forgot-password', [ForgotPasswordController::class, 'sendResetLink'])->name('admin.sendResetLink');
+    #auth->reset-password
+    Route::get('reset-password', [ResetPasswordController::class, 'resetVerify'])->name('admin.resetVerily');
+    Route::post('reset-password', [ResetPasswordController::class, 'reset'])->name('admin.resetPassword');
+
 });
