@@ -87,26 +87,6 @@
             )
         })
     </script>
-    @if (session()->has('delete_status'))
-        <script>
-            let notifier = new AWN();
-            notifier.info('category Successfully Deleted!', {durations: {info: 3000}})
-        </script>
-    @endif
-
-    @if (session()->has('create_status'))
-        <script>
-            let notifier = new AWN();
-            notifier.info('category Successfully Created!', {durations: {info: 3000}})
-        </script>
-    @endif
-
-    @if (session()->has('update_status'))
-        <script>
-            let notifier = new AWN();
-            notifier.info('category Successfully Updated!', {durations: {info: 3000}})
-        </script>
-    @endif
 @endpush
 
 @push('css')

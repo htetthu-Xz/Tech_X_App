@@ -26,21 +26,18 @@ class AdminController extends Controller
     public function store(AdminRequest $request) : RedirectResponse
     {
         Admin::create($request->validated());
-        return redirect()->route('admins.index')->with(['create_status' => 200]);
+        return redirect()->route('admins.index')->with(['create_status' => 'Admin Successfully Created!']);
     }
-
 
     public function show($id)
     {
         //
     }
 
-
     public function edit(Admin $admin) : View
     {
         return view('backend.admin.edit', ['admin' => $admin]);
     }
-
 
     public function update(AdminRequest $request, Admin $admin) : RedirectResponse
     {
@@ -52,13 +49,12 @@ class AdminController extends Controller
 
         $admin->update($attributes);
         
-        return redirect()->route('admins.index')->with(['update_status' => 200]);
+        return redirect()->route('admins.index')->with(['update_status' => 'Admin Successfully Updated!']);
     }
-
 
     public function destroy(Admin $admin) : RedirectResponse
     {
         $admin->delete();
-        return back()->with(['delete_status' => 200]);
+        return back()->with(['delete_status' => 'Admin Successfully Deleted!']);
     }
 }

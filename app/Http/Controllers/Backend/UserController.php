@@ -24,7 +24,7 @@ class UserController extends Controller
     public function store(UserRequest $request) : object
     {
         User::create($request->validated());
-        return redirect()->route('users.index')->with(['create_status' => 200]);
+        return redirect()->route('users.index')->with(['create_status' => 'User Successfully Created!']);
     }
 
     public function show($id)
@@ -47,12 +47,12 @@ class UserController extends Controller
 
         $user->update($attributes);
         
-        return redirect()->route('users.index')->with(['update_status' => 200]);
+        return redirect()->route('users.index')->with(['update_status' => 'User Successfully Updated!']);
     }
 
     public function destroy(User $user) : object
     {
         $user->delete();
-        return back()->with(['delete_status' => 200]);
+        return back()->with(['delete_status' => 'User Successfully Deleted!']);
     }
 }

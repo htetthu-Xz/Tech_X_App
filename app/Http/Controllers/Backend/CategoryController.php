@@ -32,7 +32,7 @@ class CategoryController extends Controller
             'title' => $attributes['title'],
             'slug' => Str::slug($attributes['title'])
         ]);
-        return redirect()->route('categories.index')->with(['create_status' => 200]);
+        return redirect()->route('categories.index')->with(['create_status' => 'Category Successfully Created!']);
     }
 
     public function show($id)
@@ -54,12 +54,12 @@ class CategoryController extends Controller
             'title' => $attributes['title'],
             'slug' => Str::slug($attributes['title'])
         ]);
-        return redirect()->route('categories.index')->with(['update_status' => 200]);
+        return redirect()->route('categories.index')->with(['update_status' => 'Category Successfully Updated!']);
     }
 
     public function destroy(Category $category) : RedirectResponse
     {
         $category->delete();
-        return back()->with(['delete_status' => 200]);
+        return back()->with(['delete_status' => 'Category Successfully Deleted!']);
     }
 }
