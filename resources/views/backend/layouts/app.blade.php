@@ -31,6 +31,7 @@
 
     {{-- CSSFiles --}}
     <link id="pagestyle" href="{{ asset('backend/css/argon-dashboard.css?v=2.0.4') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('backend/css/custom.css') }}">
 
     @stack('css')
     <style>

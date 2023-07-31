@@ -112,36 +112,4 @@
             )
         })
     </script>
-@endpush
-
-@push('css')
-    <style>
-        div.dataTables_length select {
-            color: #CFD1D9 !important;
-            background-color: #111C44 !important; 
-        }
-        table.dataTable tbody tr:hover {
-            background-color:#293357 !important;
-        }
-        .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
-            background: #293357 !important;
-            color: #CFD1D9 !important;
-        }
-        .paginate_button.current  {
-            background-color: #293357 !important;
-        }
-        .dataTables_filter input:focus {
-            border-color: none;
-            outline: none;
-            box-shadow: none;
-        }
-        .dataTables_filter input {
-            margin-left: 5px !important; 
-        }
-        .delete_button {
-            border: none;
-            background-color: transparent;
-            color: #FFFFFF;
-        }
-    </style>
-@endpush    
+@endpush  
