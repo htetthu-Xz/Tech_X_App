@@ -5,7 +5,7 @@
     <div class="col-12">
         {{-- @include('backend.layouts.page_info') --}}
         <div class="text-end ">
-            <a href="{{ route('category.create') }}" class="btn btn-primary">
+            <a href="{{ route('categories.create') }}" class="btn btn-primary">
                 Create Category
                 <i class="ni ni ni-fat-add align-text-bottom"></i>
             </a>
@@ -38,11 +38,11 @@
                                         <span class="text-secondary text-xs font-weight-bold">{{ $category->slug }}</span>
                                     </td>
                                     <td class="align-middle text-center">
-                                        <a href="{{ route('category.edit', [$category->id]) }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit category">
+                                        <a href="{{ route('categories.edit', [$category->id]) }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit category">
                                             Edit
                                         </a>
                                         \
-                                        <form action="{{ route('category.destroy', [$category->id]) }}" method="POST" class="d-inline delete_form">
+                                        <form action="{{ route('categories.destroy', [$category->id]) }}" method="POST" class="d-inline delete_form">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="delete_button font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Delete category">

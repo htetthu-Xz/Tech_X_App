@@ -24,7 +24,7 @@ class InstructorController extends Controller
     public function store(InstructorRequest $request) : object
     {
         Instructor::create($request->validated());
-        return redirect()->route('instructor.index')->with(['create_status' => 200]);
+        return redirect()->route('instructors.index')->with(['create_status' => 200]);
     }
 
     public function show($id)
@@ -46,7 +46,7 @@ class InstructorController extends Controller
         }
 
         $instructor->update($attributes);
-        return redirect()->route('instructor.index')->with(['update_status' => 200]);
+        return redirect()->route('instructors.index')->with(['update_status' => 200]);
     }
 
     public function destroy(Instructor $instructor) : object

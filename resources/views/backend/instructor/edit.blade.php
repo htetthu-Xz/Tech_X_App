@@ -16,7 +16,7 @@
             <hr class="hr mx-4">
             <div class="card-body pt-0 pb-2">
                 @include('backend.layouts.page_info')
-                <form class="instructor-edit" action="{{ route('instructor.update', [$instructor->id]) }}" method="POST">
+                <form class="instructor-edit" action="{{ route('instructors.update', [$instructor->id]) }}" method="POST">
                     @csrf
                     @method('PATCH')
                     <div class="mb-3">

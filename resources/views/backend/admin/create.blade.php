@@ -16,7 +16,7 @@
             <hr class="hr mx-4">
             <div class="card-body pt-0 pb-2">
                 @include('backend.layouts.page_info')
-                <form class="admin-create" action="{{ route('admin.store') }}" method="POST">
+                <form class="admin-create" action="{{ route('admins.store') }}" method="POST">
                     @csrf
                     <div class="mb-3">
                         <label for="name" class="form-label">Name <span class="text-danger">*</span></label>

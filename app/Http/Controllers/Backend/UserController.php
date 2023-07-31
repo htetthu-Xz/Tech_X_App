@@ -24,7 +24,7 @@ class UserController extends Controller
     public function store(UserRequest $request) : object
     {
         User::create($request->validated());
-        return redirect()->route('user.index')->with(['create_status' => 200]);
+        return redirect()->route('users.index')->with(['create_status' => 200]);
     }
 
     public function show($id)
@@ -47,7 +47,7 @@ class UserController extends Controller
 
         $user->update($attributes);
         
-        return redirect()->route('user.index')->with(['update_status' => 200]);
+        return redirect()->route('users.index')->with(['update_status' => 200]);
     }
 
     public function destroy(User $user) : object

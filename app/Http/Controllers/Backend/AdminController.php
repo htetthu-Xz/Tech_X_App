@@ -26,7 +26,7 @@ class AdminController extends Controller
     public function store(AdminRequest $request) : RedirectResponse
     {
         Admin::create($request->validated());
-        return redirect()->route('admin.index')->with(['create_status' => 200]);
+        return redirect()->route('admins.index')->with(['create_status' => 200]);
     }
 
 
@@ -52,7 +52,7 @@ class AdminController extends Controller
 
         $admin->update($attributes);
         
-        return redirect()->route('admin.index')->with(['update_status' => 200]);
+        return redirect()->route('admins.index')->with(['update_status' => 200]);
     }
 
 

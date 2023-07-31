@@ -5,7 +5,7 @@
     <div class="col-12">
         {{-- @include('backend.layouts.page_info') --}}
         <div class="text-end">
-            <a href="{{ route('instructor.create') }}" class="btn btn-primary">
+            <a href="{{ route('instructors.create') }}" class="btn btn-primary">
                 Create Instructors
                 <i class="ri-user-add-fill align-text-bottom"></i>
             </a>
@@ -63,11 +63,11 @@
                                         <span class="text-secondary text-xs font-weight-bold">{{ \Carbon\Carbon::createFromFormat('Y-m-d', $instructor->Dob)->format('m/d/Y')}}</span>
                                     </td>
                                     <td class="align-middle text-center">
-                                        <a href="{{ route('instructor.edit', [$instructor->id]) }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                                        <a href="{{ route('instructors.edit', [$instructor->id]) }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
                                             Edit
                                         </a>
                                         \
-                                        <form action="{{ route('instructor.destroy', [$instructor->id]) }}" method="POST" class="d-inline delete_form">
+                                        <form action="{{ route('instructors.destroy', [$instructor->id]) }}" method="POST" class="d-inline delete_form">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="delete_button font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Delete user">
