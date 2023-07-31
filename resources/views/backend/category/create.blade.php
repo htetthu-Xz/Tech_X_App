@@ -23,6 +23,7 @@
                         <input type="text" name="title" class="form-control" id="name">
                     </div>
                     <div class="text-center">
+                        <a href="{{ route('categories.index') }}" class="btn btn-dark mx-2">Cancel</a>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                   </form>
