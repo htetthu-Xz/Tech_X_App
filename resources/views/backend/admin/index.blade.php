@@ -28,55 +28,7 @@
                                 </tr>
                         </thead>
                         <tbody>
-                            @foreach ($admins as $admin)
-                                <tr>
-                                    <td>
-                                        <p class="text-xs text-secondary mb-0">{{ $admin->id }}</p>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex px-2 py-1">
-                                            <div>
-                                                <img src="{{ $admin->profile }}" class="avatar avatar-sm me-3" alt="user1">
-                                            </div>
-                                            <div class="d-flex flex-column justify-content-center">
-                                                    <h6 class="mb-0 text-sm">{{ $admin->name }}</h6>
-                                                    <p class="text-xs text-secondary mb-0">{{ $admin->email }}</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        {{-- <p class="text-xs font-weight-bold mb-0">Manager</p> --}}
-                                        <p class="text-xs text-secondary mb-0">{{ $admin->phone }}</p>
-                                    </td>
-                                    <td class="align-middle text-center text-sm">
-                                        <span class="text-uppercase text-xs text-secondary mb-0">
-                                            @if ($admin->gender == 'male')
-                                                Male
-                                            @elseif($admin->gender == 'female')
-                                                female
-                                            @else
-                                                Other
-                                            @endif
-                                        </span>
-                                    </td>
-                                    <td class="align-middle text-center">
-                                        <span class="text-secondary text-xs font-weight-bold">{{ \Carbon\Carbon::createFromFormat('Y-m-d', $admin->Dob)->format('m/d/Y')}}</span>
-                                    </td>
-                                    <td class="align-middle text-center">
-                                        <a href="{{ route('admins.edit', [$admin->id]) }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                                            Edit
-                                        </a>
-                                        \
-                                        <form action="{{ route('admins.destroy', [$admin->id]) }}" method="POST" class="d-inline delete_form">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="delete_button font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Delete user">
-                                                Delete
-                                            </button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            @endforeach
+                            {{-- DataTable Data --}}
                         </tbody>
                     </table>
                 </div>
@@ -87,29 +39,66 @@
 @endsection
 
 @push('script')
-    <script>
-        let table = new DataTable('#adminTable');
-    </script>
-    <script>
-        $('table tbody').on('click', '.delete_form' ,function(e) {
-            e.preventDefault();
-            let notifier = new AWN();
-            let onOk = () => {
-                $(this).submit()
-            };
-            let onCancel = () => {
-                exit();
-            };
-            notifier.confirm(
-                'Are you sure want to delete this admin?',
-                onOk,
-                onCancel,
+
+<script>
+    $(function ()  {
+        let table = $('#adminTable').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: "{{ route('admins.index') }}",
+            columns: [
                 {
-                    labels: {
-                        confirm: 'Delete Admin'
-                    }
+                    data: 'id',
+                    name: 'id',
+                    class: 'text-xs text-secondary mb-0'
+                },
+                {
+                    data:'Name(Email)',
+                    name:'Name(Email)'
+                },
+                {
+                    data:'phone',
+                    name:'phone',
+                    class: 'text-xs text-secondary mb-0'
+                },
+                {
+                    data:'gender',
+                    name:'gender',
+                    class: 'text-uppercase text-xs text-secondary mb-0 align-middle text-center'
+                },
+                {
+                    data:'Dob',
+                    name:'Dob',
+                    class: 'text-secondary text-xs font-weight-bold align-middle text-center'
+                },
+                {
+                    data:'Action',
+                    name:'Action'
                 }
-            )
+            ]
         })
-    </script>
+    })
+</script>
+<script>
+    $('table tbody').on('click', '.delete_form' ,function(e) {
+        e.preventDefault();
+        let notifier = new AWN();
+        let onOk = () => {
+            $(this).submit()
+        };
+        let onCancel = () => {
+            exit();
+        };
+        notifier.confirm(
+            'Are you sure want to delete this admin?',
+            onOk,
+            onCancel,
+            {
+                labels: {
+                    confirm: 'Delete Admin'
+                }
+            }
+        )
+    })
+</script>
 @endpush   

@@ -6,16 +6,26 @@ use App\Models\Category;
 use Illuminate\View\View;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
 
 class CategoryController extends Controller
 {
-    public function index() : View
+    public function index() 
     {
-        $categories = Category::all();
-        return view('backend.category.index', ['categories' => $categories]);
+        if(request()->ajax()) {
+            $query = Category::query();
+
+            return DataTables::of($query)
+                    ->addColumn('Action', function($category) {
+                        return view('backend.category.partials.category_table_action', ['category' => $category]);
+                    })
+                    ->rawColumns(['Action'])
+                    ->make(true);
+        }
+        return view('backend.category.index');
     }
 
     public function create() : View

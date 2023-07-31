@@ -5,15 +5,29 @@ namespace App\Http\Controllers\Backend;
 use App\Models\User;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
 use App\Http\Requests\UserRequest;
 use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {
-    public function index() : View
+    public function index() 
     {
-        $users = User::all();
-        return view('backend.user.index', ['users' => $users]);
+        if(request()->ajax()) {
+            $query = User::query();
+
+            return DataTables::of($query)
+                    ->addColumn('Name(Email)', function ($user) {
+                        return view('backend.user.partials.user_table_name_row', ['user' => $user]);
+                    })
+                    ->addColumn('Action', function($user) {
+                        return view('backend.user.partials.user_table_action', ['user' => $user]);
+                    })
+                    ->rawColumns(['Name(Email)', 'Action'])
+                    ->make(true);
+        }
+
+        return view('backend.user.index');
     }
 
     public function create() : View

@@ -28,55 +28,7 @@
                                 </tr>
                         </thead>
                         <tbody>
-                            @foreach ($users as $user)
-                                <tr>
-                                    <td>
-                                        <p class="text-xs text-secondary mb-0">{{ $user->id }}</p>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex px-2 py-1">
-                                            <div>
-                                                <img src="{{ $user->profile }}" class="avatar avatar-sm me-3" alt="user1">
-                                            </div>
-                                            <div class="d-flex flex-column justify-content-center">
-                                                    <h6 class="mb-0 text-sm">{{ $user->name }}</h6>
-                                                    <p class="text-xs text-secondary mb-0">{{ $user->email }}</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        {{-- <p class="text-xs font-weight-bold mb-0">Manager</p> --}}
-                                        <p class="text-xs text-secondary mb-0">{{ $user->phone }}</p>
-                                    </td>
-                                    <td class="align-middle text-center text-sm">
-                                        <span class="text-uppercase text-xs text-secondary mb-0">
-                                            @if ($user->gender == 'male')
-                                                Male
-                                            @elseif($user->gender == 'female')
-                                                female
-                                            @else
-                                                Other
-                                            @endif
-                                        </span>
-                                    </td>
-                                    <td class="align-middle text-center">
-                                        <span class="text-secondary text-xs font-weight-bold">{{ \Carbon\Carbon::createFromFormat('Y-m-d', $user->Dob)->format('m/d/Y')}}</span>
-                                    </td>
-                                    <td class="align-middle text-center">
-                                        <a href="{{ route('users.edit', [$user->id]) }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                                            Edit
-                                        </a>
-                                        \
-                                        <form action="{{ route('users.destroy', [$user->id]) }}" method="POST" class="d-inline delete_form">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="delete_button font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Delete user">
-                                                Delete
-                                            </button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            @endforeach
+                            {{-- Datatable data --}}
                         </tbody>
                     </table>
                 </div>
@@ -88,7 +40,43 @@
 
 @push('script')
     <script>
-        let table = new DataTable('#userTable');
+        $(function ()  {
+            let table = $('#userTable').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: "{{ route('users.index') }}",
+                columns: [
+                    {
+                        data: 'id',
+                        name: 'id',
+                        class: 'text-xs text-secondary mb-0'
+                    },
+                    {
+                        data:'Name(Email)',
+                        name:'Name(Email)'
+                    },
+                    {
+                        data:'phone',
+                        name:'phone',
+                        class: 'text-xs text-secondary mb-0'
+                    },
+                    {
+                        data:'gender',
+                        name:'gender',
+                        class: 'text-uppercase text-xs text-secondary mb-0 align-middle text-center'
+                    },
+                    {
+                        data:'Dob',
+                        name:'Dob',
+                        class: 'text-secondary text-xs font-weight-bold align-middle text-center'
+                    },
+                    {
+                        data:'Action',
+                        name:'Action'
+                    }
+                ]
+            })
+        })
     </script>
     <script>
         $('table tbody').on('click', '.delete_form' ,function(e) {

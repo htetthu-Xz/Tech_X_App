@@ -20,6 +20,9 @@ table.dataTable tbody tr:hover {
 .dataTables_filter input {
     margin-left: 5px !important; 
 }
+.table {
+    width: 100% !important;
+}
 .delete_button {
     border: none;
     background-color: transparent;

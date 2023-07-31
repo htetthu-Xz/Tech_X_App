@@ -26,32 +26,7 @@
                                 </tr>
                         </thead>
                         <tbody>
-                            @foreach ($categories as $category)
-                                <tr>
-                                    <td>
-                                        <p class="text-xs text-secondary mb-0">{{ $category->id }}</p>
-                                    </td>
-                                    <td>
-                                        <h6 class="text-sm mb-0">{{ $category->title }}</h6>
-                                    </td>
-                                    <td class="align-middle">
-                                        <span class="text-secondary text-xs font-weight-bold">{{ $category->slug }}</span>
-                                    </td>
-                                    <td class="align-middle text-center">
-                                        <a href="{{ route('categories.edit', [$category->id]) }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit category">
-                                            Edit
-                                        </a>
-                                        \
-                                        <form action="{{ route('categories.destroy', [$category->id]) }}" method="POST" class="d-inline delete_form">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="delete_button font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Delete category">
-                                                Delete
-                                            </button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            @endforeach
+                            {{-- DataTable Data --}}                        
                         </tbody>
                     </table>
                 </div>
@@ -63,7 +38,34 @@
 
 @push('script')
     <script>
-        let table = new DataTable('#categoryTable');
+        $(function ()  {
+            let table = $('#categoryTable').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: "{{ route('categories.index') }}",
+                columns: [
+                    {
+                        data: 'id',
+                        name: 'id',
+                        class: 'text-xs text-secondary mb-0'
+                    },
+                    {
+                        data:'title',
+                        name:'title',
+                        class: 'text-sm mb-0'
+                    },
+                    {
+                        data:'slug',
+                        name:'slug',
+                        class: 'text-secondary text-xs font-weight-bold'
+                    },
+                    {
+                        data:'Action',
+                        name:'Action'
+                    }
+                ]
+            })
+        })
     </script>
     <script>
         $('table tbody').on('click', '.delete_form' ,function(e) {

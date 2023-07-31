@@ -28,55 +28,7 @@
                                 </tr>
                         </thead>
                         <tbody>
-                            @foreach ($instructors as $instructor)
-                                <tr>
-                                    <td>
-                                        <p class="text-xs text-secondary mb-0">{{ $instructor->id }}</p>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex px-2 py-1">
-                                            <div>
-                                                <img src="{{ $instructor->profile }}" class="avatar avatar-sm me-3" alt="user1">
-                                            </div>
-                                            <div class="d-flex flex-column justify-content-center">
-                                                    <h6 class="mb-0 text-sm">{{ $instructor->name }}</h6>
-                                                    <p class="text-xs text-secondary mb-0">{{ $instructor->email }}</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        {{-- <p class="text-xs font-weight-bold mb-0">Manager</p> --}}
-                                        <p class="text-xs text-secondary mb-0">{{ $instructor->phone }}</p>
-                                    </td>
-                                    <td class="align-middle text-center text-sm">
-                                        <span class="text-uppercase text-xs text-secondary mb-0">
-                                            @if ($instructor->gender == 'male')
-                                                Male
-                                            @elseif($instructor->gender == 'female')
-                                                female
-                                            @else
-                                                Other
-                                            @endif
-                                        </span>
-                                    </td>
-                                    <td class="align-middle text-center">
-                                        <span class="text-secondary text-xs font-weight-bold">{{ \Carbon\Carbon::createFromFormat('Y-m-d', $instructor->Dob)->format('m/d/Y')}}</span>
-                                    </td>
-                                    <td class="align-middle text-center">
-                                        <a href="{{ route('instructors.edit', [$instructor->id]) }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                                            Edit
-                                        </a>
-                                        \
-                                        <form action="{{ route('instructors.destroy', [$instructor->id]) }}" method="POST" class="d-inline delete_form">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="delete_button font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Delete user">
-                                                Delete
-                                            </button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            @endforeach
+                            {{-- Datatable Data --}}
                         </tbody>
                     </table>
                 </div>
@@ -88,7 +40,43 @@
 
 @push('script')
     <script>
-        let table = new DataTable('#instructorTable');
+        $(function ()  {
+            let table = $('#instructorTable').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: "{{ route('instructors.index') }}",
+                columns: [
+                    {
+                        data: 'id',
+                        name: 'id',
+                        class: 'text-xs text-secondary mb-0'
+                    },
+                    {
+                        data:'Name(Email)',
+                        name:'Name(Email)'
+                    },
+                    {
+                        data:'phone',
+                        name:'phone',
+                        class: 'text-xs text-secondary mb-0'
+                    },
+                    {
+                        data:'gender',
+                        name:'gender',
+                        class: 'text-uppercase text-xs text-secondary mb-0 align-middle text-center'
+                    },
+                    {
+                        data:'Dob',
+                        name:'Dob',
+                        class: 'text-secondary text-xs font-weight-bold align-middle text-center'
+                    },
+                    {
+                        data:'Action',
+                        name:'Action'
+                    }
+                ]
+            })
+        })
     </script>
     <script>
         $('table tbody').on('click', '.delete_form' ,function(e) {

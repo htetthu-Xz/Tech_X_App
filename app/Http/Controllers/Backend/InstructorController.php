@@ -5,15 +5,28 @@ namespace App\Http\Controllers\Backend;
 use Illuminate\View\View;
 use App\Models\Instructor;
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\InstructorRequest;
 
 class InstructorController extends Controller
 {
-    public function index() : View
+    public function index() 
     {
-        $instructors = Instructor::all();
-        return view('backend.instructor.index', ['instructors' => $instructors]);
+        if(request()->ajax()) {
+            $query = Instructor::query();
+
+            return DataTables::of($query)
+                    ->addColumn('Name(Email)', function ($instructor) {
+                        return view('backend.instructor.partials.instructor_table_name_row', ['instructor' => $instructor]);
+                    })
+                    ->addColumn('Action', function($instructor) {
+                        return view('backend.instructor.partials.instructor_table_action', ['instructor' => $instructor]);
+                    })
+                    ->rawColumns(['Name(Email)', 'Action'])
+                    ->make(true);
+        }
+        return view('backend.instructor.index');
     }
 
     public function create() : View

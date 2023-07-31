@@ -11,7 +11,7 @@
     <div class="ps ps--active-y w-auto " id="sidenav-collapse-main">
         <ul class="navbar-nav">
             <li class="nav-item nv">
-                <a class="nv-link nav-link {{ url()->current() == route('admin.dashboard') ? 'active' : '' }}" href="{{ route('admin.dashboard') }}">
+                <a class="nv-link nav-link {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}" href="{{ route('admin.dashboard') }}">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
                     </div>
@@ -19,7 +19,7 @@
                 </a>
             </li>
             <li class="nav-item nv mt-1">
-                <a class="nv-link nav-link {{ url()->current() == route('admins.index') ? 'active' : '' }}" href="{{ route('admins.index') }}">
+                <a class="nv-link nav-link {{ request()->routeIs('admins.*') ? 'active' : '' }}" href="{{ route('admins.index') }}">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ri-user-settings-fill text-lg opacity-10 text-warning"></i>
                     </div>
@@ -27,7 +27,7 @@
                 </a>
             </li>
             <li class="nav-item nv mt-1">
-                <a class="nv-link nav-link {{ url()->current() == route('instructors.index') ? 'active' : '' }}" href="{{ route('instructors.index') }}">
+                <a class="nv-link nav-link {{ request()->routeIs('instructors.*') ? 'active' : '' }}" href="{{ route('instructors.index') }}">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-hat-3 text-danger text-lg opacity-10"></i>
                     </div>
@@ -35,7 +35,7 @@
                 </a>
             </li>
             <li class="nav-item nv mt-1">
-                <a class="nv-link nav-link {{ url()->current() == route('users.index') ? 'active' : '' }}" href="{{ route('users.index') }}">
+                <a class="nv-link nav-link {{ request()->routeIs('users.*') ? 'active' : '' }}" href="{{ route('users.index') }}">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-single-02 text-info text-sm opacity-10"></i>
                     </div>
@@ -43,7 +43,7 @@
                 </a>
             </li>
             <li class="nav-item nv mt-1">
-                <a class="nv-link nav-link {{ url()->current() == route('categories.index') ? 'active' : '' }}" href="{{ route('categories.index') }}">
+                <a class="nv-link nav-link {{ request()->routeIs('categories.*') ? 'active' : '' }}" href="{{ route('categories.index') }}">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni ni-bullet-list-67 text-success text-sm opacity-10"></i>
                     </div>
