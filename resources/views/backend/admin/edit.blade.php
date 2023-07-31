@@ -70,17 +70,6 @@
 </div>
 @endsection
 
-@push('script')
-<script>
-    $(function() {
-        $('#dob').Zebra_DatePicker({
-            format: 'Y-m-d',
-            default_position: 'below'
-        });
-    });
-    </script>
-@endpush
-
 @push('css')
     <style>
         .admin-edit input {

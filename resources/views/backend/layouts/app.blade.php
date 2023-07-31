@@ -78,5 +78,14 @@
 
     @include('backend.layouts.toster')
 
+    <script>
+        $(function() {
+            $('#dob').Zebra_DatePicker({
+                format: 'Y-m-d',
+                default_position: 'below',
+                select_other_months: true
+            });
+        });
+    </script>
 </body>
 </html>

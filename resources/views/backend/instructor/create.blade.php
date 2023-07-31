@@ -59,7 +59,7 @@
                         <input type="file" name="profile" class="form-control" id="profile">
                     </div>
                     <div class="text-center">
-                        a href="{{ route('instructors.index') }}" class="btn btn-dark mx-2">Cancel</a>
+                        <a href="{{ route('instructors.index') }}" class="btn btn-dark mx-2">Cancel</a>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                   </form>
@@ -68,17 +68,6 @@
     </div>
 </div>
 @endsection
-
-@push('script')
-<script>
-    $(function() {
-        $('#dob').Zebra_DatePicker({
-            format: 'Y-m-d',
-            default_position: 'below'
-        });
-    });
-    </script>
-@endpush
 
 @push('css')
     <style>
