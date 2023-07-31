@@ -7,6 +7,8 @@ use Illuminate\View\View;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Redirect;
 
 class CategoryController extends Controller
 {
@@ -21,7 +23,7 @@ class CategoryController extends Controller
         return view('backend.category.create');
     }
 
-    public function store(Request $request) : object
+    public function store(Request $request) : RedirectResponse
     {
         $attributes = $request->validate([
             'title' => 'required'
@@ -43,7 +45,7 @@ class CategoryController extends Controller
         return view('backend.category.edit', ['category' => $category]);
     }
 
-    public function update(Request $request, Category $category) : object
+    public function update(Request $request, Category $category) : RedirectResponse
     {
         $attributes = $request->validate([
             'title' => 'required'
@@ -55,7 +57,7 @@ class CategoryController extends Controller
         return redirect()->route('category.index')->with(['update_status' => 200]);
     }
 
-    public function destroy(Category $category) : object
+    public function destroy(Category $category) : RedirectResponse
     {
         $category->delete();
         return back()->with(['delete_status' => 200]);

@@ -29,7 +29,7 @@ class AdminRequest extends FormRequest
                 'name' => 'required',
                 'email' => 'required|email|unique:admins,email,'. $this->admin->id,
                 'phone' => 'required|unique:admins,phone,'. $this->admin->id,
-                'password' => 'required|confirmed|min:8',
+                'password' => 'confirmed',
                 'address' => 'nullable',
                 'dob' => 'required',
                 'gender' => 'required',

@@ -39,7 +39,14 @@ class UserController extends Controller
 
     public function update(UserRequest $request, User $user) : object
     {
-        $user->update($request->validated());
+        $attributes = $request->validated();
+
+        if($attributes['password'] == null) {
+            unset($attributes['password']);
+        }
+
+        $user->update($attributes);
+        
         return redirect()->route('user.index')->with(['update_status' => 200]);
     }
 

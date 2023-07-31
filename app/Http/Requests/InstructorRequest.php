@@ -28,7 +28,7 @@ class InstructorRequest extends FormRequest
                 'name' => 'required',
                 'email' => 'required|email|unique:admins,email,'. $this->instructor->id,
                 'phone' => 'required|unique:admins,phone,'. $this->instructor->id,
-                'password' => 'required|confirmed|min:8',
+                'password' => 'confirmed',
                 'address' => 'nullable',
                 'dob' => 'required',
                 'gender' => 'required',

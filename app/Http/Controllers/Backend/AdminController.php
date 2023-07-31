@@ -7,6 +7,7 @@ use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AdminRequest;
+use Illuminate\Http\RedirectResponse;
 
 class AdminController extends Controller
 {
@@ -22,7 +23,7 @@ class AdminController extends Controller
         return view('backend.admin.create');
     }
 
-    public function store(AdminRequest $request) : object
+    public function store(AdminRequest $request) : RedirectResponse
     {
         Admin::create($request->validated());
         return redirect()->route('admin.index')->with(['create_status' => 200]);
@@ -41,14 +42,21 @@ class AdminController extends Controller
     }
 
 
-    public function update(AdminRequest $request, Admin $admin) : object
+    public function update(AdminRequest $request, Admin $admin) : RedirectResponse
     {
-        $admin->update($request->validated());
+        $attributes = $request->validated();
+
+        if($attributes['password'] == null) {
+            unset($attributes['password']);
+        }
+
+        $admin->update($attributes);
+        
         return redirect()->route('admin.index')->with(['update_status' => 200]);
     }
 
 
-    public function destroy(Admin $admin) : object
+    public function destroy(Admin $admin) : RedirectResponse
     {
         $admin->delete();
         return back()->with(['delete_status' => 200]);

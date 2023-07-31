@@ -40,7 +40,7 @@
         }
         .nv:hover {
             margin-left: 5px;
-            transition: .4s;
+            transition: .5s;
         }
     </style>
 </head>
@@ -48,7 +48,7 @@
 
     @include('backend.layouts.sidebar')
 
-    <main class="main-content position-relative border-radius-lg ">
+    <main class="main-content position-relative border-radius-lg">
 
         @include('backend.layouts.navbar')
       
