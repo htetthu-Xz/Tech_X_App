@@ -83,7 +83,8 @@
             $('#dob').Zebra_DatePicker({
                 format: 'Y-m-d',
                 default_position: 'below',
-                select_other_months: true
+                select_other_months: true,
+                direction: false
             });
         });
     </script>

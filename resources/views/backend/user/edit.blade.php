@@ -16,7 +16,7 @@
             <hr class="hr mx-4">
             <div class="card-body pt-0 pb-2">
                 @include('backend.layouts.page_info')
-                <form class="user-edit" action="{{ route('users.update', [$user->id]) }}" method="POST">
+                <form class="form-style" action="{{ route('users.update', [$user->id]) }}" method="POST">
                     @csrf
                     @method('PATCH')
                     <div class="mb-3">
@@ -68,58 +68,4 @@
         </div>
     </div>
 </div>
-@endsection
-
-@push('css')
-    <style>
-        .user-edit input {
-            background-color: transparent;
-            color: #CFD1D9;
-            border-color: #273569;
-        }
-        .user-edit input:focus {
-            background-color: transparent;
-            color: #CFD1D9;
-        }
-        .user-edit textarea {
-            background-color: transparent;
-            color: #CFD1D9;
-            border-color: #273569;
-        }
-        .user-edit textarea:focus {
-            background-color: transparent;
-            color: #CFD1D9;
-        }
-        .user-edit select {
-            background-color: transparent;
-            color: #CFD1D9;
-            border-color: #273569;
-        }
-        .user-edit select:focus {
-            background-color: #111C44;
-            color: #CFD1D9;
-        }
-        .user-edit option:hover {
-            color: aqua;
-        }
-        .hr {
-            background-color: #CFD1D9;
-        }
-        .bd-callout {
-            background-color: transparent;
-            padding: 1.25rem;
-            margin-top: 1.25rem;
-            margin-bottom: 1.25rem;
-            border: 1px solid #273569;
-            border-left-width: .25rem;
-            border-radius: .25rem
-        }
-        .bd-callout ul {
-            list-style-type: none;
-        }
-        .bd-callout-danger {
-            border-left-color: #d9534f;
-            color: #d9534f;
-        }
-    </style>
-@endpush    
+@endsection 

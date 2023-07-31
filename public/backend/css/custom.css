@@ -25,3 +25,53 @@ table.dataTable tbody tr:hover {
     background-color: transparent;
     color: #FFFFFF;
 }
+
+.form-style input {
+    background-color: transparent;
+    color: #CFD1D9;
+    border-color: #273569;
+}
+.form-style input:focus {
+    background-color: transparent;
+    color: #CFD1D9;
+}
+.form-style textarea {
+    background-color: transparent;
+    color: #CFD1D9;
+    border-color: #273569;
+}
+.form-style textarea:focus {
+    background-color: transparent;
+    color: #CFD1D9;
+}
+.form-style select {
+    background-color: transparent;
+    color: #CFD1D9;
+    border-color: #273569;
+}
+.form-style select:focus {
+    background-color: #111C44;
+    color: #CFD1D9;
+}
+.form-style option:hover {
+    color: aqua;
+}
+.hr {
+    background-color: #CFD1D9;
+}
+.bd-callout {
+    background-color: transparent;
+    padding: 1.25rem;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    border: 1px solid #273569;
+    border-left-width: .25rem;
+    border-radius: .25rem
+}
+.bd-callout ul {
+    list-style-type: none;
+}
+.bd-callout-danger {
+    border-left-color: #d9534f;
+    color: #d9534f;
+}
