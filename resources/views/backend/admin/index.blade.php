@@ -22,9 +22,9 @@
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name (Email)</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">phone</th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Gender</th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date of Birth</th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Gender</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date of Birth</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
                                 </tr>
                         </thead>
                         <tbody>
@@ -64,12 +64,12 @@
                 {
                     data:'gender',
                     name:'gender',
-                    class: 'text-uppercase text-xs text-secondary mb-0 align-middle text-center'
+                    class: 'text-uppercase text-xs text-secondary mb-0 align-middle'
                 },
                 {
                     data:'Dob',
                     name:'Dob',
-                    class: 'text-secondary text-xs font-weight-bold align-middle text-center'
+                    class: 'text-secondary text-xs font-weight-bold align-middle'
                 },
                 {
                     data:'Action',

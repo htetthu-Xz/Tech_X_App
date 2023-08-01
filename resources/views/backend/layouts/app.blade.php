@@ -22,6 +22,9 @@
     {{-- alert --}}
     <link rel="stylesheet" href="{{ asset('plugins/awesome-notifications/dist/style.css') }}">
 
+    {{-- richtext editor --}}
+    <link rel="stylesheet" href="{{ asset('backend/plugins/richtexteditor/rte_theme_default.css') }}">
+
     {{-- data table --}}
     <link rel="stylesheet" href="{{ asset('plugins/datatable/jquery.dataTables.min.css') }}">
 
@@ -68,6 +71,8 @@
     <script src="{{ asset('plugins/awesome-notifications/dist/index.var.js') }}"></script>
     <script src="{{ asset('plugins/datatable/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('backend/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('backend/plugins/richtexteditor/rte.js') }}"></script>
+    <script src="{{ asset('backend/plugins/richtexteditor//plugins/all_plugins.js') }}"></script>
     <script src="{{ asset('backend/js/popper.min.js') }}"></script>
     <script src="{{ asset('backend/plugins/perfect-scrollbar.min.js') }}"></script>
     <script src="{{ asset('backend/plugins/smooth-scrollbar.min.js') }}"></script>

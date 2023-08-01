@@ -9,12 +9,8 @@ use Yajra\DataTables\DataTables;
 use App\Http\Requests\AdminRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
-
-
-
 class AdminController extends Controller
 {
-
     public function index() 
     {
         if(request()->ajax()) {
@@ -30,7 +26,6 @@ class AdminController extends Controller
                     ->rawColumns(['Name(Email)', 'Action'])
                     ->make(true);
         }
-
 
         return view('backend.admin.index');
     }

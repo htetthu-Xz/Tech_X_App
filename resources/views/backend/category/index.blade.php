@@ -22,7 +22,7 @@
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Title</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Slug</th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
                                 </tr>
                         </thead>
                         <tbody>

@@ -14,4 +14,9 @@ class Instructor extends Model
     public function setPasswordAttribute($value) : Void {
         $this->attributes['password'] = bcrypt($value);
     }
+
+    // public function Courses() : void 
+    // {
+    //     $this->
+    // }
 }
