@@ -34,6 +34,11 @@
 
     {{-- CSSFiles --}}
     <link id="pagestyle" href="{{ asset('backend/css/argon-dashboard.css?v=2.0.4') }}" rel="stylesheet" />
+
+    {{-- select2 --}}
+    {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" /> --}}
+    <link href="{{ asset('backend/css/select2.min.css') }}" rel="stylesheet" />
+
     <link rel="stylesheet" href="{{ asset('backend/css/custom.css') }}">
 
     @stack('css')
@@ -80,7 +85,12 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script src="{{ asset('plugins/bootstrap-5-jbvalidator/dist/jbvalidator.min.js') }}"></script>
     <script src="{{ asset('backend/js/argon-dashboard.js?v=2.0.4') }}"></script>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
+    <script src="{{ asset('backend/js/main.js') }}"></script> --}}
+    
+    <script src="{{ asset('backend/js/select2.min.js') }}"></script>
     <script src="{{ asset('backend/js/custom.js') }}"></script>
+    
 
     @include('backend.layouts.toster')
 
