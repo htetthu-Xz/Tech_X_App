@@ -78,3 +78,9 @@ table.dataTable tbody tr:hover {
     border-left-color: #d9534f;
     color: #d9534f;
 }
+.b-color {
+    border: 1px solid #3b4772;
+}
+.app-hr {
+    background-color: #c3c6d1;
+}

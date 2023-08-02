@@ -78,8 +78,9 @@
     <script src="{{ asset('backend/plugins/smooth-scrollbar.min.js') }}"></script>
     <script src="{{ asset('backend/plugins/chartjs.min.js') }}"></script>
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <script src="{{ asset('backend/js/argon-dashboard.min.js?v=2.0.4') }}"></script>
-    @stack('script')
+    <script src="{{ asset('plugins/bootstrap-5-jbvalidator/dist/jbvalidator.min.js') }}"></script>
+    <script src="{{ asset('backend/js/argon-dashboard.js?v=2.0.4') }}"></script>
+    <script src="{{ asset('backend/js/custom.js') }}"></script>
 
     @include('backend.layouts.toster')
 
@@ -93,5 +94,6 @@
             });
         });
     </script>
+    @stack('script')
 </body>
 </html>

@@ -16,7 +16,7 @@
             <hr class="hr mx-4">
             <div class="card-body pt-0 pb-2">
                 @include('backend.layouts.page_info')
-                <form class="form-style" action="{{ route('instructors.update', [$instructor->id]) }}" method="POST">
+                <form class="form-style form-v" action="{{ route('instructors.update', [$instructor->id]) }}" method="POST">
                     @csrf
                     @method('PATCH')
                     <div class="mb-3">
@@ -29,7 +29,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="phone" class="form-label">Phone <span class="text-danger">*</span></label>
-                        <input type="phone" name="phone" class="form-control" id="name"  value="{{ $instructor->phone }}">
+                        <input type="phone" name="phone" class="form-control" id="phone"  value="{{ $instructor->phone }}">
                     </div>
                     <div class="mb-3">
                       <label for="password1" class="form-label">Password <span class="text-danger">*</span></label>
@@ -56,16 +56,105 @@
                         </select>
                     </div>
                     <div class="mb-3">
+                        <label for="bio" class="form-label">Bio</label>
+                        <textarea name="bio" id="bio" rows="2" class="form-control" required>{{ $instructor->Bio }}</textarea>
+                    </div>
+                    <div class="mb-3">
                         <label for="profile" class="form-label">Profile <span class="text-danger">*</span></label>
                         <input type="file" name="profile" class="form-control" id="profile">
+                    </div>
+                    <div class="mb-3">
+                        <label for="profile" class="form-label">Link <span class="text-danger">*</span></label>
+                        <div class="pt-2 pb-2 rounded m-3 b-color append">
+
+                            @foreach (json_decode($instructor->link, true) as $key => $item)
+                                <div class="m-4 de add">
+                                    @if ($key > 0)
+                                        <hr class="app-hr mx-2 mb-1 mt-5">
+                                    @endif
+                                    <div class="text-end p-2">
+                                        @if ($key > 0)
+                                            <button class="btn btn-danger dele" type="button">
+                                                <i class="ri-delete-bin-6-line mr-2 text-light"></i>
+                                            </button>
+                                        @else
+                                            <button class="btn btn-primary addMore">
+                                                <i class="ri-add-circle-fill mr-2 text-light"></i>
+                                                Add More
+                                            </button>
+                                        @endif
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-md-6">
+                                            <label for="icon" class="form-label">Icon <span class="text-danger">*</span></label>
+                                            <input type="text" name="link[{{ $key }}][icon]" class="form-control" id="name" value="{{ $item['icon'] }}" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="link" class="form-label">Link <span class="text-danger">*</span></label>
+                                            <input type="url" id="url" name="link[{{ $key }}][link]" class="form-control" value="{{ $item['link'] }} id="name" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-md-6">
+                                            <label for="label" class="form-label">Label <span class="text-danger">*</span></label>
+                                            <input type="text" name="link[{{ $key }}][label]" class="form-control" value="{{ $item['label'] }} id="name" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
                     </div>
                     <div class="text-center">
                         <a href="{{ route('instructors.index') }}" class="btn btn-dark mx-2">Cancel</a>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
-                  </form>
+                </form>
             </div>
         </div>
     </div>
 </div>
 @endsection   
+
+@push('script')
+    <script>
+        $(document).ready(function() {
+            $('.addMore').on('click', function(e) {
+            e.preventDefault();
+            let count = $('.add').length
+            console.log(count)
+            let template = `
+                <div class="m-4 de add">
+                    <hr class="app-hr mx-2 mb-1 mt-5">
+                    <div class="text-end p-2 ">
+                        <button class="btn btn-danger dele" type="button">
+                            <i class="ri-delete-bin-6-line mr-2 text-light"></i>
+                        </button>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-6">
+                            <label for="icon" class="form-label">Icon <span class="text-danger">*</span></label>
+                            <input type="text" name="link[${count}][icon]" data-v-message="This field is required!" class="form-control" id="name" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="link" class="form-label">Link <span class="text-danger">*</span></label>
+                            <input type="url" id="url" name="link[${count}][link]" data-v-message="This field is required!" class="form-control" id="name" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-6">
+                            <label for="label" class="form-label">Label <span class="text-danger">*</span></label>
+                            <input type="text" name="link[${count}][label]" data-v-message="This field is required!" class="form-control" id="name" required>
+                        </div>
+                    </div>
+                </div>
+                `;
+
+                $('.append').append(template)
+            });
+            $(document).on('click', '.dele' , function(e) {
+                e.preventDefault()
+                $(this).closest('.de').remove()
+            })
+        })
+    </script>
+@endpush

@@ -32,7 +32,11 @@ class InstructorRequest extends FormRequest
                 'address' => 'nullable',
                 'dob' => 'required',
                 'gender' => 'required',
-                'profile' => 'nullable' // required
+                'bio' => 'required',
+                'profile' => 'nullable', // required
+                'link.*.icon' => 'required',
+                'link.*.link' => 'required',
+                'link.*.label' => 'required'
             ];
         } else {
             return [
@@ -43,8 +47,22 @@ class InstructorRequest extends FormRequest
                 'address' => 'nullable',
                 'dob' => 'required',
                 'gender' => 'required',
-                'profile' => 'nullable' // required
+                'bio' => 'required',
+                'profile' => 'nullable', // required
+                'link.*.icon' => 'required',
+                'link.*.link' => 'required',
+                'link.*.label' => 'required'
             ];
         }
+    }
+
+    public function messages () 
+    {
+        return [
+            'link.*.icon.required' => 'The link icon field is required!',
+            'link.*.link.required' => 'The link link field is required!',
+            'link.*.label.required' => 'The link label field is required!',
+            'dob.required' => 'The Date of Birth field is required'
+        ];
     }
 }

@@ -22,8 +22,11 @@ class CreateInstructorsTable extends Migration
             $table->text('address')->nullable();
             $table->date('Dob');
             $table->string('gender');
+            $table->text('Bio');
             $table->string('profile')->nullable();
+            $table->longText('link');
             $table->timestamps();
+
         });
     }
 

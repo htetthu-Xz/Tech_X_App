@@ -21,7 +21,9 @@ class InstructorFactory extends Factory
             'address' => $this->faker->address(),
             'Dob' => $this->faker->date(),
             'gender' =>$this->faker->randomElement(['male', 'female','other']),
+            'Bio' => $this->faker->realText(30),
             'profile' =>'https://i.pravatar.cc/150?u='.$this->faker->uuid(),
+            'link' =>  json_encode([['icon' => base_path(), 'link' => $this->faker->url(), 'label' => $this->faker->catchPhrase ]])
         ];
     }
 }

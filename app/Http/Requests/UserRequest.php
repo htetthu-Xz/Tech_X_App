@@ -41,4 +41,11 @@ class UserRequest extends FormRequest
             ];
         }
     }
+
+    public function messages ()
+    {
+        return [
+            'dob.required' => 'The Date of Birth field is required'
+        ];
+    }
 }

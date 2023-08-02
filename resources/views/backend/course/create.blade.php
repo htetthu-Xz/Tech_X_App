@@ -16,15 +16,15 @@
             <hr class="hr mx-4">
             <div class="card-body pt-0 pb-2">
                 @include('backend.layouts.page_info')
-                <form class="form-style" action="{{ route('courses.store') }}" method="POST">
+                <form class="form-style form-v" action="{{ route('courses.store') }}" method="POST">
                     @csrf
                     <div class="mb-3">
                         <label for="name" class="form-label">Title <span class="text-danger">*</span></label>
-                        <input type="text" name="title" class="form-control" id="name">
+                        <input type="text" name="title" class="form-control" id="name" required>
                     </div>
                     <div class="mb-3">
                         <label for="instructor" class="form-label">Instructor <span class="text-danger">*</span></label>
-                        <select name="instructor_id" id="instructor" class="form-control" >
+                        <select name="instructor_id" id="instructor" class="form-control" required>
                             @foreach ($instructors as $instructor)
                                 <option value="{{ $instructor->id }}">{{ $instructor->name }}</option>
                             @endforeach 
@@ -32,11 +32,11 @@
                     </div>
                     <div class="mb-3">
                         <label for="description" class="form-label">Description <span class="text-danger">*</span></label>
-                        <textarea name="description" id="description"rows="2" class="form-control"></textarea>
+                        <textarea name="description" id="description"rows="2" class="form-control" required></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="summary" class="form-label">Summary <span class="text-danger">*</span></label>
-                        <textarea name="summary" rows="2" class="form-control" id="course_summary"></textarea>
+                        <textarea name="summary" rows="2" class="form-control" id="course_summary" data-v-message="This field is required!" required></textarea>
                     </div>
                     <div class="text-center">
                         <a href="{{ route('courses.index') }}" class="btn btn-dark mx-2">Cancel</a>

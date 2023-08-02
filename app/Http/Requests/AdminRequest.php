@@ -47,6 +47,12 @@ class AdminRequest extends FormRequest
                 'profile' => 'nullable' // required
             ];
         }
-
+    }
+    
+    public function messages ()
+    {
+        return [
+            'dob.required' => 'The Date of Birth field is required'
+        ];
     }
 }

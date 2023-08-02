@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\InstructorRequest;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Redirect;
+
+use function PHPUnit\Framework\isNull;
 
 class InstructorController extends Controller
 {
@@ -26,6 +30,7 @@ class InstructorController extends Controller
                     ->rawColumns(['Name(Email)', 'Action'])
                     ->make(true);
         }
+    
         return view('backend.instructor.index');
     }
 
@@ -34,9 +39,15 @@ class InstructorController extends Controller
         return view('backend.instructor.create');
     }
 
-    public function store(InstructorRequest $request) : object
+    public function store(InstructorRequest $request) : RedirectResponse
     {
-        Instructor::create($request->validated());
+        $attributes = $request->validated();
+
+        if(!is_null($attributes['link'][0]['icon'])) {
+            $attributes['link'] = json_encode($attributes['link']);
+        }
+
+        Instructor::create($attributes);
         return redirect()->route('instructors.index')->with(['create_status' => 'Instructor Successfully Created!']);
     }
 
@@ -47,22 +58,30 @@ class InstructorController extends Controller
 
     public function edit(Instructor $instructor) : View
     {
+        //dd(json_decode($instructor->link, true));
+        // foreach (json_decode($instructor->link, true) as $key => $item) {
+        //     dd($key,$item);
+        // }
         return view('backend.instructor.edit', ['instructor' => $instructor]);
     }
 
-    public function update(InstructorRequest $request, Instructor $instructor) : object
+    public function update(InstructorRequest $request, Instructor $instructor) : RedirectResponse
     {
         $attributes = $request->validated();
 
         if($attributes['password'] == null) {
             unset($attributes['password']);
         }
+        
+        if(!is_null($attributes['link'][0]['icon'])) {
+            $attributes['link'] = json_encode($attributes['link']);
+        }
 
         $instructor->update($attributes);
         return redirect()->route('instructors.index')->with(['update_status' => 'Instructor Successfully Updated!']);
     }
 
-    public function destroy(Instructor $instructor) : object
+    public function destroy(Instructor $instructor) : RedirectResponse
     {
         $instructor->delete();
         return back()->with(['delete_status' => 'Instructor Successfully Deleted!']);
