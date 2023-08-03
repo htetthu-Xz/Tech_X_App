@@ -15,9 +15,6 @@ Route::group([
     'prefix' => 'admin',
     'middleware' => 'web'
 ], function () {
-    Route::get('/', function () {
-        return view('backend.dashboard');
-    })->name('admin.dashboard');
 
     #auth -> login
     Route::get('login', [LoginController::class, 'index'])->name('get.login');
@@ -36,8 +33,13 @@ Route::group([
 
 Route::group([
     'prefix' => 'admin',
-    'middleware' => 'web'
+    'middleware' => 'auth'
 ], function() {
+
+    Route::get('/', function () {
+        return view('backend.dashboard');
+    })->name('admin.dashboard');
+    
     #Admin CRUD
     Route::resource('admins', AdminController::class);
 
