@@ -33,7 +33,7 @@ Route::group([
 
 Route::group([
     'prefix' => 'admin',
-    'middleware' => 'auth'
+    'middleware' => 'auth:admin'
 ], function() {
 
     Route::get('/', function () {
