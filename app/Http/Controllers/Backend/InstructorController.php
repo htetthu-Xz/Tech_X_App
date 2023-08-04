@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers\Backend;
 
+use Carbon\Carbon;
 use Illuminate\View\View;
 use App\Models\Instructor;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\InstructorRequest;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Redirect;
-
 use function PHPUnit\Framework\isNull;
+
+use App\Http\Requests\InstructorRequest;
+use Illuminate\Support\Facades\Redirect;
 
 class InstructorController extends Controller
 {
@@ -21,13 +22,19 @@ class InstructorController extends Controller
             $query = Instructor::query();
 
             return DataTables::of($query)
+                    ->order(function ($query) {
+                        $query->orderBy('created_at', 'Desc');
+                    })
+                    ->addColumn('created_date', function ($admin) {
+                        return Carbon::parse($admin->created_at)->format('d M, Y');
+                    })
                     ->addColumn('Name(Email)', function ($instructor) {
                         return view('backend.instructor.partials.instructor_table_name_row', ['instructor' => $instructor]);
                     })
                     ->addColumn('Action', function($instructor) {
                         return view('backend.instructor.partials.instructor_table_action', ['instructor' => $instructor]);
                     })
-                    ->rawColumns(['Name(Email)', 'Action'])
+                    ->rawColumns(['Name(Email)', 'Action', 'created_date'])
                     ->make(true);
         }
     

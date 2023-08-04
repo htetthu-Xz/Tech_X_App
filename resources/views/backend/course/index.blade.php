@@ -19,10 +19,10 @@
                     <table class="table align-items-center mb-0" id="adminTable">
                         <thead>
                                 <tr>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Title</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Instructor</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Description</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Created Date</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
                                 </tr>
                         </thead>
@@ -47,11 +47,6 @@
             ajax: "{{ route('courses.index') }}",
             columns: [
                 {
-                    data: 'id',
-                    name: 'id',
-                    class: 'text-xs text-secondary mb-0'
-                },
-                {
                     data:'title',
                     name:'title'
                 },
@@ -64,6 +59,11 @@
                     data:'description',
                     name:'description',
                     class: 'text-xs mb-0 align-middle'
+                },
+                {
+                    data:'created_date',
+                    name:'created_date',
+                    class: 'text-secondary text-xs font-weight-bold align-middle',
                 },
                 {
                     data:'Action',

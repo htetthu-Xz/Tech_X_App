@@ -22,6 +22,9 @@ class RoleController extends Controller
             $query = Role::query();
 
             return DataTables::of($query)
+                    ->order(function ($query) {
+                        $query->orderBy('created_at', 'Desc');
+                    })
                     ->addColumn('Created_date', function($role) {
                         return Carbon::parse($role->created_at)->format('d M, Y' );
                     })

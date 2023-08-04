@@ -19,9 +19,9 @@
                     <table class="table align-items-center mb-0" id="categoryTable">
                         <thead>
                                 <tr>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Title</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Slug</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Created Date</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
                                 </tr>
                         </thead>
@@ -45,11 +45,6 @@
                 ajax: "{{ route('categories.index') }}",
                 columns: [
                     {
-                        data: 'id',
-                        name: 'id',
-                        class: 'text-xs text-secondary mb-0'
-                    },
-                    {
                         data:'title',
                         name:'title',
                         class: 'text-sm mb-0'
@@ -58,6 +53,11 @@
                         data:'slug',
                         name:'slug',
                         class: 'text-secondary text-xs font-weight-bold'
+                    },
+                    {
+                        data:'created_date',
+                        name:'created_date',
+                        class: 'text-secondary text-xs font-weight-bold align-middle',
                     },
                     {
                         data:'Action',

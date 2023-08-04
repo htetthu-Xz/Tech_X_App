@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Backend;
 
+use Carbon\Carbon;
 use App\Models\Category;
 use Illuminate\View\View;
 use Illuminate\Support\Str;
@@ -19,10 +20,16 @@ class CategoryController extends Controller
             $query = Category::query();
 
             return DataTables::of($query)
+                    ->order(function ($query) {
+                        $query->orderBy('created_at', 'Desc');
+                    })
+                    ->addColumn('created_date', function ($admin) {
+                        return Carbon::parse($admin->created_at)->format('d M, Y');
+                    })
                     ->addColumn('Action', function($category) {
                         return view('backend.category.partials.category_table_action', ['category' => $category]);
                     })
-                    ->rawColumns(['Action'])
+                    ->rawColumns(['Action', 'created_date'])
                     ->make(true);
         }
         return view('backend.category.index');

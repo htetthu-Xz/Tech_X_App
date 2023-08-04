@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Backend;
 
+use Carbon\Carbon;
 use App\Models\User;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
@@ -17,13 +18,19 @@ class UserController extends Controller
             $query = User::query();
 
             return DataTables::of($query)
+                    ->order(function ($query) {
+                        $query->orderBy('created_at', 'Desc');
+                    })
+                    ->addColumn('created_date', function ($admin) {
+                        return Carbon::parse($admin->created_at)->format('d M, Y');
+                    })
                     ->addColumn('Name(Email)', function ($user) {
                         return view('backend.user.partials.user_table_name_row', ['user' => $user]);
                     })
                     ->addColumn('Action', function($user) {
                         return view('backend.user.partials.user_table_action', ['user' => $user]);
                     })
-                    ->rawColumns(['Name(Email)', 'Action'])
+                    ->rawColumns(['Name(Email)', 'Action', 'created_date'])
                     ->make(true);
         }
 

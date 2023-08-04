@@ -19,7 +19,6 @@
                     <table class="table align-items-center mb-0" id="adminTable">
                         <thead>
                                 <tr>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Created_date</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
@@ -45,11 +44,6 @@
             serverSide: true,
             ajax: "{{ route('roles.index') }}",
             columns: [
-                {
-                    data: 'id',
-                    name: 'id',
-                    class: 'text-xs text-secondary mb-0'
-                },
                 {
                     data:'name',
                     name:'name'

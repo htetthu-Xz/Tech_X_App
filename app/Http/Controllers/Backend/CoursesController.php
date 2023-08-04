@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Backend;
 
+use Carbon\Carbon;
 use App\Models\Courses;
 use Illuminate\View\View;
 use App\Models\Instructor;
@@ -21,6 +22,12 @@ class CoursesController extends Controller
             $query = Courses::query();
 
             return DataTables::of($query)
+                    ->order(function ($query) {
+                        $query->orderBy('created_at', 'Desc');
+                    })
+                    ->addColumn('created_date', function ($admin) {
+                        return Carbon::parse($admin->created_at)->format('d M, Y');
+                    })
                     ->addColumn('description', function($course) {
                         return Str::limit($course->description, 20);
                     })
@@ -30,7 +37,7 @@ class CoursesController extends Controller
                     ->addColumn('Action', function($course) {
                         return view('backend.course.partials.course_table_action', ['course' => $course]);
                     })
-                    ->rawColumns(['Action'])
+                    ->rawColumns(['Action', 'created_date'])
                     ->make(true);
         }
 

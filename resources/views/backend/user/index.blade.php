@@ -19,11 +19,11 @@
                     <table class="table align-items-center mb-0" id="userTable">
                         <thead>
                                 <tr>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name (Email)</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">phone</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Gender</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date of Birth</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Created Date</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
                                 </tr>
                         </thead>
@@ -47,11 +47,6 @@
                 ajax: "{{ route('users.index') }}",
                 columns: [
                     {
-                        data: 'id',
-                        name: 'id',
-                        class: 'text-xs text-secondary mb-0'
-                    },
-                    {
                         data:'Name(Email)',
                         name:'Name(Email)'
                     },
@@ -69,6 +64,11 @@
                         data:'Dob',
                         name:'Dob',
                         class: 'text-secondary text-xs font-weight-bold align-middle'
+                    },
+                    {
+                        data:'created_date',
+                        name:'created_date',
+                        class: 'text-secondary text-xs font-weight-bold align-middle',
                     },
                     {
                         data:'Action',

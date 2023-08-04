@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use App\Http\Requests\AdminRequest;
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
 class AdminController extends Controller
 {
@@ -17,13 +18,19 @@ class AdminController extends Controller
             $query = Admin::query();
 
             return DataTables::of($query)
+                    ->order(function ($query) {
+                        $query->orderBy('created_at', 'Desc');
+                    })
+                    ->addColumn('created_date', function ($admin) {
+                        return Carbon::parse($admin->created_at)->format('d M, Y');
+                    })
                     ->addColumn('Name(Email)', function ($admin) {
                         return view('backend.admin.partials.admin_table_name_row', ['admin' => $admin]);
                     })
                     ->addColumn('Action', function($admin) {
                         return view('backend.admin.partials.admin_table_action', ['admin' => $admin]);
                     })
-                    ->rawColumns(['Name(Email)', 'Action'])
+                    ->rawColumns(['Name(Email)', 'Action', 'created_date'])
                     ->make(true);
         }
 
