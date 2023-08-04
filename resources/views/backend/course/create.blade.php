@@ -25,9 +25,17 @@
                     <div class="mb-3">
                         <label for="instructor" class="form-label">Instructor <span class="text-danger">*</span></label>
                         <select name="instructor_id" id="instructor" class="form-control" required>
-                            @foreach ($instructors as $instructor)
-                                <option value="{{ $instructor->id }}">{{ $instructor->name }}</option>
+                            @foreach ($instructors as $key => $instructor)
+                                <option value="{{ $key }}">{{ $instructor }}</option>
                             @endforeach 
+                        </select>
+                    </div>
+                    <div class="mb-3" style="">
+                        <label for="categories" class="form-label">Categories <span class="text-danger">*</span></label>
+                        <select class="js-example-basic-multiple form-control" data-placeholder="Select category" id="categories" name="category_id[]" multiple="multiple" required>
+                            @foreach ($categories as $key => $category)
+                                <option value="{{ $key }}">{{ $category }}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="mb-3">
@@ -51,6 +59,10 @@
 
 @push('script')
 <script>
-    let editor = new RichTextEditor('#course_summary')
+    let editor = new RichTextEditor('#course_summary');
+
+    $(document).ready(function() {
+        $('.js-example-basic-multiple').select2();
+    });
 </script>
 @endpush

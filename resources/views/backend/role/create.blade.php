@@ -24,7 +24,7 @@
                     </div>
                     <div class="mb-3" style="">
                         <label for="permission" class="form-label">Permission <span class="text-danger">*</span></label>
-                        <select class="js-example-basic-multiple form-control" name="permissions[]" multiple="multiple" required>
+                        <select class="js-example-basic-multiple form-control" data-placeholder="Select Roles" name="permissions[]" multiple="multiple" required>
                             @foreach ($permissions as $key => $permission)
                                 <option value="{{ $key }}">{{ $permission }}</option>
                             @endforeach

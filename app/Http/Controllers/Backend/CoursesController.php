@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CoursesRequest;
+use App\Models\Category;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
 
@@ -43,36 +44,64 @@ class CoursesController extends Controller
 
         return view('backend.course.index');
     }
+
     public function create() : View
     {
-        $instructors = Instructor::all();
-        return view('backend.course.create', ['instructors' => $instructors]);
+        $instructors = Instructor::all()->toBase()->pluck('name', 'id')->toArray();
+        $categories = Category::all()->toBase()->pluck('title', 'id')->toArray();
+
+        return view('backend.course.create', ['instructors' => $instructors, 'categories' => $categories]);
     }
+
     public function store(CoursesRequest $request) : RedirectResponse
     {
-        Courses::create($request->validated());
+        $attributes = $request->validated();
+        
+        $categories = $attributes['category_id'];
+
+        unset($attributes['category_id']);
+
+        $courses = Courses::create($attributes);
+
+        $courses->Category()->attach($categories);
+
         return redirect()->route('courses.index')->with(['create_status' => 'Course Successfully Created!']);
     }
+
     public function show($id)
     {
         //
     }
+
     public function edit(Courses $course)
     {
         $instructors = Instructor::all();
-        return view('backend.course.edit', ['course' => $course, 'instructors' => $instructors]);
+
+        $categories = Category::all()->toBase()->pluck('title', 'id')->toArray();
+
+        $course_category_id = $course->Category->toBase()->pluck('title', 'id')->toArray();
+
+        return view('backend.course.edit', [ 'course_category_id' => $course_category_id, 'course' => $course, 'instructors' => $instructors, 'categories' => $categories]);
     }
+
     public function update(CoursesRequest $request, Courses $course)
     {
         $attributes = $request->validated(); 
 
+        $categories = $attributes['category_id'];
+
+        unset($attributes['category_id']);
+
         $course->update($attributes);
+
+        $course->Category()->sync($categories);
         
         return redirect()->route('courses.index')->with(['update_status' => 'Course Successfully Updated!']);
     }
     public function destroy(Courses $course)
     {
         $course->delete();
+
         return back()->with(['delete_status' => 'Course Successfully Deleted!']);
     }
 }

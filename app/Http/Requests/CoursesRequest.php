@@ -27,6 +27,7 @@ class CoursesRequest extends FormRequest
             'title' => 'required',
             'instructor_id' => 'required',
             'description' => 'required',
+            'category_id' => 'required|array',
             'summary' => 'required'
         ];
     }

@@ -35,6 +35,18 @@
                             @endforeach 
                         </select>
                     </div>
+                    <div class="mb-3" style="">
+                        <label for="category" class="form-label">Category <span class="text-danger">*</span></label>
+                        <select class="js-example-basic-multiple form-control" id="category" data-placeholder="Select category" name="category_id[]" multiple="multiple" required>
+                            @foreach ($categories as $key => $category)
+                                    @if (array_key_exists($key, $course_category_id))
+                                        <option value="{{ $key }}" selected>{{ $category }}</option>
+                                    @else
+                                        <option value="{{ $key }}">{{ $category }}</option>
+                                    @endif                              
+                            @endforeach
+                        </select>
+                    </div>
                     <div class="mb-3">
                         <label for="description" class="form-label">Description <span class="text-danger">*</span></label>
                         <textarea name="description" id="description"rows="2" class="form-control" required>{{ $course->description }}</textarea>
@@ -57,5 +69,9 @@
 @push('script')
 <script>
     let editor = new RichTextEditor('#course_summary')
+
+    $(document).ready(function() {
+        $('.js-example-basic-multiple').select2();
+    });
 </script>
 @endpush
