@@ -16,6 +16,7 @@ class CategoryController extends Controller
 {
     public function index() 
     {
+        $this->checkRolePermission('view-category');
         if(request()->ajax()) {
             $query = Category::query();
 

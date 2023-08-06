@@ -58,9 +58,9 @@ class InstructorController extends Controller
         return redirect()->route('instructors.index')->with(['create_status' => 'Instructor Successfully Created!']);
     }
 
-    public function show($id)
+    public function show(Instructor $instructor)
     {
-        //
+        return view('backend.instructor.detail', ['instructor' => $instructor]);
     }
 
     public function edit(Instructor $instructor) : View

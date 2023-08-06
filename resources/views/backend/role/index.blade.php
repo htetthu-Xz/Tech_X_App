@@ -55,7 +55,8 @@
                 },
                 {
                     data:'Action',
-                    name:'Action'
+                    name:'Action',
+                    class: 'text-center'
                 }
             ]
         })

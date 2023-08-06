@@ -9,3 +9,7 @@
         Delete
     </button>
 </form>
+\
+<a href="{{ route('roles.show', [$role->id]) }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+    Detail
+</a>

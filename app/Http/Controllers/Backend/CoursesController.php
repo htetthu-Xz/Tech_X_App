@@ -68,9 +68,9 @@ class CoursesController extends Controller
         return redirect()->route('courses.index')->with(['create_status' => 'Course Successfully Created!']);
     }
 
-    public function show($id)
+    public function show(Courses $course) : View
     {
-        //
+        return view('backend.course.detail', ['course' => $course]);
     }
 
     public function edit(Courses $course)

@@ -48,9 +48,9 @@ class UserController extends Controller
         return redirect()->route('users.index')->with(['create_status' => 'User Successfully Created!']);
     }
 
-    public function show($id)
+    public function show(User $user)
     {
-        //
+        return view('backend.user.detail', ['user' => $user]);
     }
 
     public function edit(User $user) : View

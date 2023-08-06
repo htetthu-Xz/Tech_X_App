@@ -48,9 +48,9 @@ class AdminController extends Controller
         return redirect()->route('admins.index')->with(['create_status' => 'Admin Successfully Created!']);
     }
 
-    public function show($id)
+    public function show(Admin $admin) : View
     {
-        //
+        return view('backend.admin.detail', ['admin' => $admin]);
     }
 
     public function edit(Admin $admin) : View

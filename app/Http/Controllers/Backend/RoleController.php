@@ -62,9 +62,10 @@ class RoleController extends Controller
         return redirect()->route('roles.index')->with(['create_status' => 'Roles Successfully Created!']);
     }
 
-    public function show($id)
+    public function show(Role $role) : View
     {
-        //
+        $permissions = $role->permissions->toBase()->pluck('name')->toArray();
+        return view('backend.role.detail', ['role' => $role, 'permissions' => $permissions]);
     }
 
     public function edit(Role $role) : View
