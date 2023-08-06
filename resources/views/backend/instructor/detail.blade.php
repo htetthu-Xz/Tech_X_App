@@ -110,6 +110,31 @@
                                             <p class="text-muted mb-0">{{ $instructor->address }}</p>
                                         </div>
                                     </div>
+                                    <hr>
+                                    @foreach (json_decode($instructor->link, true) as $key => $items)
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <p class="mb-0">Link-{{ $key+1 }}</p>
+                                            </div>
+                                            <div class="col-sm-9">
+                                                @foreach ($items as $key => $item)
+                                                    <div class="row my-1">
+                                                        <div class="col-sm-3">
+                                                            <p class="text-muted mb-0">{{ $key }}</p>
+                                                        </div>
+                                                        <div class="col-sm-9">
+                                                            <p class="text-muted mb-0">{{ $item }}</p>
+                                                        </div>
+                                                    </div>
+                                                    @if($key !== 'label')
+                                                        <hr>
+                                                    @endif
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                        <hr>
+                                    @endforeach
+                                    
                                 </div>
                             </div>
                             {{-- <div class="row">
