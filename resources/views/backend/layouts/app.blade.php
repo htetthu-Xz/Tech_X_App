@@ -75,22 +75,18 @@
     <script src="{{ asset('plugins/Zebra-Datepicker/dist/zebra_datepicker.src.js') }}"></script>
     <script src="{{ asset('plugins/awesome-notifications/dist/index.var.js') }}"></script>
     <script src="{{ asset('plugins/datatable/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('backend/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('backend/plugins/perfect-scrollbar.min.js') }}"></script>
+    <script src="{{ asset('backend/plugins/smooth-scrollbar.min.js') }}"></script>
+    <script src="{{ asset('backend/js/argon-dashboard.js?v=2.0.4') }}"></script>
     <script src="{{ asset('backend/plugins/richtexteditor/rte.js') }}"></script>
     <script src="{{ asset('backend/plugins/richtexteditor//plugins/all_plugins.js') }}"></script>
     <script src="{{ asset('backend/js/popper.min.js') }}"></script>
-    <script src="{{ asset('backend/plugins/perfect-scrollbar.min.js') }}"></script>
-    <script src="{{ asset('backend/plugins/smooth-scrollbar.min.js') }}"></script>
     <script src="{{ asset('backend/plugins/chartjs.min.js') }}"></script>
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script src="{{ asset('plugins/bootstrap-5-jbvalidator/dist/jbvalidator.min.js') }}"></script>
-    <script src="{{ asset('backend/js/argon-dashboard.js?v=2.0.4') }}"></script>
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
-    <script src="{{ asset('backend/js/main.js') }}"></script> --}}
-    
     <script src="{{ asset('backend/js/select2.min.js') }}"></script>
     <script src="{{ asset('backend/js/custom.js') }}"></script>
-    
+    {{-- <script src="{{ asset('backend/js/bootstrap.min.js') }}"></script> --}}
 
     @include('backend.layouts.toster')
 

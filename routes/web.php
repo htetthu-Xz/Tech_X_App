@@ -13,7 +13,7 @@ use App\Http\Controllers\Backend\RoleController;
 
 Route::group([
     'prefix' => 'admin',
-    'middleware' => 'web'
+    'middleware' => 'guest:admin'
 ], function () {
 
     #auth -> login
