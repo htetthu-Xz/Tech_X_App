@@ -49,13 +49,13 @@
                     name:'name'
                 },
                 {
-                    data:'Created_date',
-                    name:'Created_date',
+                    data:'created_date',
+                    name:'created_date',
                     class: 'text-xs text-secondary mb-0'
                 },
                 {
-                    data:'Action',
-                    name:'Action',
+                    data:'action',
+                    name:'action',
                     class: 'text-center'
                 }
             ]

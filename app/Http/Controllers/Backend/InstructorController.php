@@ -28,13 +28,13 @@ class InstructorController extends Controller
                     ->addColumn('created_date', function ($admin) {
                         return Carbon::parse($admin->created_at)->format('d M, Y');
                     })
-                    ->addColumn('Name(Email)', function ($instructor) {
+                    ->addColumn('name_email', function ($instructor) {
                         return view('backend.instructor.partials.instructor_table_name_row', ['instructor' => $instructor]);
                     })
-                    ->addColumn('Action', function($instructor) {
+                    ->addColumn('action', function($instructor) {
                         return view('backend.instructor.partials.instructor_table_action', ['instructor' => $instructor]);
                     })
-                    ->rawColumns(['Name(Email)', 'Action', 'created_date'])
+                    ->rawColumns(['name_email', 'action', 'created_date'])
                     ->make(true);
         }
     

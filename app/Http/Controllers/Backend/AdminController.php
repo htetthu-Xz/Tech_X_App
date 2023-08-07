@@ -24,13 +24,13 @@ class AdminController extends Controller
                     ->addColumn('created_date', function ($admin) {
                         return Carbon::parse($admin->created_at)->format('d M, Y');
                     })
-                    ->addColumn('Name(Email)', function ($admin) {
+                    ->addColumn('name_email', function ($admin) {
                         return view('backend.admin.partials.admin_table_name_row', ['admin' => $admin]);
                     })
-                    ->addColumn('Action', function($admin) {
+                    ->addColumn('action', function($admin) {
                         return view('backend.admin.partials.admin_table_action', ['admin' => $admin]);
                     })
-                    ->rawColumns(['Name(Email)', 'Action', 'created_date'])
+                    ->rawColumns(['name_email', 'action', 'created_date'])
                     ->make(true);
         }
 

@@ -35,10 +35,10 @@ class CoursesController extends Controller
                     ->addColumn('instructor', function($course) {
                         return $course->Instructor->name;
                     })
-                    ->addColumn('Action', function($course) {
+                    ->addColumn('action', function($course) {
                         return view('backend.course.partials.course_table_action', ['course' => $course]);
                     })
-                    ->rawColumns(['Action', 'created_date'])
+                    ->rawColumns(['action', 'created_date'])
                     ->make(true);
         }
 

@@ -66,8 +66,8 @@
                     class: 'text-secondary text-xs font-weight-bold align-middle',
                 },
                 {
-                    data:'Action',
-                    name:'Action',
+                    data:'action',
+                    name:'action',
                     class: 'text-center'
                 }
             ]

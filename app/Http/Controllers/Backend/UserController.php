@@ -24,13 +24,13 @@ class UserController extends Controller
                     ->addColumn('created_date', function ($admin) {
                         return Carbon::parse($admin->created_at)->format('d M, Y');
                     })
-                    ->addColumn('Name(Email)', function ($user) {
+                    ->addColumn('name_email', function ($user) {
                         return view('backend.user.partials.user_table_name_row', ['user' => $user]);
                     })
-                    ->addColumn('Action', function($user) {
+                    ->addColumn('action', function($user) {
                         return view('backend.user.partials.user_table_action', ['user' => $user]);
                     })
-                    ->rawColumns(['Name(Email)', 'Action', 'created_date'])
+                    ->rawColumns(['name_email', 'action', 'created_date'])
                     ->make(true);
         }
 

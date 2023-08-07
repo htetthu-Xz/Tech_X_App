@@ -47,8 +47,8 @@
                 ajax: "{{ route('instructors.index') }}",
                 columns: [
                     {
-                        data:'Name(Email)',
-                        name:'Name(Email)'
+                        data:'name_email',
+                        name:'name_email'
                     },
                     {
                         data:'phone',
@@ -71,8 +71,8 @@
                         class: 'text-secondary text-xs font-weight-bold align-middle',
                     },
                     {
-                        data:'Action',
-                        name:'Action',
+                        data:'action',
+                        name:'action',
                         class: 'text-center'
                     }
                 ]

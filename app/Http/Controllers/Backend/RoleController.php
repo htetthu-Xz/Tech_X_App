@@ -25,13 +25,13 @@ class RoleController extends Controller
                     ->order(function ($query) {
                         $query->orderBy('created_at', 'Desc');
                     })
-                    ->addColumn('Created_date', function($role) {
+                    ->addColumn('created_date', function($role) {
                         return Carbon::parse($role->created_at)->format('d M, Y' );
                     })
-                    ->addColumn('Action', function($role) {
+                    ->addColumn('action', function($role) {
                         return view('backend.role.partials.role_table_action', ['role' => $role]);
                     })
-                    ->rawColumns(['Created_date','Action'])
+                    ->rawColumns(['created_date','action'])
                     ->make(true);
         }
 
