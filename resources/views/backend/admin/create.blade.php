@@ -28,7 +28,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="phone" class="form-label">Phone <span class="text-danger">*</span></label>
-                        <input type="phone" name="phone" data-v-min-length="11" data-v-max-length="11" class="form-control" id="phone" required>
+                        <input type="phone" name="phone" data-v-min-length="7" data-v-max-length="13" class="form-control" id="phone" required>
                     </div>
                     <div class="mb-3">
                       <label for="password1" class="form-label">Password <span class="text-danger">*</span></label>

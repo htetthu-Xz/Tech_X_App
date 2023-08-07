@@ -21,23 +21,23 @@
                     @method('PATCH')
                     <div class="mb-3">
                         <label for="name" class="form-label">Name <span class="text-danger">*</span></label>
-                        <input type="text" name="name" class="form-control" id="name" value="{{ $instructor->name }}">
+                        <input type="text" name="name" class="form-control" id="name" value="{{ $instructor->name }}" required>
                     </div>
                     <div class="mb-3">
                       <label for="email" class="form-label">Email address <span class="text-danger">*</span></label>
-                      <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" value="{{ $instructor->email }}">
+                      <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" value="{{ $instructor->email }}" required>
                     </div>
                     <div class="mb-3">
                         <label for="phone" class="form-label">Phone <span class="text-danger">*</span></label>
-                        <input type="phone" name="phone" class="form-control" id="phone"  value="{{ $instructor->phone }}">
+                        <input type="phone" name="phone" class="form-control" data-v-min-length="7" data-v-max-length="13" id="phone"  value="{{ $instructor->phone }}" required>
                     </div>
                     <div class="mb-3">
                       <label for="password1" class="form-label">Password <span class="text-danger">*</span></label>
-                      <input type="password" name="password" class="form-control" id="password1">
+                      <input type="password" name="password" class="form-control" id="password1"  data-v-min-length="8">
                     </div>
                     <div class="mb-3">
                         <label for="confirm-assword1" class="form-label">Confirm Password <span class="text-danger">*</span></label>
-                        <input type="password" name="password_confirmation" class="form-control" id="confirm-password">
+                        <input type="password" name="password_confirmation" data-v-equal="#password1" data-v-min-length="8" data-v-message="Password and Confirm Password does not match." class="form-control" id="confirm-password">
                     </div>
                     <div class="mb-3">
                         <label for="address" class="form-label">Address</label>
@@ -45,11 +45,11 @@
                     </div>
                     <div class="mb-3">
                         <label for="dob" class="form-label">Date of Birth <span class="text-danger">*</span></label>
-                        <input type="text" name="dob" class="form-control" id="dob" value="{{ $instructor->Dob }}"">
+                        <input type="text" name="dob" class="form-control" data-v-min="3" data-v-message="This field is required!" id="dob" value="{{ $instructor->Dob }}" required>
                     </div>
                     <div class="mb-3">
                         <label for="gender" class="form-label">Gender <span class="text-danger">*</span></label>
-                        <select name="gender" id="gender" class="form-control" >
+                        <select name="gender" id="gender" class="form-control" required>
                             <option value="male" {{ $instructor->gender == 'male' ? 'selected' : '' }}>Male</option>
                             <option value="female" {{ $instructor->gender == 'female' ? 'selected' : '' }}>Female</option>
                             <option value="other" {{ $instructor->gender == 'other' ? 'selected' : '' }}>Other</option>

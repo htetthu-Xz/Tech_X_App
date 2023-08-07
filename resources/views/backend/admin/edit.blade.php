@@ -29,7 +29,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="phone" class="form-label">Phone <span class="text-danger">*</span></label>
-                        <input type="phone" name="phone" class="form-control" data-v-min-length="11" data-v-max-length="11"  id="phone"  value="{{ $admin->phone }}" required>
+                        <input type="phone" name="phone" class="form-control" data-v-min-length="7" data-v-max-length="13"  id="phone"  value="{{ $admin->phone }}" required>
                     </div>
                     <div class="mb-3">
                       <label for="password1" class="form-label">Password</label>
