@@ -50,10 +50,6 @@ class InstructorController extends Controller
     {
         $attributes = $request->validated();
 
-        if(!is_null($attributes['link'][0]['icon'])) {
-            $attributes['link'] = json_encode($attributes['link']);
-        }
-
         Instructor::create($attributes);
         return redirect()->route('instructors.index')->with(['create_status' => 'Instructor Successfully Created!']);
     }
@@ -78,10 +74,6 @@ class InstructorController extends Controller
 
         if($attributes['password'] == null) {
             unset($attributes['password']);
-        }
-        
-        if(!is_null($attributes['link'][0]['icon'])) {
-            $attributes['link'] = json_encode($attributes['link']);
         }
 
         $instructor->update($attributes);
