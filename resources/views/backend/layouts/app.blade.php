@@ -92,6 +92,13 @@
 
     <script>
         $(function() {
+            let brea = $('.active').find('span').html();
+            $('.insert').html(brea);
+            $('.ins').html(brea);
+        })
+    </script>
+    <script>
+        $(function() {
             $('#dob').Zebra_DatePicker({
                 format: 'Y-m-d',
                 default_position: 'below',
