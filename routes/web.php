@@ -61,3 +61,14 @@ Route::group([
     #logout
     Route::get('logout', [LoginController::class, 'logout'])->name('admin.logout');
 });
+
+
+//------------------ frontend --------------------------------//
+
+Route::group([
+    'middleware' => 'web'
+], function () {
+    Route::get('/', function () {
+        return view('frontend.home');
+    })->name('frontend.home');
+});

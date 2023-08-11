@@ -78,7 +78,7 @@
                                 </div>
                                 <div class="mb-3 d-grid">
                                     <button type="submit" class="btn btn-primary">
-                                        Send Resest Link
+                                        Send Reset Link
                                     </button>
                                 </div>
                                 <span>Return to <a href="{{ route('get.login') }}">Login In</a></span>
