@@ -1,0 +1,59 @@
+.w-login {
+    width: 750px;
+}
+
+.p-form-input {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 15px;
+}
+
+.p-form-select {
+    /* padding-top: 15px;
+    padding-bottom: 15px; */
+    font-size: 15px;
+    height: 40px;
+}
+
+.form-file {
+    height: 40px;
+}
+
+.v-expired {
+    width: 400px;
+}
+
+.m-expired {
+    margin-top: 150px;
+    margin-bottom: 150px;
+}
+
+.s-resend {
+    color: #2e92c3;
+    text-decoration: underline;
+}
+
+.s-resend:hover {
+    color: #119fe5;
+    text-decoration: underline;
+    margin-left: 5px;
+    transition: .4s;
+}
+
+.avatar {
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.pf-drop {
+    background-color: #5360ef;
+    padding: 10px;
+}
+
+.d-item:hover {
+    background-color: #5360ef;
+    margin-left: 5px;
+    transition: .5s;
+}

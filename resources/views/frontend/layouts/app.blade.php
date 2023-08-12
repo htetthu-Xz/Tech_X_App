@@ -19,8 +19,10 @@
     <link rel="stylesheet" href="{{ asset('frontend/css/fontawesome-all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/themify-icons.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/slick.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/css/nice-select.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('frontend/css/nice-select.css') }}"> --}}
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/plugins/tosta/css/nice-toast-js.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/css/custom.css') }}">
 
     @stack('css')
 </head>
@@ -39,9 +41,7 @@
 
     @include('frontend.layouts.header')
 
-    <main>
         @yield('content')
-    </main>
 
     @include('frontend.layouts.footer')
 
@@ -69,8 +69,8 @@
     <!-- Date Picker -->
     <script src="{{ asset('frontend/js/gijgo.min.js') }}"></script>
     <!-- Nice-select, sticky -->
-    <script src="{{ asset('frontend/js/jquery.nice-select.min.js') }}"></script>
-    <script src="{{ asset('frontend/js/jquery.sticky.js') }}"></script>
+    {{-- <script src="{{ asset('frontend/js/jquery.nice-select.min.js') }}"></script>
+    <script src="{{ asset('frontend/js/jquery.sticky.js') }}"></script> --}}
     <!-- Progress -->
     <script src="{{ asset('frontend/js/jquery.barfiller.js') }}"></script>
 
@@ -90,6 +90,11 @@
     <!-- Jquery Plugins, main Jquery -->	
     <script src="{{ asset('frontend/js/plugins.js') }}"></script>
     <script src="{{ asset('frontend/js/main.js') }}"></script>
+
+    {{-- Toster --}}
+    <script src="{{ asset('frontend/plugins/tosta/js/nice-toast-js.min.js') }}"></script>
+
+    @include('frontend.layouts.tosta')
 
     @stack('script')
 </body>

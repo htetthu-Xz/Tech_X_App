@@ -16,7 +16,7 @@
                                 <div class="main-menu d-none d-lg-block">
                                     <nav>
                                         <ul id="navigation">                                                                                          
-                                            <li class="active" ><a href="index.html">Home</a></li>
+                                            <li class="active" ><a href="{{ route('frontend.home') }}">Home</a></li>
                                             <li><a href="courses.html">Courses</a></li>
                                             <li><a href="about.html">About</a></li>
                                             <li><a href="#">Blog</a>
@@ -27,9 +27,26 @@
                                                 </ul>
                                             </li>
                                             <li><a href="contact.html">Contact</a></li>
-                                            <!-- Button -->
-                                            <li class="button-header margin-left "><a href="#" class="btn">Join</a></li>
-                                            <li class="button-header"><a href="login.html" class="btn btn3">Log in</a></li>
+                                            @if(auth()->user())
+                                                <li>
+                                                    <div class="user-info-dropdown">
+                                                        <div class="dropdown">
+                                                            <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                                                                <img class="avatar" src="{{ auth()->user()->profile }}" alt="" />
+                                                                <span class="user-name text-white">{{ auth()->user()->name }}</span>
+                                                            </a>
+                                                            <div class="dropdown-menu pf-drop">
+                                                                <a class="dropdown-item d-item" style="padding: 10px;" href="#"><i class="ti-user"></i> Profile</a>
+                                                                <a class="dropdown-item d-item" style="padding: 10px;" href="#"><i class="ti-settings"></i> Setting</a>
+                                                                <a class="dropdown-item d-item" style="padding: 10px;" href="{{ route('user.logout') }}"><i class="ti-shift-left"></i> Log Out</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            @else
+                                                <li class="button-header margin-left"><a href="{{ route('user.get.register') }}" class="btn">Register</a></li>
+                                                <li class="button-header"><a href="{{ route('user.get.login') }}" class="btn btn3">Log in</a></li>
+                                            @endif
                                         </ul>
                                     </nav>
                                 </div>
