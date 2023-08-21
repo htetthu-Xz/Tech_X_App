@@ -20,8 +20,8 @@ class AdminFactory extends Factory
             'password' => $this->faker->md5(),
             'address' => $this->faker->address(),
             'Dob' => $this->faker->date(),
-            'gender' =>$this->faker->randomElement(['male', 'female','other']),
-            'profile' =>'https://i.pravatar.cc/150?u='.$this->faker->uuid(),
+            'gender' => $this->faker->randomElement(['male', 'female','other']),
+            'profile' => 'https://i.pravatar.cc/150?u='.$this->faker->uuid(),
         ];
     }
 }

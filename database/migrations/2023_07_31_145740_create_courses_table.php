@@ -18,6 +18,9 @@ class CreateCoursesTable extends Migration
             $table->string('title');
             $table->foreignId('instructor_id');
             $table->text('description');
+            $table->integer('price');
+            $table->string('cover_photo')->nullable();
+            $table->string('image')->nullable();
             $table->longText('summary');
             $table->timestamps();
             $table->foreign('instructor_id')->references('id')->on('instructors')->onDelete('cascade');

@@ -55,6 +55,18 @@
                         <label for="summary" class="form-label">Summary <span class="text-danger">*</span></label>
                         <textarea name="summary" rows="2" class="form-control" id="course_summary" data-v-message="This field is required!" required>{{ $course->summary }}</textarea>
                     </div>
+                    <div class="mb-3">
+                        <label for="price" class="form-label">Price ( $ ) <span class="text-danger">*</span></label>
+                        <input type="number" class="form-control" name="price" id="price" value="{{ $course->price }}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="cover_photo" class="form-label">Cover Photo <span class="text-danger">*</span></label>
+                        <input type="file" name="cover_photo" class="form-control" id="cover_photo">
+                    </div>
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Image <span class="text-danger">*</span></label>
+                        <input type="file" name="image" class="form-control" id="image">
+                    </div>
                     <div class="text-center">
                         <a href="{{ route('courses.index') }}" class="btn btn-dark mx-2">Cancel</a>
                         <button type="submit" class="btn btn-primary">Submit</button>

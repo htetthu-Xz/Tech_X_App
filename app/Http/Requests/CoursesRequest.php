@@ -23,12 +23,29 @@ class CoursesRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'title' => 'required',
-            'instructor_id' => 'required',
-            'description' => 'required',
-            'category_id' => 'required|array',
-            'summary' => 'required'
-        ];
+        if($this->method() == 'PATCH') {
+            return [
+                'title' => 'required',
+                'instructor_id' => 'required',
+                'description' => 'required',
+                'category_id' => 'required|array',
+                'summary' => 'required',
+                'price' => 'numeric|required',
+                'cover_photo' => 'nullable',
+                'image' => 'nullable'
+            ];
+        } else {
+            return [
+                'title' => 'required',
+                'instructor_id' => 'required',
+                'description' => 'required',
+                'category_id' => 'required|array',
+                'summary' => 'required',
+                'price' => 'numeric|required',
+                'cover_photo' => 'nullable',
+                'image' => 'nullable'
+            ];
+        }
+
     }
 }

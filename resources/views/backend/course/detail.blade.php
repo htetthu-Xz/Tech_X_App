@@ -53,9 +53,51 @@
                                             <p class="text-muted mb-0">{{ $course->description }}</p>
                                         </div>
                                     </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <p class="mb-0">Price</p>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <p class="text-muted mb-0">${{ $course->price }}</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        @if ($course->cover_photo !== null || $course->image !== null)
+                            <div class="col-lg-12">
+                                <div class="card mb-2">
+                                    <div class="card-body">
+                                        <h4 class="text-lg ">
+                                            <u class="text-info">Photos</u>
+                                        </h4>
+                                        <div class="mx-5 mt-4 row">
+                                            @if ($course->cover_photo !== null)
+                                                <div class="col-sm-6">
+                                                    <h6>
+                                                        <u>Cover Photo</u>
+                                                    </h6>
+                                                    <div class="w-50">
+                                                        <img src="{{ $course->cover_photo }}" alt="cover">
+                                                    </div>
+                                                </div>
+                                            @endif
+                                            @if ($course->image !== null)
+                                                <div class="col-sm-6">
+                                                    <h6>
+                                                        <u>Image</u>
+                                                    </h6>
+                                                    <div class="w-50">
+                                                        <img src="{{ $course->image }}" alt="cover">
+                                                    </div>
+                                                </div>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
                         <div class="col-lg-12">
                             <div class="card mb-2">
                                 <div class="card-body">
