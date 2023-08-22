@@ -59,9 +59,9 @@ class EpisodeController extends Controller
                     ->with(['create_status' => 'Episode Successfully Created!']);
     }
 
-    public function show($id)
+    public function show(Course $course, Episode $episode)
     {
-        //
+        return view('backend.course.episode.detail', ['episode' => $episode]);
     }
 
     public function edit(Course $course, Episode $episode)
