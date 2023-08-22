@@ -1,3 +1,7 @@
+<a href="{{ route('episodes.index', [$course->id]) }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Episode index">
+    Episodes
+</a>
+\
 <a href="{{ route('courses.edit', [$course->id]) }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
     Edit
 </a>

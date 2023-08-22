@@ -5,6 +5,7 @@ use App\Http\Controllers\Backend\RoleController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\CoursesController;
+use App\Http\Controllers\Backend\EpisodeController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\Auth\LoginController;
 use App\Http\Controllers\Backend\InstructorController;
@@ -24,7 +25,6 @@ Route::group([
     #auth -> login
     Route::get('login', [LoginController::class, 'index'])->name('get.login');
     Route::post('login', [LoginController::class, 'login'])->name('admin.login');
-
 
     #auth->forgot-password
     Route::get('forgot-password', [ForgotPasswordController::class, 'getForgotForm'])->name('admin.getForgot');
@@ -60,6 +60,9 @@ Route::group([
     #Courses CRUD
     Route::resource('courses', CoursesController::class);
 
+    #Episode CRUD
+    Route::resource('courses/{course}/episodes', EpisodeController::class);
+
     #Role
     Route::resource('roles', RoleController::class);
 
@@ -81,7 +84,6 @@ Route::group([
     #Login
     Route::get('login', [UserLoginController::class, 'index'])->name('user.get.login');
     Route::post('login', [UserLoginController::class, 'login'])->name('user.login');
-
 
     #Register
     Route::get('register', [UserRegisterController::class, 'index'])->name('user.get.register');

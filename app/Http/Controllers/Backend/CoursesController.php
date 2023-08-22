@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use Carbon\Carbon;
-use App\Models\Courses;
+use App\Models\Course;
 use Illuminate\View\View;
 use App\Models\Instructor;
 use Illuminate\Support\Str;
@@ -20,14 +20,14 @@ class CoursesController extends Controller
     public function index()
     {
         if(request()->ajax()) {
-            $query = Courses::query();
+            $query = Course::query();
 
             return DataTables::of($query)
                     ->order(function ($query) {
                         $query->orderBy('created_at', 'Desc');
                     })
-                    ->addColumn('created_date', function ($admin) {
-                        return Carbon::parse($admin->created_at)->format('d M, Y');
+                    ->addColumn('created_date', function ($course) {
+                        return Carbon::parse($course->created_at)->format('d M, Y');
                     })
                     ->addColumn('description', function($course) {
                         return Str::limit($course->description, 20);
@@ -61,19 +61,19 @@ class CoursesController extends Controller
 
         unset($attributes['category_id']);
 
-        $courses = Courses::create($attributes);
+        $courses = Course::create($attributes);
 
         $courses->Category()->attach($categories);
 
         return redirect()->route('courses.index')->with(['create_status' => 'Course Successfully Created!']);
     }
 
-    public function show(Courses $course) : View
+    public function show(Course $course) : View
     {
         return view('backend.course.detail', ['course' => $course]);
     }
 
-    public function edit(Courses $course)
+    public function edit(Course $course)
     {
         $instructors = Instructor::all();
 
@@ -84,7 +84,7 @@ class CoursesController extends Controller
         return view('backend.course.edit', [ 'course_category_id' => $course_category_id, 'course' => $course, 'instructors' => $instructors, 'categories' => $categories]);
     }
 
-    public function update(CoursesRequest $request, Courses $course)
+    public function update(CoursesRequest $request, Course $course)
     {
         $attributes = $request->validated(); 
 
@@ -98,7 +98,7 @@ class CoursesController extends Controller
         
         return redirect()->route('courses.index')->with(['update_status' => 'Course Successfully Updated!']);
     }
-    public function destroy(Courses $course)
+    public function destroy(Course $course)
     {
         $course->delete();
 

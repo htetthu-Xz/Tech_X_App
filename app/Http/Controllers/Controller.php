@@ -20,4 +20,12 @@ class Controller extends BaseController
     public function checkRolePermission($permission, $guard_name = 'admin') {
         abort_if(!$this->getAuthUser($guard_name)->hasPermissionTo($permission), 403);
     }
+
+    public function modifyPrivacy($attributes = []) {
+        if(! array_key_exists('privacy', $attributes)) {
+            return 'private';
+        } else {
+            return 'public';
+        }
+    }
 }

@@ -79,7 +79,7 @@
 
             @if(checkPermission('view-course'))
                 <li class="nav-item nv mt-1">
-                    <a class="nv-link nav-link {{ request()->routeIs('courses.*') ? 'active' : '' }}" href="{{ route('courses.index') }}">
+                    <a class="nv-link nav-link {{ request()->routeIs('courses.*') || request()->routeIs('episodes.*') ? 'active' : '' }}" href="{{ route('courses.index') }}">
                         <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="ni ni-book-bookmark text-secondary text-sm opacity-10"></i>
                         </div>

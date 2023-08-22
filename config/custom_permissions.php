@@ -33,10 +33,16 @@
             'edit-course',
             'delete-course',
 
+            //Episode
+            'view-episode',
+            'create-episode',
+            'edit-episode',
+            'delete-episode',
+
             //Category
             'view-category',
             'create-category',
             'edit-category',
             'delete-category',
         ]
- ];
+    ];

@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use App\Models\Episode;
 use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 
-class Courses extends Model
+class Course extends Model
 {
     use HasFactory;
 
@@ -21,5 +22,9 @@ class Courses extends Model
     public function Category() : Object
     {
         return $this->belongsToMany(Category::class);
+    }
+
+    public function Episode() : Object {
+        return $this->hasMany(Episode::class);
     }
 }
