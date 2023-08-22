@@ -55,12 +55,13 @@
             columns: [
                 {
                     data:'title',
-                    name:'title'
+                    name:'title',
+                    class: 'mb-0 text-sm'
                 },
                 {
                     data:'course',
                     name:'course',
-                    class: 'mb-0'
+                    class: 'mb-0 text-sm'
                 },
                 {
                     data:'summary',
@@ -106,13 +107,6 @@
                 }
             }
         )
-    })
-</script>
-<script>
-    $(function() {
-        let brea = $('.card').find('h6').html();
-        $('.insert').html(brea);
-        $('.ins').html(brea);
     })
 </script>
 @endpush   

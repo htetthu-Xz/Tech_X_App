@@ -48,12 +48,13 @@
             columns: [
                 {
                     data:'title',
-                    name:'title'
+                    name:'title',
+                    class: 'mb-0 text-sm'
                 },
                 {
                     data:'instructor',
                     name:'instructor',
-                    class: 'mb-0'
+                    class: 'mb-0 text-sm'
                 },
                 {
                     data:'description',
