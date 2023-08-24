@@ -22,6 +22,7 @@
     {{-- <link rel="stylesheet" href="{{ asset('frontend/css/nice-select.css') }}"> --}}
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/plugins/tosta/css/nice-toast-js.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/css/waitMe.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/custom.css') }}">
 
     @stack('css')
@@ -93,6 +94,12 @@
 
     {{-- Toster --}}
     <script src="{{ asset('frontend/plugins/tosta/js/nice-toast-js.min.js') }}"></script>
+
+    {{-- spinner --}}
+    <script src="{{ asset('frontend/js/waitMe.js') }}"></script>
+
+    {{-- custom js --}}
+    <script src="{{ asset('frontend/js/custom.js') }}"></script>
 
     @include('frontend.layouts.tosta')
 

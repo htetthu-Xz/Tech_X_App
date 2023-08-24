@@ -106,6 +106,7 @@ Route::group([
     #Course 
     Route::get('courses', [CoursePageController::class, 'index'])->name('frontend.courses.index');
     Route::get('course', [CoursePageController::class, 'loadMore'])->name('frontend.courses.load');
+    Route::get('course/search', [CoursePageController::class, 'search'])->name('frontend.courses.search');
 
 });
 
