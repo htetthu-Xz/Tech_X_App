@@ -17,7 +17,7 @@
                                     <nav>
                                         <ul id="navigation">                                                                                          
                                             <li class="active" ><a href="{{ route('frontend.home') }}">Home</a></li>
-                                            <li><a href="courses.html">Courses</a></li>
+                                            <li><a href="{{ route('frontend.courses.index') }}">Courses</a></li>
                                             <li><a href="about.html">About</a></li>
                                             <li><a href="#">Blog</a>
                                                 <ul class="submenu">

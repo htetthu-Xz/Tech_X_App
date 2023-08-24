@@ -16,6 +16,8 @@ use App\Http\Controllers\Backend\Auth\ForgotPasswordController;
 use App\Http\Controllers\Frontend\Auth\EmailVerificationController;
 use App\Http\Controllers\Frontend\Auth\UserResetPasswordController;
 use App\Http\Controllers\Frontend\Auth\UserForgotPasswordController;
+use App\Http\Controllers\Frontend\CoursePageController;
+use App\Http\Controllers\Frontend\HomePageController;
 
 Route::group([
     'prefix' => 'admin',
@@ -76,10 +78,8 @@ Route::group([
 Route::group([
     'middleware' => 'web'
 ], function () {
-
-    Route::get('/', function () {
-        return view('frontend.home');
-    })->name('frontend.home');
+    #Home
+    Route::get('/', [HomePageController::class, 'index'])->name('frontend.home');
 
     #Login
     Route::get('login', [UserLoginController::class, 'index'])->name('user.get.login');
@@ -102,6 +102,10 @@ Route::group([
     #reset-password
     Route::get('reset-password', [UserResetPasswordController::class, 'resetVerify'])->name('user.resetVerily');
     Route::post('reset-password', [UserResetPasswordController::class, 'reset'])->name('user.resetPassword');
+
+    #Course 
+    Route::get('courses', [CoursePageController::class, 'index'])->name('frontend.courses.index');
+    Route::get('course', [CoursePageController::class, 'loadMore'])->name('frontend.courses.load');
 
 });
 

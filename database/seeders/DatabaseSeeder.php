@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\Category::factory(15)->create();
         \App\Models\Course::factory(10)->create()->each(function($course) {
             \App\Models\CategoryCourse::create([
-                'courses_id' => $course->id,
+                'course_id' => $course->id,
                 'category_id' => rand(1, 15)
             ]);
         });
