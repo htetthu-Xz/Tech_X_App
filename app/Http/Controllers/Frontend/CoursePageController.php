@@ -7,6 +7,7 @@ use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use Illuminate\Support\ViewErrorBag;
 
 class CoursePageController extends Controller
 {
@@ -27,7 +28,8 @@ class CoursePageController extends Controller
         return json_encode($courses);
     }
 
-    public function search() {
+    public function search() 
+    {
         $query = Course::query()->with('Episode');
 
         $courses =  $query->when(request()->search ?? false, function($q)  {
@@ -43,5 +45,10 @@ class CoursePageController extends Controller
                             });
                     })->get();
         return json_encode($courses);
+    }
+
+    public function show(Course $course)
+    {
+        return view('frontend.courses.detail', ['course' => $course]);
     }
 }

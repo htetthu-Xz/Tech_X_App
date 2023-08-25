@@ -48,43 +48,31 @@
                     <div></div>
                 </div>
             </div>
-            <div class="d-flex justify-content-end m-4">
-                <div>
-                    <div class="input-group block">
-                        <div class="form-outline">
-                            <input id="search-input" type="search" id="search-input" class="form-control search" placeholder="Search"/>
+            <div class="blog_right_sidebar d-flex justify-content-end">
+                <aside class="search_widget p-3 w-search mr-2 mb-4">
+                    <form action="#" id="search">
+                        <div class="form-group">
+                            <div class="input-group mb-3">
+                                <input type="text" id="search-input" class="form-control shadow-sm" placeholder='Search Keyword'
+                                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Keyword'">
+                                <div class="input-group-append">
+                                    <button class="btns shadow-sm" type="submit"><i class="ti-search"></i></button>
+                                </div>
+                            </div>
                         </div>
-                        <button id="search-button" type="submit" class="filter-btn search px-2 ml-2">
-                            Search<i class="fas fa-search mx-1"></i>
-                        </button>
-                    </div>
-                </div>
+                    </form>
+                </aside>
             </div>
-            {{-- <div class="mt-3 mb-5">
-                <div class="col-md-6">
-                    <div class="input-group rounded mx-3">
-                        <div class="input-group-prepend">
-                            <label class="input-group-text" for="inputGroupSelect01">Category</label>
-                          </div>                    
-                        <select name="category" id="" class="custom-select shadow-none from-control bg-white-">
-                            <option value="">Select Category....</option>
-                            @foreach ($categories as $key => $category)
-                                <option value="{{ $key }}">{{ $category }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
-            </div> --}}
             <div class="row append">
                 @foreach ($courses as $course)
                     <div class="col-lg-4 count">
                         <div class="properties properties2 mb-30">
                             <div class="properties__card">
                                 <div class="properties__img overlay1">
-                                    <a href="#"><img src="{{ $course->cover_photo }}" alt=""></a>
+                                    <a href="{{ route('frontend.courses.detail', [$course->id]) }}"><img src="{{ $course->image }}" alt=""></a>
                                 </div>
                                 <div class="properties__caption">
-                                    <h3><a href="#">{{ $course->title }}</a></h3>
+                                    <h3><a href="{{ route('frontend.courses.detail', [$course->id]) }}">{{ $course->title }}</a></h3>
                                     <p>{{ Str::limit($course->description, 100) }}</p>
                                     <div class="properties__footer d-flex justify-content-between align-items-center">
                                         <div class="restaurant-name">
@@ -94,7 +82,7 @@
                                             <span>${{ $course->price }}</span>
                                         </div>
                                     </div>
-                                    <a href="#" class="border-btn border-btn2">Find out more</a>
+                                    <a href="{{ route('frontend.courses.detail', [$course->id]) }}" class="border-btn border-btn2">Find out more</a>
                                 </div>
                             </div>
                         </div>
@@ -131,7 +119,7 @@
                                     <div class="properties properties2 mb-30">
                                         <div class="properties__card">
                                             <div class="properties__img overlay1">
-                                                <a href="#"><img src="${course.cover_photo}" alt=""></a>
+                                                <a href="#"><img src="${course.image}" alt=""></a>
                                             </div>
                                             <div class="properties__caption">
                                                 <h3><a href="#">${course.title}</a></h3>
@@ -156,17 +144,19 @@
                 })
             })
             
-            $('.filter-btn').on('click', function() {
+            $('#search').on('submit', function(e) {
+                e.preventDefault()
                 let value = $('#search-input').val()
                 if(value !== '') {
                     $.get("{{ route('frontend.courses.search') }}", {search:value}, function(res) {
                         $('.count').remove()
                         $('.load').remove()
                         $('.end').remove()
+                        $('.no-match').remove()
                         let data = JSON.parse(res, true)
                         if(data.length == 0) {
                             $('.fix').append(`
-                                <div class="text-center">
+                                <div class="text-center no-match">
                                     <p class="text-center">No matching result.</p>
                                     <a href="{{ route('frontend.courses.index') }}" class="text-dark bg-warning p-2 px-3 rounded ">Back</a>
                                 </div>
@@ -178,7 +168,7 @@
                                         <div class="properties properties2 mb-30">
                                             <div class="properties__card">
                                                 <div class="properties__img overlay1">
-                                                    <a href="#"><img src="${course.cover_photo}" alt=""></a>
+                                                    <a href="#"><img src="${course.image}" alt=""></a>
                                                 </div>
                                                 <div class="properties__caption">
                                                     <h3><a href="#">${course.title}</a></h3>
