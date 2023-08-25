@@ -19,12 +19,15 @@
     <link rel="stylesheet" href="{{ asset('frontend/css/fontawesome-all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/themify-icons.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/slick.css') }}">
-    {{-- <link rel="stylesheet" href="{{ asset('frontend/css/nice-select.css') }}"> --}}
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/plugins/tosta/css/nice-toast-js.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/plugins/Videojs/css/video-js.min.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/waitMe.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/custom.css') }}">
-
+    <script>
+        /*to prevent Firefox FOUC, this must be here*/
+        let FF_FOUC_FIX;
+    </script>
     @stack('css')
 </head>
 <body>
@@ -82,11 +85,11 @@
     <script src="{{ asset('frontend/js/hover-direction-snake.min.js') }}"></script>
 
     <!-- contact js -->
-    <script src="{{ asset('frontend/js/jcontact.js') }}"></script>
+    {{-- <script src="{{ asset('frontend/js/jcontact.js') }}"></script>
     <script src="{{ asset('frontend/js/jquery.form.js') }}"></script>
     <script src="{{ asset('frontend/js/jquery.validate.min.js') }}"></script>
     <script src="{{ asset('frontend/js/mail-script.js') }}"></script>
-    <script src="{{ asset('frontend/js/jquery.ajaxchimp.min.js') }}"></script>
+    <script src="{{ asset('frontend/js/jquery.ajaxchimp.min.js') }}"></script> --}}
 
     <!-- Jquery Plugins, main Jquery -->	
     <script src="{{ asset('frontend/js/plugins.js') }}"></script>
@@ -94,6 +97,9 @@
 
     {{-- Toster --}}
     <script src="{{ asset('frontend/plugins/tosta/js/nice-toast-js.min.js') }}"></script>
+
+    {{-- Video Player --}}
+    <script src="{{ asset('frontend/plugins/Videojs/js/video.min.js') }}"></script>
 
     {{-- spinner --}}
     <script src="{{ asset('frontend/js/waitMe.js') }}"></script>

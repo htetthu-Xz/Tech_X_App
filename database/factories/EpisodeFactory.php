@@ -12,9 +12,9 @@ class EpisodeFactory extends Factory
             'title' => $this->faker->company(),
             'course_id' => $this->faker->numberBetween(1, 10),
             'summary' => $this->faker->text(100),
-            'cover' => 'https://i.pravatar.cc/300?u='.$this->faker->uuid(),
+            'cover' => 'https://picsum.photos/1200/500?random='.rand(1,100),
             'image' => 'https://i.pravatar.cc/300?u='.$this->faker->uuid(),
-            'video' => 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+            'video' => '//vjs.zencdn.net/v/oceans.mp4',
             'privacy' => 'public'
         ];
     }

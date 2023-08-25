@@ -102,6 +102,42 @@
     color: #fff;
 }
 
+.acc-bg {
+  background-color: #FBF9FF;
+  color: #30557a;
+  cursor: pointer;
+}
+
+.acc-round {
+  width: 40px;
+  border: 1px solid #119fe5;
+  border-radius: 50%;
+  background-color: #8571FF;
+}
+
+.m-play {
+  margin-left: 7px;
+}
+
+.r-2 {
+  box-sizing: border-box;
+  border-radius: 20px;
+}
+
+.sent {
+    color: #2156a0;
+    
+}
+
+.comment_avt {
+    vertical-align: middle;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+
+/* --- spinner --- */
 #spinner-div {
     position: fixed;
     display: none;

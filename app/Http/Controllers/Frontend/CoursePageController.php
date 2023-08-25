@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use Embed\Embed;
 use App\Models\Course;
+use App\Models\Category;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Category;
+use App\Services\VideoDurationService;
 use Illuminate\Support\ViewErrorBag;
 
 class CoursePageController extends Controller
