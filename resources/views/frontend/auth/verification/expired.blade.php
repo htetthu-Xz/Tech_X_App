@@ -3,11 +3,11 @@
 @section('content')
     <section class="slider-area slider-area2">
         <div class="slider-active">
-            <div class="single-slider slider-height2">
+            <div class="single-slider slider-height2 b-heigh">
                 <div class="container">
                     <div class="row">
                         <div class="col-xl-8 col-lg-11 col-md-12">
-                            <div class="hero__caption hero__caption2">
+                            <div class="hero__caption hero__caption2" style="padding-top: 100px">
                                 <h1 data-animation="bounceIn" data-delay="0.2s">Verification Link Expired</h1>
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
