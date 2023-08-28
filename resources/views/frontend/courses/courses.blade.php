@@ -104,7 +104,6 @@
 @push('script')
     <script>
         $(() => {
-
             const searchParams = new URLSearchParams(window.location.search);
             if(searchParams.has('search')) {
                 $('.count').remove();
@@ -162,43 +161,55 @@
             }
 
             $('.loader').hide();
-            $('.load').on('click', function() {
+            $(document).on('click', '.load' , function() {
                 let count = $('.count').length;
                 $.get("{{ route('frontend.courses.load') }}", {count:count}, function(res) {
-                    let data = JSON.parse(res, true);
-                    if(data == 0) {
-                        $('.load').hide()
-                        $('.res').append('<p class="text-danger end">End of result...</p>')
-                    } else {
-                        data.forEach(function(course) {
-                            let template = `
-                                <div class="col-lg-4 count">
-                                    <div class="properties properties2 mb-30">
-                                        <div class="properties__card">
-                                            <div class="properties__img overlay1">
-                                                <a href="#"><img src="${course.image}" alt=""></a>
-                                            </div>
-                                            <div class="properties__caption">
-                                                <h3><a href="#">${course.title}</a></h3>
-                                                <p>${course.description.substring(0, 100)}...</p>
-                                                <div class="properties__footer d-flex justify-content-between align-items-center">
-                                                    <div class="restaurant-name">
-                                                        <p>Episodes - <p class="f-3">${course.episode.length}</p></p>
-                                                    </div>
-                                                    <div class="price">
-                                                        <span>$${course.price}</span>
-                                                    </div>
+                    let data = JSON.parse(res, true)
+                    let result = data.data;
+
+                    result.forEach(function(course) {
+                        let template = `
+                            <div class="col-lg-4 count ls">
+                                <div class="properties properties2 mb-30">
+                                    <div class="properties__card">
+                                        <div class="properties__img overlay1">
+                                            <a href="#"><img src="${course.image}" alt=""></a>
+                                        </div>
+                                        <div class="properties__caption">
+                                            <h3><a href="#">${course.title}</a></h3>
+                                            <p>${course.description.substring(0, 100)}...</p>
+                                            <div class="properties__footer d-flex justify-content-between align-items-center">
+                                                <div class="restaurant-name">
+                                                    <p>Episodes - <p class="f-3">${course.episode.length}</p></p>
                                                 </div>
-                                                <a href="#" class="border-btn border-btn2">Find out more</a>
+                                                <div class="price">
+                                                    <span>$${course.price}</span>
+                                                </div>
                                             </div>
+                                            <a href="#" class="border-btn border-btn2">Find out more</a>
                                         </div>
                                     </div>
                                 </div>
-                            `
-                            $('.append').append(template);    
-                        });
+                            </div>
+                        `
+                        $('.append').append(template);    
+                    });
+                    if(data.status === 0) {
+                        $('.load').remove();
+                        let section = `
+                            <button class="border-btn text-dark less">See Less</button>
+                        `
+                        $('.res').append(section);
                     }
                 });
+            });
+            $(document).on('click', '.less' , function() {
+                $('.ls').remove();
+                $('.less').remove();
+                let section = `
+                    <button class="border-btn text-dark load">View More Category</button>
+                `
+                $('.res').append(section);
             });
             
             $('#search').on('submit', function(e) {

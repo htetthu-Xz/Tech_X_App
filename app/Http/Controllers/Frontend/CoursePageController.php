@@ -2,14 +2,10 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use Embed\Embed;
 use App\Models\Course;
 use App\Models\Category;
 use Illuminate\View\View;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Services\VideoDurationService;
-use Illuminate\Support\ViewErrorBag;
 
 class CoursePageController extends Controller
 {
@@ -23,9 +19,12 @@ class CoursePageController extends Controller
     public function loadMore()
     {
         $courses = Course::with('Episode')->skip(request()->count)->take(6)->get();
+        $max_count = request()->count + 8;
+        $result['data'] = $courses;
 
-        if(Course::count() == request()->count) {
-            return 0;
+        if(Course::count() - $max_count <= 0) {
+            $result['status'] = 0;
+            return json_encode($result);
         }
         return json_encode($courses);
     }
