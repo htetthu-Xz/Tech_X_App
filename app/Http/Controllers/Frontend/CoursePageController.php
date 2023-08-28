@@ -49,6 +49,23 @@ class CoursePageController extends Controller
         return json_encode($courses);
     }
 
+    public function categorySearch()
+    {
+        $query = Course::query()->with('Episode');
+        $courses =  $query->when(request()->search, function($query) {
+            $query->whereIn('id', function($qu) {
+                $qu->select('course_id')
+                    ->from('category_course')
+                    ->whereIn('category_id', function($qur) {
+                        $qur->select('id')
+                            ->from('categories')
+                            ->where('title', 'like', '%'.request()->search.'%');
+                    });
+            });
+        })->get();
+        return json_encode($courses);
+    }
+
     public function show(Course $course)
     {
         return view('frontend.courses.detail', ['course' => $course]);

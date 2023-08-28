@@ -80,6 +80,7 @@ Route::group([
 ], function () {
     #Home
     Route::get('/', [HomePageController::class, 'index'])->name('frontend.home');
+    Route::get('/load', [HomePageController::class, 'load'])->name('frontend.category.load');
 
     #Login
     Route::get('login', [UserLoginController::class, 'index'])->name('user.get.login');
@@ -107,6 +108,7 @@ Route::group([
     Route::get('courses', [CoursePageController::class, 'index'])->name('frontend.courses.index');
     Route::get('course', [CoursePageController::class, 'loadMore'])->name('frontend.courses.load');
     Route::get('course/search', [CoursePageController::class, 'search'])->name('frontend.courses.search');
+    Route::get('course/category-search', [CoursePageController::class, 'categorySearch'])->name('frontend.courses.category.search');
     Route::get('courses/{course}', [CoursePageController::class, 'show'])->name('frontend.courses.detail');
 });
 

@@ -1,7 +1,7 @@
 @extends('frontend.layouts.app')
 
 @section('content')
-    <section class="slider-area ">
+    <section class="slider-area">
         <div class="slider-active">
             <!-- Single Slider -->
             <div class="single-slider slider-height d-flex align-items-center">
@@ -70,141 +70,32 @@
                 </div>
             </div>
             <div class="courses-actives">
-                <!-- Single -->
-                <div class="properties pb-20">
-                    <div class="properties__card">
-                        <div class="properties__img overlay1">
-                            <a href="#"><img src="{{ asset('frontend/img/gallery/featured1.png') }}" alt=""></a>
-                        </div>
-                        <div class="properties__caption">
-                            <p>User Experience</p>
-                            <h3><a href="#">Fundamental of UX for Application design</a></h3>
-                            <p>The automated process all your website tasks. Discover tools and techniques to engage effectively with vulnerable children and young people.
-
-                            </p>
-                            <div class="properties__footer d-flex justify-content-between align-items-center">
-                                <div class="restaurant-name">
-                                    <div class="rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star-half"></i>
-                                    </div>
-                                    <p><span>(4.5)</span> based on 120</p>
-                                </div>
-                                <div class="price">
-                                    <span>$135</span>
-                                </div>
+                @foreach ($courses as $course)
+                    <div class="properties pb-20">
+                        <div class="properties__card">
+                            <div class="properties__img overlay1">
+                                <a href="{{ route('frontend.courses.detail', [$course->id]) }}"><img src="{{ $course->image }}" alt="" height="300"></a>
                             </div>
-                            <a href="#" class="border-btn border-btn2">Find out more</a>
-                        </div>
-
-                    </div>
-                </div>
-                <!-- Single -->
-                <!-- Single -->
-                <div class="properties pb-20">
-                    <div class="properties__card">
-                        <div class="properties__img overlay1">
-                            <a href="#"><img src="{{ asset('frontend/img/gallery/featured2.png') }}" alt=""></a>
-                        </div>
-                        <div class="properties__caption">
-                            <p>User Experience</p>
-                            <h3><a href="#">Fundamental of UX for Application design</a></h3>
-                            <p>The automated process all your website tasks. Discover tools and techniques to engage effectively with vulnerable children and young people.
-                            </p>
-                            <div class="properties__footer d-flex justify-content-between align-items-center">
-                                <div class="restaurant-name">
-                                    <div class="rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star-half"></i>
+                            <div class="properties__caption">
+                                <h3><a href="{{ route('frontend.courses.detail', [$course->id]) }}">{{ $course->title }}</a></h3>
+                                <p>{{ Str::limit($course->description, 100) }}</p>
+                                <div class="properties__footer d-flex justify-content-between align-items-center">
+                                    <div class="restaurant-name">
+                                        <p>Episodes - <p class="f-3">{{ $course->Episode->count() }}</p></p>
                                     </div>
-                                    <p><span>(4.5)</span> based on 120</p>
+                                    <div class="price">
+                                        <span>${{ $course->price }}</span>
+                                    </div>
                                 </div>
-                                <div class="price">
-                                    <span>$135</span>
-                                </div>
+                                <a href="{{ route('frontend.courses.detail', [$course->id]) }}" class="border-btn border-btn2">Find out more</a>
                             </div>
-                            <a href="#" class="border-btn border-btn2">Find out more</a>
                         </div>
                     </div>
-                </div>
-                <!-- Single -->
-                <!-- Single -->
-                <div class="properties pb-20">
-                    <div class="properties__card">
-                        <div class="properties__img overlay1">
-                            <a href="#"><img src="{{ asset('frontend/img/gallery/featured3.png') }}" alt=""></a>
-                        </div>
-                        <div class="properties__caption">
-                            <p>User Experience</p>
-                            <h3><a href="#">Fundamental of UX for Application design</a></h3>
-                            <p>The automated process all your website tasks. Discover tools and techniques to engage effectively with vulnerable children and young people.
-
-                            </p>
-                            <div class="properties__footer d-flex justify-content-between align-items-center">
-                                <div class="restaurant-name">
-                                    <div class="rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star-half"></i>
-                                    </div>
-                                    <p><span>(4.5)</span> based on 120</p>
-                                </div>
-                                <div class="price">
-                                    <span>$135</span>
-                                </div>
-                            </div>
-                            <a href="#" class="border-btn border-btn2">Find out more</a>
-                        </div>
-
-                    </div>
-                </div>
-                <!-- Single -->
-                <!-- Single -->
-                <div class="properties pb-20">
-                    <div class="properties__card">
-                        <div class="properties__img overlay1">
-                            <a href="#"><img src="{{ asset('frontend/img/gallery/featured2.png') }}" alt=""></a>
-                        </div>
-                        <div class="properties__caption">
-                            <p>User Experience</p>
-                            <h3><a href="#">Fundamental of UX for Application design</a></h3>
-                            <p>The automated process all your website tasks. Discover tools and techniques to engage effectively with vulnerable children and young people.
-
-                            </p>
-                            <div class="properties__footer d-flex justify-content-between align-items-center">
-                                <div class="restaurant-name">
-                                    <div class="rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star-half"></i>
-                                    </div>
-                                    <p><span>(4.5)</span> based on 120</p>
-                                </div>
-                                <div class="price">
-                                    <span>$135</span>
-                                </div>
-                            </div>
-                            <a href="#" class="border-btn border-btn2">Find out more</a>
-                        </div>
-
-                    </div>
-                </div>
-                <!-- Single -->
+                @endforeach
             </div>
         </div>
     </div>
-    <!-- Courses area End -->
-    <!--? About Area-1 Start -->
+
     <section class="about-area1 fix pt-10">
         <div class="support-wrapper align-items-center">
             <div class="left-content1">
@@ -250,16 +141,29 @@
                 <!-- img -->
                 <div class="right-img">
                     <img src="{{ asset('frontend/img/gallery/about.png') }}" alt="">
-
-                    <div class="video-icon" >
-                        <a class="popup-video btn-icon" href="https://www.youtube.com/watch?v=up68UAfH0d0"><i class="fas fa-play"></i></a>
+                    <div class="video-icon h-50 ml-0" >
+                        <img src="{{ asset('frontend/img/gallery/featured4.png') }}" alt="">
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- About Area End -->
-    <!--? top subjects Area Start -->
+    <div id="spinner-div" class="pt-5">
+        <div class="lds-default">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
     <div class="topic-area section-padding40">
         <div class="container">
             <div class="row justify-content-center">
@@ -269,115 +173,31 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="single-topic text-center mb-30">
-                        <div class="topic-img">
-                            <img src="{{ asset('frontend/img/gallery/topic1.png') }}" alt="">
-                            <div class="topic-content-box">
-                                <div class="topic-content">
-                                    <h3><a href="#">Programing</a></h3>
+            <div class="row append">
+                @foreach ($categories as $key => $category)
+                    <div class="col-lg-3 col-md-4 col-sm-6 count">
+                        <div class="single-topic text-center mb-30">
+                            <div class="topic-img">
+                                <img src="https://picsum.photos/200/140?random={{ $key }}&blur=2" alt="">
+                                <div class="topic-content-box">
+                                    <div class="topic-content">
+                                        <h3><a href="{{ route('frontend.courses.index').'?search='.$key }}">{{ $category }}</a></h3>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="single-topic text-center mb-30">
-                        <div class="topic-img">
-                            <img src="{{ asset('frontend/img/gallery/topic2.png') }}" alt="">
-                            <div class="topic-content-box">
-                                <div class="topic-content">
-                                    <h3><a href="#">Programing</a></h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="single-topic text-center mb-30">
-                        <div class="topic-img">
-                            <img src="{{ asset('frontend/img/gallery/topic3.png') }}" alt="">
-                            <div class="topic-content-box">
-                                <div class="topic-content">
-                                    <h3><a href="#">Programing</a></h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="single-topic text-center mb-30">
-                        <div class="topic-img">
-                            <img src="{{ asset('frontend/img/gallery/topic4.png') }}" alt="">
-                            <div class="topic-content-box">
-                                <div class="topic-content">
-                                    <h3><a href="#">Programing</a></h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="single-topic text-center mb-30">
-                        <div class="topic-img">
-                            <img src="{{ asset('frontend/img/gallery/topic5.png') }}" alt="">
-                            <div class="topic-content-box">
-                                <div class="topic-content">
-                                    <h3><a href="#">Programing</a></h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="single-topic text-center mb-30">
-                        <div class="topic-img">
-                            <img src="{{ asset('frontend/img/gallery/topic6.png') }}" alt="">
-                            <div class="topic-content-box">
-                                <div class="topic-content">
-                                    <h3><a href="#">Programing</a></h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="single-topic text-center mb-30">
-                        <div class="topic-img">
-                            <img src="{{ asset('frontend/img/gallery/topic7.png') }}" alt="">
-                            <div class="topic-content-box">
-                                <div class="topic-content">
-                                    <h3><a href="#">Programing</a></h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="single-topic text-center mb-30">
-                        <div class="topic-img">
-                            <img src="{{ asset('frontend/img/gallery/topic8.png') }}" alt="">
-                            <div class="topic-content-box">
-                                <div class="topic-content">
-                                    <h3><a href="#">Programing</a></h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
             <div class="row justify-content-center">
                 <div class="col-xl-12">
-                    <div class="section-tittle text-center mt-20">
-                        <a href="courses.html" class="border-btn">View More Subjects</a>
+                    <div class="section-tittle text-center mt-20 res">
+                        <button class="border-btn text-dark load">View More Category</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- top subjects End -->
-    <!--? About Area-3 Start -->
     <section class="about-area3 fix">
         <div class="support-wrapper align-items-center">
             <div class="right-content3">
@@ -422,78 +242,38 @@
             </div>
         </div>
     </section>
-    <!-- About Area End -->
-    <!--? Team -->
     <section class="team-area section-padding40 fix">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xl-7 col-lg-8">
                     <div class="section-tittle text-center mb-55">
-                        <h2>Community experts</h2>
+                        <h2>Instructors</h2>
                     </div>
                 </div>
             </div>
             <div class="team-active">
-                <div class="single-cat text-center">
-                    <div class="cat-icon">
-                        <img src="{{ asset('frontend/img/gallery/team1.png') }}" alt="">
+                @foreach ($instructors as $instructor)
+                    <div class="single-cat text-center">
+                        <div class="cat-icon">
+                            <img src="{{ $instructor['profile'] }}" alt="" class="avatar_ins">
+                        </div>
+                        <div class="cat-cap">
+                            <h5><a href="">{{ $instructor['name'] }}</a></h5>
+                            <p>{{ $instructor['Bio'] }}</p>
+                        </div>
                     </div>
-                    <div class="cat-cap">
-                        <h5><a href="services.html">Mr. Urela</a></h5>
-                        <p>The automated process all your website tasks.</p>
-                    </div>
-                </div>
-                <div class="single-cat text-center">
-                    <div class="cat-icon">
-                        <img src="{{ asset('frontend/img/gallery/team2.png') }}" alt="">
-                    </div>
-                    <div class="cat-cap">
-                        <h5><a href="services.html">Mr. Uttom</a></h5>
-                        <p>The automated process all your website tasks.</p>
-                    </div>
-                </div>
-                <div class="single-cat text-center">
-                    <div class="cat-icon">
-                        <img src="{{ asset('frontend/img/gallery/team3.png') }}" alt="">
-                    </div>
-                    <div class="cat-cap">
-                        <h5><a href="services.html">Mr. Shakil</a></h5>
-                        <p>The automated process all your website tasks.</p>
-                    </div>
-                </div>
-                <div class="single-cat text-center">
-                    <div class="cat-icon">
-                        <img src="{{ asset('frontend/img/gallery/team4.png') }}" alt="">
-                    </div>
-                    <div class="cat-cap">
-                        <h5><a href="services.html">Mr. Arafat</a></h5>
-                        <p>The automated process all your website tasks.</p>
-                    </div>
-                </div>
-                <div class="single-cat text-center">
-                    <div class="cat-icon">
-                        <img src="{{ asset('frontend/img/gallery/team3.png') }}" alt="">
-                    </div>
-                    <div class="cat-cap">
-                        <h5><a href="services.html">Mr. saiful</a></h5>
-                        <p>The automated process all your website tasks.</p>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
-    <!-- Services End -->
-    <!--? About Area-2 Start -->
     <section class="about-area2 fix pb-padding">
         <div class="support-wrapper align-items-center">
             <div class="right-content2">
-                <!-- img -->
                 <div class="right-img">
                     <img src="{{ asset('frontend/img/gallery/about2.png') }}" alt="">
                 </div>
             </div>
             <div class="left-content2">
-                <!-- section tittle -->
                 <div class="section-tittle section-tittle2 mb-20">
                     <div class="front-text">
                         <h2 class="">Take the next step
@@ -501,10 +281,64 @@
                             and professional goals
                         with us.</h2>
                         <p>The automated process all your website tasks. Discover tools and techniques to engage effectively with vulnerable children and young people.</p>
-                        <a href="#" class="btn">Join now for Free</a>
+                        <a href="{{ route('user.get.register') }}" class="btn">Join now for Free</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 @endsection
+@push('script')
+    <script>
+        $(() => {
+            $(document).on('click', '.load' , function() {
+                let count = $('.count').length
+                $.get("{{ route('frontend.category.load') }}", {count:count}, function(res) {
+                    let data = JSON.parse(res, true)
+                    let result = data.data;
+                    
+                    result.forEach(function(category) {
+                        let template = `
+                            <div class="col-lg-3 col-md-4 col-sm-6 count ls">
+                                <div class="single-topic text-center mb-30">
+                                    <div class="topic-img">
+                                        <img src="https://picsum.photos/200/140?random=${category.slug}&blur=2" alt="">
+                                        <div class="topic-content-box">
+                                            <div class="topic-content">
+                                                <h3><a href="{{ route('frontend.courses.index').'?search=' }}${category.slug}">${category.title}</a></h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        `
+                        $('.append').append(template)    
+                    })
+                    if(data.status === 0) {
+                        $('.load').remove();
+                        let section = `
+                            <button class="border-btn text-dark less">See Less</button>
+                        `
+                        $('.res').append(section);
+                    }
+                })
+            })
+            $(document).on('click', '.less' , function() {
+                $('.ls').remove();
+                $('.less').remove();
+                let section = `
+                    <button class="border-btn text-dark load">View More Category</button>
+                `
+                $('.res').append(section);
+            });
+            $(document).on({
+                ajaxStart: function(){
+                    $("#spinner-div").fadeIn(300); 
+                },
+                ajaxStop: function(){ 
+                    $("#spinner-div").fadeOut(300); 
+                }
+            })
+        })
+    </script>
+@endpush

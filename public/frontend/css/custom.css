@@ -47,6 +47,14 @@
     border-radius: 50%;
 }
 
+.avatar_ins {
+    vertical-align: middle;
+    width: 150px;
+    height: 150px;
+    border: 5px solid #119fe5;
+    border-radius: 50%;
+}
+
 .pf-drop {
     background-color: #5360ef;
     padding: 10px;
@@ -136,6 +144,18 @@
     border-radius: 50%;
 }
 
+.b-heigh {
+    height: 300px;
+}
+
+.p-t-100 {
+    padding-top: 100px;
+}
+
+.s-padding {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
 
 /* --- spinner --- */
 #spinner-div {
