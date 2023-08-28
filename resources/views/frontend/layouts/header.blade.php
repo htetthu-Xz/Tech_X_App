@@ -18,15 +18,8 @@
                                         <ul id="navigation">                                                                                          
                                             <li class="active" ><a href="{{ route('frontend.home') }}">Home</a></li>
                                             <li><a href="{{ route('frontend.courses.index') }}">Courses</a></li>
-                                            <li><a href="about.html">About</a></li>
-                                            <li><a href="#">Blog</a>
-                                                <ul class="submenu">
-                                                    <li><a href="blog.html">Blog</a></li>
-                                                    <li><a href="blog_details.html">Blog Details</a></li>
-                                                    <li><a href="elements.html">Element</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="contact.html">Contact</a></li>
+                                            <li><a href="">About</a></li>
+                                            <li><a href="">Contact</a></li>
                                             @if(auth()->user())
                                                 <li>
                                                     <div class="user-info-dropdown">
