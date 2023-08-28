@@ -2,14 +2,18 @@
 
 namespace Database\Factories;
 
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class CourseFactory extends Factory
 {
     public function definition()
     {
+        $title = $this->faker->company();
+
         return [
-            'title' => $this->faker->company(),
+            'title' => $title,
+            'slug' => Str::slug($title),
             'instructor_id' => $this->faker->numberBetween(1, 15),
             'description' => $this->faker->text(300),
             'summary' => $this->faker->text(300),

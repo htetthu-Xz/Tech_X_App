@@ -7,13 +7,11 @@ use App\Models\Course;
 use Illuminate\View\View;
 use App\Models\Instructor;
 use Illuminate\Support\Str;
-use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CoursesRequest;
 use App\Models\Category;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Redirect;
 
 class CoursesController extends Controller
 {
@@ -61,6 +59,8 @@ class CoursesController extends Controller
 
         unset($attributes['category_id']);
 
+        $attributes['slug'] = Str::slug($attributes['title']);
+
         $courses = Course::create($attributes);
 
         $courses->Category()->attach($categories);
@@ -91,6 +91,8 @@ class CoursesController extends Controller
         $categories = $attributes['category_id'];
 
         unset($attributes['category_id']);
+
+        $attributes['slug'] = Str::slug($attributes['title']);
 
         $course->update($attributes);
 
