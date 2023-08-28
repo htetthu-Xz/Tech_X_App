@@ -74,10 +74,10 @@
                     <div class="properties pb-20">
                         <div class="properties__card">
                             <div class="properties__img overlay1">
-                                <a href="{{ route('frontend.courses.detail', [$course->id]) }}"><img src="{{ $course->image }}" alt="" height="300"></a>
+                                <a href="{{ route('frontend.courses.detail', [$course->slug]) }}"><img src="{{ $course->image }}" alt="" height="300"></a>
                             </div>
                             <div class="properties__caption">
-                                <h3><a href="{{ route('frontend.courses.detail', [$course->id]) }}">{{ $course->title }}</a></h3>
+                                <h3><a href="{{ route('frontend.courses.detail', [$course->slug]) }}">{{ $course->title }}</a></h3>
                                 <p>{{ Str::limit($course->description, 100) }}</p>
                                 <div class="properties__footer d-flex justify-content-between align-items-center">
                                     <div class="restaurant-name">
@@ -87,7 +87,7 @@
                                         <span>${{ $course->price }}</span>
                                     </div>
                                 </div>
-                                <a href="{{ route('frontend.courses.detail', [$course->id]) }}" class="border-btn border-btn2">Find out more</a>
+                                <a href="{{ route('frontend.courses.detail', [$course->slug]) }}" class="border-btn border-btn2">Find out more</a>
                             </div>
                         </div>
                     </div>

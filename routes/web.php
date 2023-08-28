@@ -109,7 +109,7 @@ Route::group([
     Route::get('course', [CoursePageController::class, 'loadMore'])->name('frontend.courses.load');
     Route::get('course/search', [CoursePageController::class, 'search'])->name('frontend.courses.search');
     Route::get('course/category-search', [CoursePageController::class, 'categorySearch'])->name('frontend.courses.category.search');
-    Route::get('courses/{course}', [CoursePageController::class, 'show'])->name('frontend.courses.detail');
+    Route::get('courses/{course:slug}', [CoursePageController::class, 'show'])->name('frontend.courses.detail');
 });
 
 Route::group([

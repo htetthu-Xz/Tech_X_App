@@ -69,10 +69,10 @@
                         <div class="properties properties2 mb-30">
                             <div class="properties__card">
                                 <div class="properties__img overlay1">
-                                    <a href="{{ route('frontend.courses.detail', [$course->id]) }}"><img src="{{ $course->image }}" alt=""  height="300"></a>
+                                    <a href="{{ route('frontend.courses.detail', [$course->slug]) }}"><img src="{{ $course->image }}" alt=""  height="300"></a>
                                 </div>
                                 <div class="properties__caption">
-                                    <h3><a href="{{ route('frontend.courses.detail', [$course->id]) }}">{{ $course->title }}</a></h3>
+                                    <h3><a href="{{ route('frontend.courses.detail', [$course->slug]) }}">{{ $course->title }}</a></h3>
                                     <p>{{ Str::limit($course->description, 100) }}</p>
                                     <div class="properties__footer d-flex justify-content-between align-items-center">
                                         <div class="restaurant-name">
@@ -82,7 +82,7 @@
                                             <span>${{ $course->price }}</span>
                                         </div>
                                     </div>
-                                    <a href="{{ route('frontend.courses.detail', [$course->id]) }}" class="border-btn border-btn2">Find out more</a>
+                                    <a href="{{ route('frontend.courses.detail', [$course->slug]) }}" class="border-btn border-btn2">Find out more</a>
                                 </div>
                             </div>
                         </div>
@@ -130,15 +130,16 @@
                         `)
                     } else {
                         data.forEach(function(course) {
+                            let url = route('frontend.courses.detail', course.slug);
                             let template = `
                                 <div class="col-lg-4 count">
                                     <div class="properties properties2 mb-30">
                                         <div class="properties__card">
                                             <div class="properties__img overlay1">
-                                                <a href="#"><img src="${course.image}" alt=""></a>
+                                                <a href="${url}"><img src="${course.image}" alt=""></a>
                                             </div>
                                             <div class="properties__caption">
-                                                <h3><a href="#">${course.title}</a></h3>
+                                                <h3><a href="${url}">${course.title}</a></h3>
                                                 <p>${course.description.substring(0, 100)}...</p>
                                                 <div class="properties__footer d-flex justify-content-between align-items-center">
                                                     <div class="restaurant-name">
@@ -148,7 +149,7 @@
                                                         <span>$${course.price}</span>
                                                     </div>
                                                 </div>
-                                                <a href="#" class="border-btn border-btn2">Find out more</a>
+                                                <a href="${url}" class="border-btn border-btn2">Find out more</a>
                                             </div>
                                         </div>
                                     </div>
@@ -168,15 +169,16 @@
                     let result = data.data;
 
                     result.forEach(function(course) {
+                        let url = route('frontend.courses.detail', course.slug);
                         let template = `
                             <div class="col-lg-4 count ls">
                                 <div class="properties properties2 mb-30">
                                     <div class="properties__card">
                                         <div class="properties__img overlay1">
-                                            <a href="#"><img src="${course.image}" alt=""></a>
+                                            <a href="${url}"><img src="${course.image}" alt=""></a>
                                         </div>
                                         <div class="properties__caption">
-                                            <h3><a href="#">${course.title}</a></h3>
+                                            <h3><a href="${url}">${course.title}</a></h3>
                                             <p>${course.description.substring(0, 100)}...</p>
                                             <div class="properties__footer d-flex justify-content-between align-items-center">
                                                 <div class="restaurant-name">
@@ -186,7 +188,7 @@
                                                     <span>$${course.price}</span>
                                                 </div>
                                             </div>
-                                            <a href="#" class="border-btn border-btn2">Find out more</a>
+                                            <a href="${url}" class="border-btn border-btn2">Find out more</a>
                                         </div>
                                     </div>
                                 </div>
@@ -231,15 +233,16 @@
                             `)
                         } else {
                             data.forEach(function(course) {
+                                let url = route('frontend.courses.detail', course.slug);
                                 let template = `
                                     <div class="col-lg-4 count">
                                         <div class="properties properties2 mb-30">
                                             <div class="properties__card">
                                                 <div class="properties__img overlay1">
-                                                    <a href="#"><img src="${course.image}" alt=""></a>
+                                                    <a href="${url}"><img src="${course.image}" alt=""></a>
                                                 </div>
                                                 <div class="properties__caption">
-                                                    <h3><a href="#">${course.title}</a></h3>
+                                                    <h3><a href="${url}">${course.title}</a></h3>
                                                     <p>${course.description.substring(0, 100)}...</p>
                                                     <div class="properties__footer d-flex justify-content-between align-items-center">
                                                         <div class="restaurant-name">
@@ -249,7 +252,7 @@
                                                             <span>$${course.price}</span>
                                                         </div>
                                                     </div>
-                                                    <a href="#" class="border-btn border-btn2">Find out more</a>
+                                                    <a href="${url}" class="border-btn border-btn2">Find out more</a>
                                                 </div>
                                             </div>
                                         </div>
