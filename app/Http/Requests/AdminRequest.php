@@ -33,7 +33,7 @@ class AdminRequest extends FormRequest
                 'address' => 'nullable',
                 'dob' => 'required',
                 'gender' => 'required',
-                'profile' => 'nullable' // required
+                'profile' => 'nullable|mimes:jpeg,png,jpg|max:3500' // required
             ];
         } else {
             return [
@@ -44,7 +44,7 @@ class AdminRequest extends FormRequest
                 'address' => 'nullable',
                 'dob' => 'required',
                 'gender' => 'required',
-                'profile' => 'nullable' // required
+                'profile' => 'nullable|mimes:jpeg,png,jpg|max:3500' // required
             ];
         }
     }

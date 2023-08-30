@@ -2,7 +2,7 @@
     <div class="container-fluid py-1 px-3">
         @if (auth()->guard('admin')->user())
             <div class="mt-3 d-flex align-items-center">
-                <img class="avatar" src="{{ auth()->guard('admin')->user()->profile }}" />
+                <img class="avatar" src="{{ asset('storage/images/profile/'.auth()->guard('admin')->user()->profile) }}" />
                 <div class="mx-2">
                     <p class="admin_name text-white">{{ auth()->guard('admin')->user()->name }}</p>
                     <small class="role_s">{{ auth()->guard('admin')->user()->roles->pluck('name')[0] }}</small>

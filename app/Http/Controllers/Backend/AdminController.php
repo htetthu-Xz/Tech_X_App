@@ -43,8 +43,16 @@ class AdminController extends Controller
     }
 
     public function store(AdminRequest $request) : RedirectResponse
-    {
-        Admin::create($request->validated());
+    {   
+        $attributes = $request->validated();
+
+        if($request->hasFile('profile') && $request->file('profile')->isValid()) {
+            $file_name = uploadImage($request->file('profile'), 'public/images/profile/');
+            $attributes['profile'] = $file_name;
+        }
+
+        Admin::create($attributes);
+
         return redirect()->route('admins.index')->with(['create_status' => 'Admin Successfully Created!']);
     }
 
@@ -64,6 +72,11 @@ class AdminController extends Controller
 
         if($attributes['password'] == null) {
             unset($attributes['password']);
+        }
+
+        if($request->hasFile('profile') && $request->file('profile')->isValid()) {
+            $file_name = uploadImage($request->file('profile'), 'public/images/profile/');
+            $attributes['profile'] = $file_name;
         }
 
         $admin->update($attributes);

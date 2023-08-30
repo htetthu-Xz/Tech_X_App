@@ -16,7 +16,7 @@
             <hr class="hr mx-4">
             <div class="card-body pt-0 pb-2">
                 @include('backend.layouts.page_info')
-                <form class="form-style form-v" action="{{ route('admins.update', [$admin->id]) }}" method="POST">
+                <form class="form-style form-v" action="{{ route('admins.update', [$admin->id]) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PATCH')
                     <div class="mb-3">

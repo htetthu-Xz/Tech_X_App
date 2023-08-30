@@ -1,6 +1,7 @@
 <?php
 
 use Embed\Embed;
+use Illuminate\Support\Facades\Storage;
 
 if(!function_exists('checkPermission')) {
     function checkPermission($permission, $guard = 'admin') {
@@ -22,5 +23,13 @@ if(!function_exists('getVideoDuration')) {
         $formattedDuration = gmdate("H:i:s", $durationInSeconds); // Format duration as HH:MM:SS  
 
         return $formattedDuration;
+    }
+}
+
+if(!function_exists('uploadImage')) {
+    function uploadImage($file, $path) {
+        $file_name = uniqid() . '_' . date('Y-m-d-h-i-s') . '_' . $file->getClientOriginalName();
+        Storage::put($path . $file_name, file_get_contents($file));
+        return $file_name;
     }
 }
