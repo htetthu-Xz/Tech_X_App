@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Models\Course;
+use App\Models\Episode;
 use App\Models\Category;
 use Illuminate\View\View;
 use App\Http\Controllers\Controller;

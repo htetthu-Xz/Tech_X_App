@@ -49,7 +49,7 @@ class InstructorController extends Controller
     public function store(InstructorRequest $request) : RedirectResponse
     {
         $attributes = $request->validated();
-
+        
         Instructor::create($attributes);
         return redirect()->route('instructors.index')->with(['create_status' => 'Instructor Successfully Created!']);
     }
@@ -61,10 +61,6 @@ class InstructorController extends Controller
 
     public function edit(Instructor $instructor) : View
     {
-        //dd(json_decode($instructor->link, true));
-        // foreach (json_decode($instructor->link, true) as $key => $item) {
-        //     dd($key,$item);
-        // }
         return view('backend.instructor.edit', ['instructor' => $instructor]);
     }
 

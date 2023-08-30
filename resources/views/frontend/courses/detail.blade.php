@@ -4,33 +4,33 @@
 <main>
     <section class="slider-area slider-area2 b-heigh">
         <div class="slider-active">
-          <div class="single-slider slider-height2">
-            <div class="container">
-              <div class="row">
-                <div class="col-xl-8 col-lg-11 col-md-12">
-                  <div class="hero__caption hero__caption2" style="padding-top: 100px">
-                    <h1 data-animation="bounceIn" data-delay="0.2s">Course Detail</h1>
-                    <nav aria-label="breadcrumb">
-                      <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('frontend.home') }}">Home</a></li>
-                        <li class="breadcrumb-item"><a href="{{ route('frontend.courses.index') }}">Courses</a></li> 
-                        <li class="breadcrumb-item text-light">{{ $course->title }}</li>
-                     </ol>
-                  </nav>
-               </div>
+            <div class="single-slider slider-height2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-8 col-lg-11 col-md-12">
+                            <div class="hero__caption hero__caption2" style="padding-top: 100px">
+                                <h1 data-animation="bounceIn" data-delay="0.2s">Course Detail</h1>
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="{{ route('frontend.home') }}">Home</a></li>
+                                        <li class="breadcrumb-item"><a href="{{ route('frontend.courses.index') }}">Courses</a></li> 
+                                        <li class="breadcrumb-item text-light">{{ $course->title }}</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>          
             </div>
-         </div>
-      </div>          
-   </div>
-   </div>
-   </section>
+        </div>
+    </section>
     <section class="blog_area single-post-area section-padding">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 posts-list">
                     <div class="single-post">
-                        <div class="feature-img">
-                            <img class="img-fluid" src="{{ $course->cover_photo }}" alt="">
+                        <div class="feature-img rounded shadow-sm">
+                            <img class="img-fluid" src="{{ $course->cover_photo }}" alt="" class="">
                         </div>
                         <div class="blog_details">
                             <h2 class="mb-4">
@@ -60,8 +60,16 @@
                             <h4 class="widget_title" style="color: #2d2d2d;">Details</h4>
                             <ul class="list cat-list">
                                 <li>
-                                    <p>Instructor - {{ $course->Instructor->name }}</p>
+                                    <img src="{{ $course->Instructor->profile }}" alt="" width="310px" height="400px" class="rounded shadow-sm">
+                                    <p class="my-2">Instructor - {{ $course->Instructor->name }}</p>
+                                    <p>Bio -  {{ $course->Instructor->Bio }}</p>
+                                    <p>
+                                        @foreach (json_decode($course->Instructor->link) as $item)
+                                            <a href="{{ $item->link }}"><i class="{{ $item->icon }} link"></i></a>
+                                        @endforeach
+                                    </p>
                                 </li>
+
                                 <li>
                                     <p>Price - $ {{ $course->price }}</p>
                                 </li>
@@ -89,24 +97,27 @@
             <div class="card shadow-sm rounded">
                 <h2 class="p-3">Episodes</h2>
                 @foreach ($course->Episode as $episode)
+
                     <div class="card-body p-3">
+                                        
                         <div class="accordion" id="accordion{{ $loop->index + 1 }}">
                             <div class="card shadow-sm" style="border-radius: 10px">
-                                <div class="acc-bg p-4" id="headingOne" style="border-radius: 10px">
-                                    <div class="" data-toggle="collapse" data-target="#collapse{{ $loop->index + 1 }}" aria-expanded="true" aria-controls="collapseOne">
-                                        <div class="d-flex justify-content-start align-items-center">
-                                            <div class="mx-3 p-2 acc-round">
-                                                <i class="fas fa-play m-play text-light"></i>
-                                            </div>
-                                            <div class="d-flex flex-column">
-                                                <p class="mb-0">Episode - {{ $loop->index + 1 }} | {{ $episode->title }}</p><br>
-                                                <small>Duration : <span class="duration"></span></small>
+                                <a href="{{ route('frontend.courses.episode', [$course->slug, $episode->id]) }}" class="epi">
+                                    <div class="acc-bg p-4" id="headingOne" style="border-radius: 10px">
+                                        <div class="" data-toggle="collapse" data-target="#collapse{{ $loop->index + 1 }}" aria-expanded="true" aria-controls="collapseOne">
+                                            <div class="d-flex justify-content-start align-items-center">
+                                                <div class="mx-3 p-2 acc-round">
+                                                    <i class="fas fa-play m-play text-warning"></i>
+                                                </div>
+                                                <div class="d-flex flex-column">
+                                                    <p class="mb-0">Episode - {{ $loop->index + 1 }} | {{ $episode->title }}</p><br>
+                                                    {{-- <small>Duration : <span class="duration"></span></small> --}}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                        
-                                <div id="collapse{{ $loop->index + 1 }}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion{{ $loop->index + 1 }}">
+                                </a>    
+                                {{-- <div id="collapse{{ $loop->index + 1 }}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion{{ $loop->index + 1 }}">
                                     <div class="card-body">
                                         <h2 class="mb-5"><u>{{ $episode->title }}</u></h2>
                                         <video
@@ -143,22 +154,15 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
+                                        
                     </div>
+
                 @endforeach
             </div>
         </div>
     </section>
 </main>
 @endsection
-@push('script')
-    <script>
-        $(() => {
-            let player = videojs('#my-player');
-            let duration = $('.vjs-remaining-time-display').html()
-            $('.duration').html(duration)
-        })
-    </script>
-@endpush

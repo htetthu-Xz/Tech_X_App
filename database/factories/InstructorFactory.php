@@ -23,7 +23,13 @@ class InstructorFactory extends Factory
             'gender' =>$this->faker->randomElement(['male', 'female','other']),
             'Bio' => $this->faker->realText(30),
             'profile' =>'https://i.pravatar.cc/150?u='.$this->faker->uuid(),
-            'link' =>  json_encode([['icon' => base_path(), 'link' => $this->faker->url(), 'label' => $this->faker->catchPhrase ]])
+            'link' => [
+                    0 => [
+                        'icon' => base_path(), 
+                        'link' => $this->faker->url(), 
+                        'label' => $this->faker->catchPhrase 
+                    ]
+                ] 
         ];
     }
 }

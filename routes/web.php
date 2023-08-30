@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Episode;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\RoleController;
 use App\Http\Controllers\Backend\UserController;
@@ -7,8 +8,11 @@ use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\CoursesController;
 use App\Http\Controllers\Backend\EpisodeController;
 use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Frontend\HomePageController;
 use App\Http\Controllers\Backend\Auth\LoginController;
 use App\Http\Controllers\Backend\InstructorController;
+use App\Http\Controllers\Frontend\CoursePageController;
+use App\Http\Controllers\Frontend\EpisodePageController;
 use App\Http\Controllers\Frontend\Auth\UserLoginController;
 use App\Http\Controllers\Backend\Auth\ResetPasswordController;
 use App\Http\Controllers\Frontend\Auth\UserRegisterController;
@@ -16,8 +20,6 @@ use App\Http\Controllers\Backend\Auth\ForgotPasswordController;
 use App\Http\Controllers\Frontend\Auth\EmailVerificationController;
 use App\Http\Controllers\Frontend\Auth\UserResetPasswordController;
 use App\Http\Controllers\Frontend\Auth\UserForgotPasswordController;
-use App\Http\Controllers\Frontend\CoursePageController;
-use App\Http\Controllers\Frontend\HomePageController;
 
 Route::group([
     'prefix' => 'admin',
@@ -110,6 +112,8 @@ Route::group([
     Route::get('course/search', [CoursePageController::class, 'search'])->name('frontend.courses.search');
     Route::get('course/category-search', [CoursePageController::class, 'categorySearch'])->name('frontend.courses.category.search');
     Route::get('courses/{course:slug}', [CoursePageController::class, 'show'])->name('frontend.courses.detail');
+    Route::get('courses/{course:slug}/episodes/{episode}', [EpisodePageController::class, 'showEpisode'])->name('frontend.courses.episode');
+    Route::get('courses/{course:slug}/episodes', [EpisodePageController::class, 'getVideo'])->name('frontend.courses.episodes.video');
 });
 
 Route::group([
