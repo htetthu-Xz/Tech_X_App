@@ -16,7 +16,7 @@
             <hr class="hr mx-4">
             <div class="card-body pt-0 pb-2">
                 @include('backend.layouts.page_info')
-                <form class="form-style form-v" action="{{ route('instructors.store') }}" method="POST">
+                <form class="form-style form-v" action="{{ route('instructors.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
                         <label for="name" class="form-label">Name <span class="text-danger">*</span></label>

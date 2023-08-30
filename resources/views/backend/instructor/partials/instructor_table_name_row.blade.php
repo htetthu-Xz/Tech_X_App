@@ -1,6 +1,6 @@
 <div class="d-flex py-1">
     <div>
-        <img src="{{ $instructor->profile }}" class="avatar avatar-sm me-3" alt="user1">
+        <img src="{{ getProfile($instructor->profile) }}" class="avatar avatar-sm me-3" alt="user1">
     </div>
     <div class="d-flex flex-column justify-content-center">
             <h6 class="mb-0 text-sm">{{ $instructor->name }}</h6>

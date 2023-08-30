@@ -49,8 +49,14 @@ class InstructorController extends Controller
     public function store(InstructorRequest $request) : RedirectResponse
     {
         $attributes = $request->validated();
-        
+
+        if($request->hasFile('profile') && $request->file('profile')->isValid()) {
+            $file_name = uploadImage($request->file('profile'), 'public/images/profile/');
+            $attributes['profile'] = $file_name;
+        }
+
         Instructor::create($attributes);
+
         return redirect()->route('instructors.index')->with(['create_status' => 'Instructor Successfully Created!']);
     }
 
@@ -70,6 +76,11 @@ class InstructorController extends Controller
 
         if($attributes['password'] == null) {
             unset($attributes['password']);
+        }
+
+        if($request->hasFile('profile') && $request->file('profile')->isValid()) {
+            $file_name = uploadImage($request->file('profile'), 'public/images/profile/');
+            $attributes['profile'] = $file_name;
         }
 
         $instructor->update($attributes);

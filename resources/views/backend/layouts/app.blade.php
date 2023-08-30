@@ -42,16 +42,6 @@
     <link rel="stylesheet" href="{{ asset('backend/css/custom.css') }}">
 
     @stack('css')
-    <style>
-        .nv-link:hover {
-            background-color: #283255;
-            border-radius: 0.5rem;
-        }
-        .nv:hover {
-            margin-left: 5px;
-            transition: .5s;
-        }
-    </style>
 </head>
 <body class="g-sidenav-show dark-version bg-gray-600">
 

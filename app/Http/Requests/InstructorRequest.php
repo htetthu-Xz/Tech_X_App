@@ -33,7 +33,7 @@ class InstructorRequest extends FormRequest
                 'dob' => 'required',
                 'gender' => 'required',
                 'bio' => 'required',
-                'profile' => 'nullable', // required
+                'profile' => 'nullable|mimes:jpeg,png,jpg|max:3500', // required
                 'link.*.icon' => 'required',
                 'link.*.link' => 'required',
                 'link.*.label' => 'required'
@@ -48,7 +48,7 @@ class InstructorRequest extends FormRequest
                 'dob' => 'required',
                 'gender' => 'required',
                 'bio' => 'required',
-                'profile' => 'nullable', // required
+                'profile' => 'nullable|mimes:jpeg,png,jpg|max:3500', // required
                 'link.*.icon' => 'required',
                 'link.*.link' => 'required',
                 'link.*.label' => 'required'

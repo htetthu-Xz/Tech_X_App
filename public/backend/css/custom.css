@@ -1,3 +1,16 @@
+.nv-link:hover {
+    background-color: #283255;
+    border-radius: 0.5rem;
+}
+.nv:hover {
+    margin-left: 5px;
+    transition: .5s;
+}
+
+.nv {
+    transition: .5s;
+}
+
 div.dataTables_length select {
     color: #CFD1D9 !important;
     background-color: #111C44 !important; 
