@@ -22,7 +22,14 @@ class UserRegisterController extends Controller
     public function store(UserRegisterRequest $request) : RedirectResponse {
 
         try {
-            $user = User::create($request->validated());
+            $attributes = $request->validated();
+
+            if($request->hasFile('profile') && $request->file('profile')->isValid()) {
+                $file_name = uploadImage($request->file('profile'), 'public/images/profile/');
+                $attributes['profile'] = $file_name;
+            }
+
+            $user = User::create($attributes);
 
             $user->notify(new RegisterNotification());
         

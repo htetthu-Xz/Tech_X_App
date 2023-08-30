@@ -30,7 +30,7 @@
             <div class="card-body p-4">
                 <h2 class="my-2"><u>Register Form</u></h2>
                 @include('frontend.layouts.page_info')
-                <form action="{{ route('user.store') }}" method="POST">
+                <form action="{{ route('user.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group mb-3">
                         <label for="email" class="form-label">Full Name <span class="text-danger">*</span></label>

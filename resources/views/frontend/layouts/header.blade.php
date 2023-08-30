@@ -25,7 +25,7 @@
                                                     <div class="user-info-dropdown">
                                                         <div class="dropdown">
                                                             <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-                                                                <img class="avatar" src="{{ auth()->user()->profile }}" alt="" />
+                                                                <img class="avatar" src="{{ getProfile(auth()->user()->profile) }}" alt="" />
                                                                 <span class="user-name text-white">{{ auth()->user()->name }}</span>
                                                             </a>
                                                             <div class="dropdown-menu pf-drop">

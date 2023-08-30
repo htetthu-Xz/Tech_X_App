@@ -44,7 +44,15 @@ class UserController extends Controller
 
     public function store(UserRequest $request) : object
     {
-        User::create($request->validated());
+        $attributes = $request->validated();
+
+        if($request->hasFile('profile') && $request->file('profile')->isValid()) {
+            $file_name = uploadImage($request->file('profile'), 'public/images/profile/');
+            $attributes['profile'] = $file_name;
+        }
+
+        User::create($attributes);
+
         return redirect()->route('users.index')->with(['create_status' => 'User Successfully Created!']);
     }
 
@@ -64,6 +72,11 @@ class UserController extends Controller
 
         if($attributes['password'] == null) {
             unset($attributes['password']);
+        }
+
+        if($request->hasFile('profile') && $request->file('profile')->isValid()) {
+            $file_name = uploadImage($request->file('profile'), 'public/images/profile/');
+            $attributes['profile'] = $file_name;
         }
 
         $user->update($attributes);

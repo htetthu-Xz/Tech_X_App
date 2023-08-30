@@ -27,7 +27,7 @@
                         <div class="col-lg-4">
                             <div class="card mb-4">
                                 <div class="card-body text-center">
-                                    <img src="{{ $user->profile }}" alt="avatar"
+                                    <img src="{{ getProfile($user->profile) }}" alt="avatar"
                                         class="rounded-circle img-fluid" style="width: 150px;">
                                     <h5 class="my-3">{{ $user->name }}</h5>
                                     <div class="my-2">

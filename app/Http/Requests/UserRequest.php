@@ -22,7 +22,7 @@ class UserRequest extends FormRequest
                 'address' => 'nullable',
                 'dob' => 'required',
                 'gender' => 'required',
-                'profile' => 'nullable', // required
+                'profile' => 'nullable|mimes:jpeg,png,jpg|max:3500', // required
                 'remember_token' => 'nullable',
                 'email_verified_at' => 'nullable'
             ];
@@ -35,7 +35,7 @@ class UserRequest extends FormRequest
                 'address' => 'nullable',
                 'dob' => 'required',
                 'gender' => 'required',
-                'profile' => 'nullable', // required
+                'profile' => 'nullable|mimes:jpeg,png,jpg|max:3500', // required
                 'remember_token' => 'nullable',
                 'email_verified_at' => 'nullable'
             ];
