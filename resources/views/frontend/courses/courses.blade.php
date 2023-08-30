@@ -112,9 +112,9 @@
                 $('.no-match').remove();
                 $('.search__').empty();
                 $('.__append').find('h2').remove();
-                let search = searchParams.get('search'); 
-                    search = search.replaceAll('-', ' ');
-                $('.__append').append(`<h4 class="mb-3">Category - ${search.toUpperCase()}</h4>`)
+                let data = searchParams.get('search'); 
+                let search = data.replaceAll('-', ' ').substring(0,6);
+                $('.__append').append(`<h4 class="mb-3">Category - ${data.toUpperCase()}</h4>`)
                 $('.search__').append(`
                     <a href="{{ route('frontend.home') }}" class="text-light bg-primary p-2 px-3 rounded mb-4"><i class="fa fa-angle-left mx-2"></i>Back</a>
                 `);
