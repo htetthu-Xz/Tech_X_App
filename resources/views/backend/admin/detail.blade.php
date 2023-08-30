@@ -27,7 +27,7 @@
                         <div class="col-lg-4">
                             <div class="card mb-4">
                                 <div class="card-body text-center">
-                                    <img src="{{ $admin->profile }}" alt="avatar"
+                                    <img src="{{ getProfile($admin->profile) }}" alt="avatar"
                                         class="rounded-circle img-fluid" style="width: 150px;">
                                     <h5 class="my-3">{{ $admin->name }}</h5>
                                     <p class="text-muted mb-1">{{ $admin->roles->pluck('name')[0]; }}</p>

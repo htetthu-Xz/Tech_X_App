@@ -33,3 +33,9 @@ if(!function_exists('uploadImage')) {
         return $file_name;
     }
 }
+
+if(!function_exists('getProfile')) {
+    function getProfile($profile) {
+        return asset('storage/images/profile/' . $profile);
+    }
+}
