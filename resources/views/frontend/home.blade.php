@@ -74,7 +74,7 @@
                     <div class="properties pb-20">
                         <div class="properties__card">
                             <div class="properties__img overlay1">
-                                <a href="{{ route('frontend.courses.detail', [$course->slug]) }}"><img src="{{ $course->image }}" alt="" height="300"></a>
+                                <a href="{{ route('frontend.courses.detail', [$course->slug]) }}"><img src="{{ getCoursephotos($course->image) }}" alt="" height="300"></a>
                             </div>
                             <div class="properties__caption">
                                 <h3><a href="{{ route('frontend.courses.detail', [$course->slug]) }}">{{ $course->title }}</a></h3>

@@ -30,7 +30,7 @@
                 <div class="col-lg-8 posts-list">
                     <div class="single-post">
                         <div class="feature-img rounded shadow-sm">
-                            <img class="img-fluid" src="{{ $course->cover_photo }}" alt="" class="">
+                            <img class="img-fluid" src="{{ getCoursePhotos($course->cover_photo) }}" alt="" class="">
                         </div>
                         <div class="blog_details">
                             <h2 class="mb-4">
@@ -60,7 +60,7 @@
                             <h4 class="widget_title" style="color: #2d2d2d;">Details</h4>
                             <ul class="list cat-list">
                                 <li>
-                                    <img src="{{ $course->Instructor->profile }}" alt="" width="310px" height="400px" class="rounded shadow-sm">
+                                    <img src="{{ getProfile($course->Instructor->profile) }}" alt="" width="310px" height="400px" class="rounded shadow-sm">
                                     <p class="my-2">Instructor - {{ $course->Instructor->name }}</p>
                                     <p>Bio -  {{ $course->Instructor->Bio }}</p>
                                     <p>

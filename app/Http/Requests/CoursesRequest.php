@@ -31,8 +31,8 @@ class CoursesRequest extends FormRequest
                 'category_id' => 'required|array',
                 'summary' => 'required',
                 'price' => 'numeric|required',
-                'cover_photo' => 'nullable',
-                'image' => 'nullable'
+                'cover_photo' => 'nullable|mimes:jpeg,png,jpg|max:3500',
+                'image' => 'nullable|mimes:jpeg,png,jpg|max:5000'
             ];
         } else {
             return [
@@ -42,8 +42,8 @@ class CoursesRequest extends FormRequest
                 'category_id' => 'required|array',
                 'summary' => 'required',
                 'price' => 'numeric|required',
-                'cover_photo' => 'nullable',
-                'image' => 'nullable'
+                'cover_photo' => 'nullable|mimes:jpeg,png,jpg|max:3500',
+                'image' => 'nullable|mimes:jpeg,png,jpg|max:5000'
             ];
         }
 

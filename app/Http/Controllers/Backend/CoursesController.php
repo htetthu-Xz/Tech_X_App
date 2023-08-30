@@ -61,6 +61,16 @@ class CoursesController extends Controller
 
         $attributes['slug'] = Str::slug($attributes['title']);
 
+        if($request->hasFile('cover_photo') && $request->file('cover_photo')->isValid()) {
+            $file_name = uploadImage($request->file('cover_photo'), 'public/images/course/');
+            $attributes['cover_photo'] = $file_name;
+        }
+
+        if($request->hasFile('image') && $request->file('image')->isValid()) {
+            $file_name = uploadImage($request->file('image'), 'public/images/course/');
+            $attributes['image'] = $file_name;
+        }
+
         $courses = Course::create($attributes);
 
         $courses->Category()->attach($categories);
@@ -93,6 +103,16 @@ class CoursesController extends Controller
         unset($attributes['category_id']);
 
         $attributes['slug'] = Str::slug($attributes['title']);
+
+        if($request->hasFile('cover_photo') && $request->file('cover_photo')->isValid()) {
+            $file_name = uploadImage($request->file('cover_photo'), 'public/images/course/');
+            $attributes['cover_photo'] = $file_name;
+        }
+
+        if($request->hasFile('image') && $request->file('image')->isValid()) {
+            $file_name = uploadImage($request->file('image'), 'public/images/course/');
+            $attributes['image'] = $file_name;
+        }
 
         $course->update($attributes);
 

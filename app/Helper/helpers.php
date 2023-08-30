@@ -39,3 +39,9 @@ if(!function_exists('getProfile')) {
         return asset('storage/images/profile/' . $profile);
     }
 }
+
+if(!function_exists('getCoursePhotos')) {
+    function getCoursePhotos($profile) {
+        return asset('storage/images/course/' . $profile);
+    }
+}

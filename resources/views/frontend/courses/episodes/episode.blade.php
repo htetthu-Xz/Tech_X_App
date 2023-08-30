@@ -32,7 +32,7 @@
                 <div class="col-lg-4">
                     <div class="d-flex justify-content-start align-items-center list-h">
                         <div class="mx-2 p-2">
-                            <img src="https://i.pravatar.cc/300?u=78c5afcc-c6af-30d9-a962-5f644822236c" alt="" class="h-round">
+                            <img src="{{ getCoursePhotos($course->image) }}" alt="" class="h-round">
                         </div>
                         <div class="d-flex flex-column">
                             <p class="mb-0 text-sm text-light">{{ $course->title }}</p>

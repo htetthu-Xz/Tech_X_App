@@ -78,8 +78,8 @@
                                                     <h6>
                                                         <u>Cover Photo</u>
                                                     </h6>
-                                                    <div class="w-50">
-                                                        <img src="{{ $course->cover_photo }}" alt="cover">
+                                                    <div class="">
+                                                        <img src="{{ getCoursePhotos($course->cover_photo) }}" class="mx-2" alt="cover" height="300px" width="350px">
                                                     </div>
                                                 </div>
                                             @endif
@@ -88,8 +88,8 @@
                                                     <h6>
                                                         <u>Image</u>
                                                     </h6>
-                                                    <div class="w-50">
-                                                        <img src="{{ $course->image }}" alt="cover">
+                                                    <div class="">
+                                                        <img src="{{ getCoursePhotos($course->image) }}" class="mx-2" alt="cover" height="300px" width="350px">
                                                     </div>
                                                 </div>
                                             @endif
