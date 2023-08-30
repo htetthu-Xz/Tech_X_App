@@ -69,7 +69,7 @@
                         <div class="properties properties2 mb-30">
                             <div class="properties__card">
                                 <div class="properties__img overlay1">
-                                    <a href="{{ route('frontend.courses.detail', [$course->slug]) }}"><img src="{{ getCoursephotos($course->image) }}" alt=""  height="300"></a>
+                                    <a href="{{ route('frontend.courses.detail', [$course->slug]) }}"><img src="{{ getCoursePhotos($course->image) }}" alt=""  height="300"></a>
                                 </div>
                                 <div class="properties__caption">
                                     <h3><a href="{{ route('frontend.courses.detail', [$course->slug]) }}">{{ $course->title }}</a></h3>
@@ -104,6 +104,8 @@
 @push('script')
     <script>
         $(() => {
+            const base_path = "{{ getCoursePhotos('') }}";
+            console.log(base_path);
             const searchParams = new URLSearchParams(window.location.search);
             if(searchParams.has('search')) {
                 $('.count').remove();
@@ -136,7 +138,7 @@
                                     <div class="properties properties2 mb-30">
                                         <div class="properties__card">
                                             <div class="properties__img overlay1">
-                                                <a href="${url}"><img src="${course.image}" alt=""></a>
+                                                <a href="${url}"><img src="${base_path}/${course.image}" alt=""></a>
                                             </div>
                                             <div class="properties__caption">
                                                 <h3><a href="${url}">${course.title}</a></h3>
@@ -175,7 +177,7 @@
                                 <div class="properties properties2 mb-30">
                                     <div class="properties__card">
                                         <div class="properties__img overlay1">
-                                            <a href="${url}"><img src="${course.image}" alt=""></a>
+                                            <a href="${url}"><img src="${base_path}/${course.image}" alt=""></a>
                                         </div>
                                         <div class="properties__caption">
                                             <h3><a href="${url}">${course.title}</a></h3>
@@ -239,7 +241,7 @@
                                         <div class="properties properties2 mb-30">
                                             <div class="properties__card">
                                                 <div class="properties__img overlay1">
-                                                    <a href="${url}"><img src="${course.image}" alt=""></a>
+                                                    <a href="${url}"><img src="${base_path}/${course.image}" alt=""></a>
                                                 </div>
                                                 <div class="properties__caption">
                                                     <h3><a href="${url}">${course.title}</a></h3>

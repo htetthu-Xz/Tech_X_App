@@ -31,7 +31,7 @@ class UserRegisterRequest extends FormRequest
             'address' => 'nullable',
             'dob' => 'nullable',
             'gender' => 'required',
-            'profile' => 'nullable' 
+            'profile' => 'nullable|mimes:jpeg,png,jpg|max:3500' 
         ];
     }
 }

@@ -42,8 +42,8 @@ class CoursesRequest extends FormRequest
                 'category_id' => 'required|array',
                 'summary' => 'required',
                 'price' => 'numeric|required',
-                'cover_photo' => 'nullable|mimes:jpeg,png,jpg|max:3500',
-                'image' => 'nullable|mimes:jpeg,png,jpg|max:5000'
+                'cover_photo' => 'required|mimes:jpeg,png,jpg|max:3500',
+                'image' => 'required|mimes:jpeg,png,jpg|max:5000'
             ];
         }
 

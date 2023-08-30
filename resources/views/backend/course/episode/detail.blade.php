@@ -78,8 +78,8 @@
                                                     <h6>
                                                         <u>Cover Photo</u>
                                                     </h6>
-                                                    <div class="w-50">
-                                                        <img src="{{ $episode->cover }}" alt="cover">
+                                                    <div class="">
+                                                        <img src="{{ getEpisodePhotos($episode->cover) }}" class="mx-2" alt="cover" height="300px" width="350px">
                                                     </div>
                                                 </div>
                                             @endif
@@ -88,8 +88,8 @@
                                                     <h6>
                                                         <u>Image</u>
                                                     </h6>
-                                                    <div class="w-50">
-                                                        <img src="{{ $episode->image }}" alt="cover">
+                                                    <div class="">
+                                                        <img src="{{ getEpisodePhotos($episode->image) }}" class="mx-2" alt="cover" height="300px" width="350px">
                                                     </div>
                                                 </div>
                                             @endif
@@ -106,7 +106,7 @@
                                     </h4>
                                     <div class="mx-5 mt-4">
                                         <video class="w-100" autoplay loop muted>
-                                            <source src="{{ $episode->video }}" type="video/mp4" />
+                                            <source src="{{ getEpisodes($episode->video) }}" type="video/mp4" />
                                         </video>
                                     </div>
                                 </div>

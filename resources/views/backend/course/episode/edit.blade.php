@@ -16,7 +16,7 @@
             <hr class="hr mx-4">
             <div class="card-body pt-0 pb-2">
                 @include('backend.layouts.page_info')
-                <form class="form-style form-v" action="{{ route('episodes.update',[$episode->Course->id, $episode->id]) }}" method="POST">
+                <form class="form-style form-v" action="{{ route('episodes.update',[$episode->Course->id, $episode->id]) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PATCH')
                     <div class="mb-3">
@@ -54,7 +54,7 @@
                         <input type="file" name="image" class="form-control" id="image">
                     </div>
                     <div class="mb-3">
-                        <label for="video" class="form-label">Video</label>
+                        <label for="video" class="form-label">Video(Mp4)</label>
                         <input type="file" name="video" class="form-control" id="video">
                     </div>
                     <div class="text-center">

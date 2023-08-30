@@ -53,6 +53,21 @@ class EpisodeController extends Controller
 
         $attributes['privacy'] = $this->modifyPrivacy($attributes);
 
+        if($request->hasFile('cover') && $request->file('cover')->isValid()) {
+            $file_name = uploadImage($request->file('cover'), 'public/images/episode/');
+            $attributes['cover'] = $file_name;
+        }
+
+        if($request->hasFile('image') && $request->file('image')->isValid()) {
+            $file_name = uploadImage($request->file('image'), 'public/images/episode/');
+            $attributes['image'] = $file_name;
+        }
+
+        if($request->hasFile('video') && $request->file('video')->isValid()) {
+            $file_name = uploadImage($request->file('video'), 'public/images/episode/video/');
+            $attributes['video'] = $file_name;
+        }
+
         Episode::create($attributes);
 
         return redirect()->route('episodes.index', [$id])
@@ -74,6 +89,21 @@ class EpisodeController extends Controller
         $attributes = $request->validated();
 
         $attributes['privacy'] = $this->modifyPrivacy($attributes);
+
+        if($request->hasFile('cover') && $request->file('cover')->isValid()) {
+            $file_name = uploadImage($request->file('cover'), 'public/images/episode/');
+            $attributes['cover'] = $file_name;
+        }
+
+        if($request->hasFile('image') && $request->file('image')->isValid()) {
+            $file_name = uploadImage($request->file('image'), 'public/images/episode/');
+            $attributes['image'] = $file_name;
+        }
+
+        if($request->hasFile('video') && $request->file('video')->isValid()) {
+            $file_name = uploadImage($request->file('video'), 'public/images/episode/video/');
+            $attributes['video'] = $file_name;
+        }
 
         $episode->update($attributes);
 

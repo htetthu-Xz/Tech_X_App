@@ -93,6 +93,8 @@
 @push('script')
     <script>
         $(() => {
+            const img_base_path = "{{ getEpisodePhotos('') }}";
+            const vd_base_path = "{{ getEpisodes('') }}";
             let id = "{{ request()->segment(count(request()->segments())) }}";
             $.get(route('frontend.courses.episodes.video', "{{ $course->slug }}"), {id:id}, function(res) {
                 let data = JSON.parse(res, true);
@@ -103,13 +105,13 @@
                             class="video-js"
                             controls
                             preload="auto"
-                            poster="${data.cover}"
+                            poster="${img_base_path}/${data.image}"
                             data-setup='{}'
                             width="780px"
                             height="500px"
                             seeking
                             >
-                            <source src="${data.video}" type="video/mp4"></source>
+                            <source src="${vd_base_path}/${data.video}" type="video/mp4"></source>
                         </video>
                     </div>
                 `;
@@ -127,6 +129,9 @@
                     history.pushState(obj, obj.Title, obj.Url);
                 }
             }
+
+            let img_path = "{{ getEpisodePhotos('') }}";
+            let vd_path = "{{ getEpisodes('') }}";
 
             $('.side-list').find('.list-v-active').removeClass('list-v-active').addClass('list-v');
             $('.side-list').find('.fa-pause').removeClass('fas fa-pause m-active').addClass('fas fa-play m-play');
@@ -148,13 +153,13 @@
                             class=""
                             controls
                             preload="auto"
-                            poster="${data.cover}"
+                            poster="${img_path}/${data.image}"
                             data-setup='{}'
                             width="780px"
                             height="500px"
                             seeking
                             >
-                            <source src="${data.video}" type="video/mp4"></source>
+                            <source src="${vd_path}/${data.video}" type="video/mp4"></source>
                         </video>
                     </div>
                 `;

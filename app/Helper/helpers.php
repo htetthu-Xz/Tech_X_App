@@ -41,7 +41,19 @@ if(!function_exists('getProfile')) {
 }
 
 if(!function_exists('getCoursePhotos')) {
-    function getCoursePhotos($profile) {
-        return asset('storage/images/course/' . $profile);
+    function getCoursePhotos($photo) {
+        return asset('storage/images/course/' . $photo);
+    }
+}
+
+if(!function_exists('getEpisodePhotos')) {
+    function getEpisodePhotos($photo) {
+        return asset('storage/images/episode/' . $photo);
+    }
+}
+
+if(!function_exists('getEpisodes')) {
+    function getEpisodes($video) {
+        return asset('storage/images/episode/video/' . $video);
     }
 }

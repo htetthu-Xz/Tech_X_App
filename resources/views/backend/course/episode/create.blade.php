@@ -16,7 +16,7 @@
             <hr class="hr mx-4">
             <div class="card-body pt-0 pb-2">
                 @include('backend.layouts.page_info')
-                <form class="form-style form-v" action="{{ route('episodes.store',[$course->id]) }}" method="POST">
+                <form class="form-style form-v" action="{{ route('episodes.store',[$course->id]) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
                         <label for="course" class="form-label">Course <span class="text-danger">*</span></label>
@@ -49,7 +49,7 @@
                         <input type="file" name="image" class="form-control" id="image">
                     </div>
                     <div class="mb-3">
-                        <label for="video" class="form-label">Video <span class="text-danger">*</span></label>
+                        <label for="video" class="form-label">Video(Mp4) <span class="text-danger">*</span></label>
                         <input type="file" name="video" class="form-control" id="video">
                     </div>
                     <div class="text-center">
