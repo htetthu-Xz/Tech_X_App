@@ -38,7 +38,7 @@ class EmailVerificationController extends Controller
         }
     }
 
-    public function resend()
+    public function resend() : RedirectResponse
     {
         try {
             $user = User::findOrFail(session('resend')['id']);

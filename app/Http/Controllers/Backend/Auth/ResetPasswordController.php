@@ -9,10 +9,9 @@ use App\Http\Controllers\Controller;
 use App\Jobs\SendSuccessResetPasswordEmail;
 use Illuminate\Http\RedirectResponse;
 
-
 class ResetPasswordController extends Controller
 {
-    public function resetVerify(Request $request) 
+    public function resetVerify(Request $request)
     {
         if(!$request->hasValidSignature()) {
             return redirect()
@@ -32,7 +31,7 @@ class ResetPasswordController extends Controller
         return view('backend.auth.admin.reset_password');
     }
 
-    public function reset(Request $request) 
+    public function reset(Request $request) : RedirectResponse
     {
         $attributes = $request->validate([
             'password' => 'required|confirmed|min:8'

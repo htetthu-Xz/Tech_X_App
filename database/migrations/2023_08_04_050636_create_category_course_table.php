@@ -7,11 +7,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateCategoryCourseTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('category_course', function (Blueprint $table) {
@@ -25,11 +20,6 @@ class CreateCategoryCourseTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('category_course');

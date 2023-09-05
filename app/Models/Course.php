@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Episode;
 use App\Models\Category;
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -24,7 +25,14 @@ class Course extends Model
         return $this->belongsToMany(Category::class);
     }
 
-    public function Episode() : Object {
+    public function Episode() : Object 
+    {
         return $this->hasMany(Episode::class);
+    }
+
+    public function setTitleAttribute($value) : Void 
+    {
+        $this->attributes['title'] = $value;
+        $this->attributes['slug'] = Str::slug($value);
     }
 }

@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Jobs\SendUserResetPasswordSuccessEmail;
+use Illuminate\Http\RedirectResponse;
 
 class UserResetPasswordController extends Controller
 {
@@ -29,7 +30,7 @@ class UserResetPasswordController extends Controller
         return view('frontend.auth.forgot_password.reset_password');
     }
 
-    public function reset(Request $request) 
+    public function reset(Request $request) : RedirectResponse
     {
         $attributes = $request->validate([
             'password' => 'required|confirmed|min:8'

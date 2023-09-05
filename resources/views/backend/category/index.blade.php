@@ -3,7 +3,6 @@
 @section('content')
 <div class="row">
     <div class="col-12">
-        {{-- @include('backend.layouts.page_info') --}}
         <div class="text-end ">
             <a href="{{ route('categories.create') }}" class="btn btn-primary">
                 Create Category
@@ -18,12 +17,12 @@
                 <div class="table-responsive p-0">
                     <table class="table align-items-center mb-0" id="categoryTable">
                         <thead>
-                                <tr>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Title</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Slug</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Created Date</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
-                                </tr>
+                            <tr>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Title</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Slug</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Created Date</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
+                            </tr>
                         </thead>
                         <tbody>
                             {{-- DataTable Data --}}                        

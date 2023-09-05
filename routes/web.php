@@ -74,7 +74,6 @@ Route::group([
     Route::get('logout', [LoginController::class, 'logout'])->name('admin.logout');
 });
 
-
 //---------------------------- frontend --------------------------------//
 
 Route::group([

@@ -23,16 +23,16 @@
                         <input type="text" name="name" class="form-control" id="name" required>
                     </div>
                     <div class="mb-3">
-                      <label for="email" class="form-label">Email address <span class="text-danger">*</span></label>
-                      <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" required>
+                        <label for="email" class="form-label">Email address <span class="text-danger">*</span></label>
+                        <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" required>
                     </div>
                     <div class="mb-3">
                         <label for="phone" class="form-label">Phone <span class="text-danger">*</span></label>
                         <input type="phone" name="phone" class="form-control" id="phone" data-v-min-length="7" data-v-max-length="13" required>
                     </div>
                     <div class="mb-3">
-                      <label for="password1" class="form-label">Password <span class="text-danger">*</span></label>
-                      <input type="password" name="password" class="form-control" data-v-min-length="8" id="password1" required>
+                        <label for="password1" class="form-label">Password <span class="text-danger">*</span></label>
+                        <input type="password" name="password" class="form-control" data-v-min-length="8" id="password1" required>
                     </div>
                     <div class="mb-3">
                         <label for="confirm-assword1" class="form-label">Confirm Password <span class="text-danger">*</span></label>

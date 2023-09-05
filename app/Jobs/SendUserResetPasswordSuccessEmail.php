@@ -10,7 +10,6 @@ use Illuminate\Queue\InteractsWithQueue;
 use App\Mail\UserPasswordResetSuccessMail;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
-use Illuminate\Contracts\Queue\ShouldBeUnique;
 
 class SendUserResetPasswordSuccessEmail implements ShouldQueue
 {

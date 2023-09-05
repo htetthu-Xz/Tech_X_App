@@ -59,17 +59,9 @@ class CoursesController extends Controller
 
         unset($attributes['category_id']);
 
-        $attributes['slug'] = Str::slug($attributes['title']);
+        $attributes['cover_photo'] = $this->setFile($request, 'cover_photo', 'public/images/course/');
 
-        if($request->hasFile('cover_photo') && $request->file('cover_photo')->isValid()) {
-            $file_name = uploadImage($request->file('cover_photo'), 'public/images/course/');
-            $attributes['cover_photo'] = $file_name;
-        }
-
-        if($request->hasFile('image') && $request->file('image')->isValid()) {
-            $file_name = uploadImage($request->file('image'), 'public/images/course/');
-            $attributes['image'] = $file_name;
-        }
+        $attributes['image'] = $this->setFile($request, 'image', 'public/images/course/');
 
         $courses = Course::create($attributes);
 
@@ -102,16 +94,12 @@ class CoursesController extends Controller
 
         unset($attributes['category_id']);
 
-        $attributes['slug'] = Str::slug($attributes['title']);
-
-        if($request->hasFile('cover_photo') && $request->file('cover_photo')->isValid()) {
-            $file_name = uploadImage($request->file('cover_photo'), 'public/images/course/');
-            $attributes['cover_photo'] = $file_name;
+        if($request->cover_photo !== null) {
+            $attributes['cover_photo'] = $this->setFile($request, 'cover_photo', 'public/images/course/');
         }
 
-        if($request->hasFile('image') && $request->file('image')->isValid()) {
-            $file_name = uploadImage($request->file('image'), 'public/images/course/');
-            $attributes['image'] = $file_name;
+        if($request->image !== null) {
+            $attributes['image'] = $this->setFile($request, 'image', 'public/images/course/');
         }
 
         $course->update($attributes);

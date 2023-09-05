@@ -16,7 +16,7 @@ class UserLoginController extends Controller
         return view('frontend.auth.login');    
     }
 
-    public function login(Request $request)
+    public function login(Request $request) : RedirectResponse
     {
         $attributes = $request->validate([
             'email' => 'required|email',

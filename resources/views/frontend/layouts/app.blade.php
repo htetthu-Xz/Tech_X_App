@@ -105,6 +105,9 @@
     {{-- spinner --}}
     <script src="{{ asset('frontend/js/waitMe.js') }}"></script>
 
+    {{-- Ajax Loader --}}
+    <script src="{{ asset('frontend/js/ajax_loader.js') }}"></script>
+
     {{-- custom js --}}
     <script src="{{ asset('frontend/js/custom.js') }}"></script>
 

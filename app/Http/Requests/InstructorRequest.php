@@ -6,21 +6,10 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class InstructorRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
     public function authorize()
     {
         return true;
     }
-
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
     public function rules()
     {
         if($this->method() == 'PATCH') {
@@ -33,7 +22,7 @@ class InstructorRequest extends FormRequest
                 'dob' => 'required',
                 'gender' => 'required',
                 'bio' => 'required',
-                'profile' => 'nullable|mimes:jpeg,png,jpg|max:3500', // required
+                'profile' => 'nullable|mimes:jpeg,png,jpg|max:3500',
                 'link.*.icon' => 'required',
                 'link.*.link' => 'required',
                 'link.*.label' => 'required'
@@ -48,7 +37,7 @@ class InstructorRequest extends FormRequest
                 'dob' => 'required',
                 'gender' => 'required',
                 'bio' => 'required',
-                'profile' => 'nullable|mimes:jpeg,png,jpg|max:3500', // required
+                'profile' => 'nullable|mimes:jpeg,png,jpg|max:3500',
                 'link.*.icon' => 'required',
                 'link.*.link' => 'required',
                 'link.*.label' => 'required'

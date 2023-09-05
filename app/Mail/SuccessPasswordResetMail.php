@@ -2,13 +2,10 @@
 
 namespace App\Mail;
 
-use Carbon\Carbon;
 use App\Models\Admin;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
-use Illuminate\Support\Facades\URL;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
 class SuccessPasswordResetMail extends Mailable
 {
@@ -28,6 +25,6 @@ class SuccessPasswordResetMail extends Mailable
                 ->from('noreply@texhX.com')
                 ->view('backend.auth.admin.email.success_reset_password', [
                     'admin' => $this->admin
-                ]);
+        ]);
     }
 }

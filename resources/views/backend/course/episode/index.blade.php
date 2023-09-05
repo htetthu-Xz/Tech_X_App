@@ -18,14 +18,14 @@
                 <div class="table-responsive p-0">
                     <table class="table align-items-center mb-0" id="adminTable">
                         <thead>
-                                <tr>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Title</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Course</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Summary</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Privacy</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Created Date</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
-                                </tr>
+                            <tr>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Title</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Course</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Summary</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Privacy</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Created Date</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
+                            </tr>
                         </thead>
                         <tbody>
                             {{-- DataTable Data --}}

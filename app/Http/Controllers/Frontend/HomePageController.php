@@ -7,11 +7,11 @@ use App\Models\Category;
 use Illuminate\View\View;
 use App\Models\Instructor;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Session;
 
 class HomePageController extends Controller
 {
-    public function index() : View {
+    public function index() : View 
+    {
         $courses = Course::all();
         $categories = Category::take(8)->get()->toBase()->pluck('title', 'slug')->toArray();
         $instructors = Instructor::select('name', 'profile', 'Bio')->get()->toBase()->toArray();

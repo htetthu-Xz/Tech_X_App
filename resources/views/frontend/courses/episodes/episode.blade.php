@@ -41,10 +41,6 @@
                     </div>
                     <div class="card p-2 radious__ shadow-sm bg-episode side-h">
                         <ul class="mx-1 side-list">
-                            {{-- <li class="px-2 py-3 my-2 list-h">
-
-                            </li> --}}
-                            {{-- <hr class="my-4 border-bottom b-mute"> --}}
                             @foreach ($course->Episode as $episode)
                                 <li 
                                     class="click-to px-2 py-3 my-2 {{ Str::afterLast(url()->current(), '/') == $episode->id ? 'list-v-active' : 'list-v' }}"
@@ -119,6 +115,8 @@
             });
         });
 
+        let count = 0;
+
         $(document).on('click', '.click-to' , function() {
             function modifyUrl(title, url) {
                 if (typeof (history.pushState) != "undefined") {
@@ -149,8 +147,8 @@
                 let template = `
                     <div class="card p-2 radious_">
                         <video
-                            id="my-player"
-                            class=""
+                            id="player${count}"
+                            class="video-js"
                             controls
                             preload="auto"
                             poster="${img_path}/${data.image}"
@@ -164,21 +162,14 @@
                     </div>
                 `;
                 $('.append').append(template);
-            });
-            let player = videojs('#my-player');
-        });
-
-        $(document).on({
-            ajaxStart: function(){
-                $("#spinner-div").fadeIn(300); 
-            },
-            ajaxStop: function(){ 
-                $("#spinner-div").fadeOut(300); 
-            }    
+            }).done(() => {
+                let p = videojs(`player${count}`);
+            })
+            count++;
         });
 
         $(document).on("ajaxComplete", function() {
-            let player = videojs('#my-player');
+            let p = videojs('my-player');
         })
     </script>
 @endpush

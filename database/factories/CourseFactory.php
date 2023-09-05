@@ -13,7 +13,7 @@ class CourseFactory extends Factory
 
         return [
             'title' => $title,
-            'slug' => Str::slug($title),
+            'slug' => $title,
             'instructor_id' => $this->faker->numberBetween(1, 15),
             'description' => $this->faker->text(300),
             'summary' => $this->faker->text(300),

@@ -36,18 +36,3 @@
         </div>
     </div>
 </nav>
-                {{-- @if (auth()->guard('admin')->user())
-                    <li class="nav-item d-flex align-items-center">
-                        <a href="{{ route('admin.logout') }}" class="nav-link text-white font-weight-bold px-0">
-                            <span class="d-sm-inline d-none mb-3">Logout</span>
-                            <i class="ri-logout-box-r-line align-text-bottom me-sm-1"></i>
-                        </a>
-                    </li>    
-                @else
-                    <li class="nav-item d-flex align-items-center">
-                        <a href="{{ route('get.login') }}" class="nav-link text-white font-weight-bold px-0">
-                            <i class="fa fa-user me-sm-1"></i>
-                            <span class="d-sm-inline d-none">Sign In</span>
-                        </a>
-                    </li>
-                @endif --}}

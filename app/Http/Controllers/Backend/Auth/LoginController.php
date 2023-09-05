@@ -17,7 +17,8 @@ class LoginController extends Controller
         return view('backend.auth.admin.login');    
     }
 
-    public function login(Request $request) : RedirectResponse {
+    public function login(Request $request) : RedirectResponse 
+    {
         $attributes = $request->validate([
             'email' => 'required|email',
             'password' => 'required|min:8'
@@ -39,7 +40,8 @@ class LoginController extends Controller
         return back()->withErrors(['msg' => 'Invalid Credentials']);
     }
 
-    public function logout() : RedirectResponse {
+    public function logout() : RedirectResponse 
+    {
         Auth::guard('admin')->logout();
 
         return redirect()->route('get.login');

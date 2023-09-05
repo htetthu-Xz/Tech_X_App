@@ -11,7 +11,8 @@ use Illuminate\Http\RedirectResponse;
 
 class ForgotPasswordController extends Controller
 {
-    function getForgotForm() : View {
+    function getForgotForm() : View 
+    {
         return view('backend.auth.admin.forgot_password');
     }
 

@@ -7,6 +7,7 @@ use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Jobs\SendUserForgotPasswordEmail;
+use Illuminate\Http\RedirectResponse;
 
 class UserForgotPasswordController extends Controller
 {
@@ -15,7 +16,7 @@ class UserForgotPasswordController extends Controller
         return view('frontend.auth.forgot_password.index');
     }
 
-    public function sendResetLink(Request $request) 
+    public function sendResetLink(Request $request) : RedirectResponse
     {
         $email = $request->validate([
             'email' => 'required|email'

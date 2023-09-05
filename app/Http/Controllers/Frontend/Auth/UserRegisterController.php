@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Frontend\Auth;
 use Exception;
 use App\Models\User;
 use Illuminate\View\View;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
@@ -19,15 +18,13 @@ class UserRegisterController extends Controller
         return view('frontend.auth.register');
     }
 
-    public function store(UserRegisterRequest $request) : RedirectResponse {
+    public function store(UserRegisterRequest $request) : RedirectResponse 
+    {
 
         try {
             $attributes = $request->validated();
 
-            if($request->hasFile('profile') && $request->file('profile')->isValid()) {
-                $file_name = uploadImage($request->file('profile'), 'public/images/profile/');
-                $attributes['profile'] = $file_name;
-            }
+            $attributes['profile'] = $this->setFile($request, 'profile', 'public/images/profile/');
 
             $user = User::create($attributes);
 

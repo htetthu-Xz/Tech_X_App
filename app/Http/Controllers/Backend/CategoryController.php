@@ -10,7 +10,6 @@ use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Redirect;
 
 class CategoryController extends Controller
 {
@@ -46,16 +45,10 @@ class CategoryController extends Controller
         $attributes = $request->validate([
             'title' => 'required'
         ]);
-        Category::create([
-            'title' => $attributes['title'],
-            'slug' => Str::slug($attributes['title'])
-        ]);
-        return redirect()->route('categories.index')->with(['create_status' => 'Category Successfully Created!']);
-    }
 
-    public function show($id)
-    {
-        //
+        Category::create($attributes);
+
+        return redirect()->route('categories.index')->with(['create_status' => 'Category Successfully Created!']);
     }
 
     public function edit(Category $category) : View
@@ -68,16 +61,16 @@ class CategoryController extends Controller
         $attributes = $request->validate([
             'title' => 'required'
         ]);
-        $category->update([
-            'title' => $attributes['title'],
-            'slug' => Str::slug($attributes['title'])
-        ]);
+
+        $category->update($attributes);
+
         return redirect()->route('categories.index')->with(['update_status' => 'Category Successfully Updated!']);
     }
 
     public function destroy(Category $category) : RedirectResponse
     {
         $category->delete();
+        
         return back()->with(['delete_status' => 'Category Successfully Deleted!']);
     }
 }

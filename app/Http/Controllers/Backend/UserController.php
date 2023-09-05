@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Backend;
 use Carbon\Carbon;
 use App\Models\User;
 use Illuminate\View\View;
-use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use App\Http\Requests\UserRequest;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\RedirectResponse;
 
 class UserController extends Controller
 {
@@ -42,21 +42,18 @@ class UserController extends Controller
         return view('backend.user.create');
     }
 
-    public function store(UserRequest $request) : object
+    public function store(UserRequest $request) : RedirectResponse
     {
         $attributes = $request->validated();
 
-        if($request->hasFile('profile') && $request->file('profile')->isValid()) {
-            $file_name = uploadImage($request->file('profile'), 'public/images/profile/');
-            $attributes['profile'] = $file_name;
-        }
+        $attributes['profile'] = $this->setFile($request, 'profile', 'public/images/profile/');
 
         User::create($attributes);
 
         return redirect()->route('users.index')->with(['create_status' => 'User Successfully Created!']);
     }
 
-    public function show(User $user)
+    public function show(User $user) : View
     {
         return view('backend.user.detail', ['user' => $user]);
     }
@@ -66,17 +63,12 @@ class UserController extends Controller
         return view('backend.user.edit', ['user' => $user]);
     }
 
-    public function update(UserRequest $request, User $user) : object
+    public function update(UserRequest $request, User $user) : RedirectResponse
     {
         $attributes = $request->validated();
 
-        if($attributes['password'] == null) {
-            unset($attributes['password']);
-        }
-
-        if($request->hasFile('profile') && $request->file('profile')->isValid()) {
-            $file_name = uploadImage($request->file('profile'), 'public/images/profile/');
-            $attributes['profile'] = $file_name;
+        if($request->profile !== null) {
+            $attributes['profile'] = $this->setFile($request, 'profile', 'public/images/profile/');
         }
 
         $user->update($attributes);
@@ -84,7 +76,7 @@ class UserController extends Controller
         return redirect()->route('users.index')->with(['update_status' => 'User Successfully Updated!']);
     }
 
-    public function destroy(User $user) : object
+    public function destroy(User $user) : RedirectResponse
     {
         $user->delete();
         return back()->with(['delete_status' => 'User Successfully Deleted!']);

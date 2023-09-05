@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Models\Course;
-use App\Models\Episode;
 use App\Models\Category;
 use Illuminate\View\View;
 use App\Http\Controllers\Controller;
@@ -17,7 +16,7 @@ class CoursePageController extends Controller
         return view('frontend.courses.courses', ['courses' => $courses, 'categories' => $categories]);
     }
 
-    public function loadMore()
+    public function loadMore() 
     {
         $courses = Course::with('Episode')->skip(request()->count)->take(6)->get();
         $max_count = request()->count + 8;
@@ -66,7 +65,7 @@ class CoursePageController extends Controller
         return json_encode($courses);
     }
 
-    public function show(Course $course)
+    public function show(Course $course) : View
     {
         return view('frontend.courses.detail', ['course' => $course]);
     }

@@ -10,8 +10,6 @@ class Episode extends Model
 {
     use HasFactory;
 
-    // protected $table = 'Courses';
-
     protected $fillable = [
         'title',
         'course_id',

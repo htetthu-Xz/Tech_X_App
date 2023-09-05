@@ -255,7 +255,7 @@
                 @foreach ($instructors as $instructor)
                     <div class="single-cat text-center">
                         <div class="cat-icon">
-                            <img src="{{ $instructor['profile'] }}" alt="" class="avatar_ins">
+                            <img src="{{ getProfile($instructor['profile']) }}" alt="" class="avatar_ins">
                         </div>
                         <div class="cat-cap">
                             <h5><a href="">{{ $instructor['name'] }}</a></h5>
@@ -331,14 +331,6 @@
                 `
                 $('.res').append(section);
             });
-            $(document).on({
-                ajaxStart: function(){
-                    $("#spinner-div").fadeIn(300); 
-                },
-                ajaxStop: function(){ 
-                    $("#spinner-div").fadeOut(300); 
-                }
-            })
         })
     </script>
 @endpush

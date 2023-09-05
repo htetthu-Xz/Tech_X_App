@@ -83,6 +83,7 @@ class RoleController extends Controller
             'name' => 'required|unique:roles,name,'. $role->id,
             'permissions' => 'required|array'
         ]);
+        
         $role->update([
             'name' => $attributes['name']
         ]);
@@ -94,8 +95,8 @@ class RoleController extends Controller
 
     public function destroy(Role $role) : RedirectResponse
     {
-        // dd($role);
         $role->delete();
+
         return back()->with(['delete_status' => 'Admin Successfully Deleted!']);
     }
 }

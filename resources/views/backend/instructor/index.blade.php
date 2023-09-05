@@ -18,14 +18,14 @@
                 <div class="table-responsive p-0">
                     <table class="table align-items-center mb-0" id="instructorTable">
                         <thead>
-                                <tr>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name (Email)</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">phone</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Gender</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date of Birth</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Created Date</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
-                                </tr>
+                            <tr>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name (Email)</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">phone</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Gender</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date of Birth</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Created Date</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
+                            </tr>
                         </thead>
                         <tbody>
                             {{-- Datatable Data --}}

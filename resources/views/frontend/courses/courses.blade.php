@@ -69,20 +69,24 @@
                         <div class="properties properties2 mb-30">
                             <div class="properties__card">
                                 <div class="properties__img overlay1">
-                                    <a href="{{ route('frontend.courses.detail', [$course->slug]) }}"><img src="{{ getCoursePhotos($course->image) }}" alt=""  height="300"></a>
+                                    <a href="{{ route('frontend.courses.detail', [$course->slug]) }}">
+                                        <img src="{{ getCoursePhotos($course->image) }}" alt="" style="max-height: 250px; max-width:300;">
+                                    </a>
                                 </div>
                                 <div class="properties__caption">
-                                    <h3><a href="{{ route('frontend.courses.detail', [$course->slug]) }}">{{ $course->title }}</a></h3>
-                                    <p>{{ Str::limit($course->description, 100) }}</p>
-                                    <div class="properties__footer d-flex justify-content-between align-items-center">
-                                        <div class="restaurant-name">
-                                            <p>Episodes - <p class="f-3">{{ $course->Episode->count() }}</p></p>
+                                    <div style="min-height: 280px;">
+                                        <h3><a href="{{ route('frontend.courses.detail', [$course->slug]) }}">{{ $course->title }}</a></h3>
+                                        <p>{{ Str::limit($course->description, 100) }}</p>
+                                        <div class="properties__footer d-flex justify-content-between align-items-center">
+                                            <div class="restaurant-name">
+                                                <p>Episodes - <p class="f-3">{{ $course->Episode->count() }}</p></p>
+                                            </div>
+                                            <div class="price">
+                                                <span>${{ $course->price }}</span>
+                                            </div>
                                         </div>
-                                        <div class="price">
-                                            <span>${{ $course->price }}</span>
-                                        </div>
+                                        <a href="{{ route('frontend.courses.detail', [$course->slug]) }}" class=" mb-0 border-btn border-btn2">Find out more</a>
                                     </div>
-                                    <a href="{{ route('frontend.courses.detail', [$course->slug]) }}" class="border-btn border-btn2">Find out more</a>
                                 </div>
                             </div>
                         </div>
@@ -127,7 +131,6 @@
                         $('.fix').append(`
                             <div class="text-center no-match">
                                 <p class="text-center">No matching result.</p>
-                                <a href="{{ route('frontend.home') }}" class="text-dark bg-warning p-2 px-3 rounded ">Back</a>
                             </div>
                         `)
                     } else {
@@ -138,20 +141,24 @@
                                     <div class="properties properties2 mb-30">
                                         <div class="properties__card">
                                             <div class="properties__img overlay1">
-                                                <a href="${url}"><img src="${base_path}/${course.image}" alt=""></a>
+                                                <a href="${url}">
+                                                    <img src="${base_path}/${course.image}" alt="" style="max-height: 250px; max-width:300;">
+                                                </a>
                                             </div>
                                             <div class="properties__caption">
-                                                <h3><a href="${url}">${course.title}</a></h3>
-                                                <p>${course.description.substring(0, 100)}...</p>
-                                                <div class="properties__footer d-flex justify-content-between align-items-center">
-                                                    <div class="restaurant-name">
-                                                        <p>Episodes - <p class="f-3">${course.episode.length}</p></p>
+                                                <div style="min-height: 280px;">
+                                                    <h3><a href="${url}">${course.title}</a></h3>
+                                                    <p>${course.description.substring(0, 100)}...</p>
+                                                    <div class="properties__footer d-flex justify-content-between align-items-center">
+                                                        <div class="restaurant-name">
+                                                            <p>Episodes - <p class="f-3">${course.episode.length}</p></p>
+                                                        </div>
+                                                        <div class="price">
+                                                            <span>$${course.price}</span>
+                                                        </div>
                                                     </div>
-                                                    <div class="price">
-                                                        <span>$${course.price}</span>
-                                                    </div>
+                                                    <a href="${url}" class="border-btn border-btn2">Find out more</a>
                                                 </div>
-                                                <a href="${url}" class="border-btn border-btn2">Find out more</a>
                                             </div>
                                         </div>
                                     </div>
@@ -177,20 +184,24 @@
                                 <div class="properties properties2 mb-30">
                                     <div class="properties__card">
                                         <div class="properties__img overlay1">
-                                            <a href="${url}"><img src="${base_path}/${course.image}" alt=""></a>
+                                            <a href="${url}">
+                                                <img src="${base_path}/${course.image}" alt="" style="max-height: 250px; max-width:300;">
+                                            </a>
                                         </div>
                                         <div class="properties__caption">
-                                            <h3><a href="${url}">${course.title}</a></h3>
-                                            <p>${course.description.substring(0, 100)}...</p>
-                                            <div class="properties__footer d-flex justify-content-between align-items-center">
-                                                <div class="restaurant-name">
-                                                    <p>Episodes - <p class="f-3">${course.episode.length}</p></p>
+                                            <div style="min-height: 280px;">
+                                                <h3><a href="${url}">${course.title}</a></h3>
+                                                <p>${course.description.substring(0, 100)}...</p>
+                                                <div class="properties__footer d-flex justify-content-between align-items-center">
+                                                    <div class="restaurant-name">
+                                                        <p>Episodes - <p class="f-3">${course.episode.length}</p></p>
+                                                    </div>
+                                                    <div class="price">
+                                                        <span>$${course.price}</span>
+                                                    </div>
                                                 </div>
-                                                <div class="price">
-                                                    <span>$${course.price}</span>
-                                                </div>
+                                                <a href="${url}" class="border-btn border-btn2">Find out more</a>
                                             </div>
-                                            <a href="${url}" class="border-btn border-btn2">Find out more</a>
                                         </div>
                                     </div>
                                 </div>
@@ -211,7 +222,7 @@
                 $('.ls').remove();
                 $('.less').remove();
                 let section = `
-                    <button class="border-btn text-dark load">View More Category</button>
+                    <button class="border-btn text-dark load">Load More</button>
                 `
                 $('.res').append(section);
             });
@@ -230,7 +241,6 @@
                             $('.fix').append(`
                                 <div class="text-center no-match">
                                     <p class="text-center">No matching result.</p>
-                                    <a href="{{ route('frontend.courses.index') }}" class="text-dark bg-warning p-2 px-3 rounded ">Back</a>
                                 </div>
                             `)
                         } else {
@@ -241,20 +251,24 @@
                                         <div class="properties properties2 mb-30">
                                             <div class="properties__card">
                                                 <div class="properties__img overlay1">
-                                                    <a href="${url}"><img src="${base_path}/${course.image}" alt=""></a>
+                                                    <a href="${url}">
+                                                        <img src="${base_path}/${course.image}" alt="" style="max-height: 250px; max-width:300;">
+                                                    </a>
                                                 </div>
                                                 <div class="properties__caption">
-                                                    <h3><a href="${url}">${course.title}</a></h3>
-                                                    <p>${course.description.substring(0, 100)}...</p>
-                                                    <div class="properties__footer d-flex justify-content-between align-items-center">
-                                                        <div class="restaurant-name">
-                                                            <p>Episodes - <p class="f-3">${course.episode.length}</p></p>
+                                                    <div style="min-height: 280px;">
+                                                        <h3><a href="${url}">${course.title}</a></h3>
+                                                        <p>${course.description.substring(0, 100)}...</p>
+                                                        <div class="properties__footer d-flex justify-content-between align-items-center">
+                                                            <div class="restaurant-name">
+                                                                <p>Episodes - <p class="f-3">${course.episode.length}</p></p>
+                                                            </div>
+                                                            <div class="price">
+                                                                <span>$${course.price}</span>
+                                                            </div>
                                                         </div>
-                                                        <div class="price">
-                                                            <span>$${course.price}</span>
-                                                        </div>
+                                                        <a href="${url}" class="border-btn border-btn2">Find out more</a>
                                                     </div>
-                                                    <a href="${url}" class="border-btn border-btn2">Find out more</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -267,14 +281,5 @@
                 }
             });
         })
-
-        $(document).on({
-            ajaxStart: function(){
-                $("#spinner-div").fadeIn(300); 
-            },
-            ajaxStop: function(){ 
-                $("#spinner-div").fadeOut(300); 
-            }    
-        });
     </script>
 @endpush

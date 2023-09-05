@@ -5,12 +5,12 @@ namespace App\Http\Controllers\Backend;
 use Carbon\Carbon;
 use App\Models\Course;
 use App\Models\Episode;
-use Illuminate\Support\Arr;
+use Illuminate\View\View;
 use Illuminate\Support\Str;
-use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\EpisodeRequest;
+use Illuminate\Http\RedirectResponse;
 
 class EpisodeController extends Controller
 {
@@ -42,31 +42,22 @@ class EpisodeController extends Controller
         return view('backend.course.episode.index', ['id' => $id]);
     }
 
-    public function create(Course $course)
+    public function create(Course $course) : View
     {
         return view('backend.course.episode.create', ['course' => $course]);
     }
 
-    public function store(EpisodeRequest $request, $id)
+    public function store(EpisodeRequest $request, $id) : RedirectResponse
     {
         $attributes = $request->validated();
 
         $attributes['privacy'] = $this->modifyPrivacy($attributes);
 
-        if($request->hasFile('cover') && $request->file('cover')->isValid()) {
-            $file_name = uploadImage($request->file('cover'), 'public/images/episode/');
-            $attributes['cover'] = $file_name;
-        }
+        $attributes['cover'] = $this->setFile($request, 'cover', 'public/images/episode/');
 
-        if($request->hasFile('image') && $request->file('image')->isValid()) {
-            $file_name = uploadImage($request->file('image'), 'public/images/episode/');
-            $attributes['image'] = $file_name;
-        }
+        $attributes['image'] = $this->setFile($request, 'image', 'public/images/episode/');
 
-        if($request->hasFile('video') && $request->file('video')->isValid()) {
-            $file_name = uploadImage($request->file('video'), 'public/images/episode/video/');
-            $attributes['video'] = $file_name;
-        }
+        $attributes['video'] = $this->setFile($request, 'video', 'public/images/episode/video/');
 
         Episode::create($attributes);
 
@@ -74,35 +65,32 @@ class EpisodeController extends Controller
                     ->with(['create_status' => 'Episode Successfully Created!']);
     }
 
-    public function show(Course $course, Episode $episode)
+    public function show(Course $course, Episode $episode) : View
     {
         return view('backend.course.episode.detail', ['episode' => $episode]);
     }
 
-    public function edit(Course $course, Episode $episode)
+    public function edit(Course $course, Episode $episode) : View
     {
         return view('backend.course.episode.edit', ['episode' => $episode]);
     }
 
-    public function update(EpisodeRequest $request, Course $course, Episode $episode)
+    public function update(EpisodeRequest $request, Course $course, Episode $episode) : RedirectResponse
     {
         $attributes = $request->validated();
 
         $attributes['privacy'] = $this->modifyPrivacy($attributes);
 
-        if($request->hasFile('cover') && $request->file('cover')->isValid()) {
-            $file_name = uploadImage($request->file('cover'), 'public/images/episode/');
-            $attributes['cover'] = $file_name;
+        if($request->cover !== null) {
+            $attributes['cover'] = $this->setFile($request, 'cover', 'public/images/episode/');
         }
 
-        if($request->hasFile('image') && $request->file('image')->isValid()) {
-            $file_name = uploadImage($request->file('image'), 'public/images/episode/');
-            $attributes['image'] = $file_name;
+        if($request->image !== null) {
+            $attributes['image'] = $this->setFile($request, 'image', 'public/images/episode/');
         }
 
-        if($request->hasFile('video') && $request->file('video')->isValid()) {
-            $file_name = uploadImage($request->file('video'), 'public/images/episode/video/');
-            $attributes['video'] = $file_name;
+        if($request->video !== null) {
+            $attributes['video'] = $this->setFile($request, 'video', 'public/images/episode/video/');
         }
 
         $episode->update($attributes);
@@ -111,7 +99,7 @@ class EpisodeController extends Controller
             ->with(['update_status' => 'Episode Successfully Updated!']);
     }
 
-    public function destroy(Course $course, Episode $episode)
+    public function destroy(Course $course, Episode $episode) : RedirectResponse
     {
         $episode->delete();
 

@@ -23,8 +23,8 @@
                         <input type="text" name="name" class="form-control" id="name" required>
                     </div>
                     <div class="mb-3">
-                      <label for="email" class="form-label">Email address <span class="text-danger">*</span></label>
-                      <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" required>
+                        <label for="email" class="form-label">Email address <span class="text-danger">*</span></label>
+                        <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" required>
                     </div>
                     <div class="mb-3">
                         <label for="phone" class="form-label">Phone <span class="text-danger">*</span></label>

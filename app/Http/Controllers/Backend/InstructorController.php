@@ -5,14 +5,10 @@ namespace App\Http\Controllers\Backend;
 use Carbon\Carbon;
 use Illuminate\View\View;
 use App\Models\Instructor;
-use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
-use function PHPUnit\Framework\isNull;
-
 use App\Http\Requests\InstructorRequest;
-use Illuminate\Support\Facades\Redirect;
 
 class InstructorController extends Controller
 {
@@ -50,10 +46,7 @@ class InstructorController extends Controller
     {
         $attributes = $request->validated();
 
-        if($request->hasFile('profile') && $request->file('profile')->isValid()) {
-            $file_name = uploadImage($request->file('profile'), 'public/images/profile/');
-            $attributes['profile'] = $file_name;
-        }
+        $attributes['profile'] = $this->setFile($request, 'profile', 'public/images/profile/');
 
         Instructor::create($attributes);
 
@@ -74,16 +67,12 @@ class InstructorController extends Controller
     {
         $attributes = $request->validated();
 
-        if($attributes['password'] == null) {
-            unset($attributes['password']);
-        }
-
-        if($request->hasFile('profile') && $request->file('profile')->isValid()) {
-            $file_name = uploadImage($request->file('profile'), 'public/images/profile/');
-            $attributes['profile'] = $file_name;
+        if($request->profile !== null) {
+            $attributes['profile'] = $this->setFile($request, 'profile', 'public/images/profile/');
         }
 
         $instructor->update($attributes);
+        
         return redirect()->route('instructors.index')->with(['update_status' => 'Instructor Successfully Updated!']);
     }
 
