@@ -19,10 +19,11 @@
     <link rel="stylesheet" href="{{ asset('frontend/css/fontawesome-all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/themify-icons.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/slick.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/awesome-notifications/dist/style.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/plugins/tosta/css/nice-toast-js.min.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/plugins/Videojs/css/video-js.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/css/waitMe.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('frontend/css/waitMe.css') }}"> --}}
     <link rel="stylesheet" href="{{ asset('frontend/css/custom.css') }}">
     <script>
         /*to prevent Firefox FOUC, this must be here*/
@@ -31,7 +32,6 @@
     @stack('css')
 </head>
 <body>
-    @routes
     <!-- ? Preloader Start -->
     <div id="preloader-active">
         <div class="preloader d-flex align-items-center justify-content-center">
@@ -103,15 +103,19 @@
     <script src="{{ asset('frontend/plugins/Videojs/js/video.min.js') }}"></script>
 
     {{-- spinner --}}
-    <script src="{{ asset('frontend/js/waitMe.js') }}"></script>
+    {{-- <script src="{{ asset('frontend/js/waitMe.js') }}"></script> --}}
 
     {{-- Ajax Loader --}}
     <script src="{{ asset('frontend/js/ajax_loader.js') }}"></script>
+
+    <script src="{{ asset('plugins/awesome-notifications/dist/index.var.js') }}"></script>
 
     {{-- custom js --}}
     <script src="{{ asset('frontend/js/custom.js') }}"></script>
 
     @include('frontend.layouts.tosta')
+
+    @routes
 
     @stack('script')
 </body>
