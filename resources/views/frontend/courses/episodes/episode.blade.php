@@ -148,8 +148,11 @@
                     `;
                     
                 }
-                console.log('ff');
                 $('.append').append(template);
+
+                if(data.privacy !== 'private') {
+                    let player = videojs('my-player');
+                }
             });
 
             $(document).on('click', '.lock' , function() {
@@ -179,8 +182,6 @@
                     </div>
                 `;
                 $('.append').append(template);
-            }).done(() => {
-                let p = videojs('my-player')
             })
         });
 

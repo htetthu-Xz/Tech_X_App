@@ -197,6 +197,12 @@
 .link {
     font-size: 25px;
     margin: 5px;
+    transition: .4s;
+}
+
+.link:hover {
+    color: #C86FFF;
+    transition: .4s;
 }
 
 .bg-episode {

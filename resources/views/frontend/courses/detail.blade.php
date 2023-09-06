@@ -43,12 +43,31 @@
                                 {{ $course->description }}
                             </p>
                             <h5 class="my-2">
-                                <u>Summary</u>
+                                <u>Episodes</u>
                             </h5>
-                            <div class="quote-wrapper">
-                                <div class="quotes">
-                                    {!! $course->summary !!}
-                                </div>
+                            <div class="">
+                                @foreach ($course->Episode as $episode)
+                                    <div class="card-body p-3">
+                                        <div class="accordion" id="accordion{{ $loop->index + 1 }}">
+                                            <div class="card shadow-sm" style="border-radius: 10px">
+                                                <a href="{{ route('frontend.courses.episode', [$course->slug, $episode->id]) }}" class="epi">
+                                                    <div class="acc-bg p-4" id="headingOne" style="border-radius: 10px">
+                                                        <div class="" data-toggle="collapse" data-target="#collapse{{ $loop->index + 1 }}" aria-expanded="true" aria-controls="collapseOne">
+                                                            <div class="d-flex justify-content-start align-items-center">
+                                                                <div class="mx-3 p-2 acc-round">
+                                                                    <i class="fas fa-play m-play text-warning"></i>
+                                                                </div>
+                                                                <div class="d-flex flex-column">
+                                                                    <p class="mb-0">Episode - {{ $loop->index + 1 }} | {{ $episode->title }}</p><br>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>    
+                                            </div>
+                                        </div>          
+                                    </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -60,13 +79,15 @@
                             <h4 class="widget_title" style="color: #2d2d2d;">Details</h4>
                             <ul class="list cat-list">
                                 <li>
-                                    <img src="{{ getProfile($course->Instructor->profile) }}" alt="" width="310px" height="400px" class="rounded shadow-sm">
+                                    <img src="{{ getProfile($course->Instructor->profile) }}" alt="" width="310px" height="350px" class="rounded shadow-sm">
                                     <p class="my-2">Instructor - {{ $course->Instructor->name }}</p>
                                     <p>Bio -  {{ $course->Instructor->Bio }}</p>
                                     <p>
+                                        {{-- <div class="footer-social"> --}}
                                         @foreach (json_decode($course->Instructor->link) as $item)
                                             <a href="{{ $item->link }}"><i class="{{ $item->icon }} link"></i></a>
                                         @endforeach
+                                        {{-- </div> --}}
                                     </p>
                                 </li>
 
@@ -89,39 +110,18 @@
                             </ul>
                         </aside>
                         <aside class="single_sidebar_widget newsletter_widget">
-                            <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn" type="submit">Purchase</button>
+                            <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn" type="submit">Enroll to this course</button>
                         </aside>
                     </div>
                 </div>
             </div>
             <div class="card shadow-sm rounded">
-                <h2 class="p-3">Episodes</h2>
-                @foreach ($course->Episode as $episode)
-
-                    <div class="card-body p-3">
-                                        
-                        <div class="accordion" id="accordion{{ $loop->index + 1 }}">
-                            <div class="card shadow-sm" style="border-radius: 10px">
-                                <a href="{{ route('frontend.courses.episode', [$course->slug, $episode->id]) }}" class="epi">
-                                    <div class="acc-bg p-4" id="headingOne" style="border-radius: 10px">
-                                        <div class="" data-toggle="collapse" data-target="#collapse{{ $loop->index + 1 }}" aria-expanded="true" aria-controls="collapseOne">
-                                            <div class="d-flex justify-content-start align-items-center">
-                                                <div class="mx-3 p-2 acc-round">
-                                                    <i class="fas fa-play m-play text-warning"></i>
-                                                </div>
-                                                <div class="d-flex flex-column">
-                                                    <p class="mb-0">Episode - {{ $loop->index + 1 }} | {{ $episode->title }}</p><br>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>    
-                            </div>
-                        </div>
-                                        
+                <h2 class="p-2"><u>Summary</u></h2>
+                <div class="quote-wrapper" style="margin-top: 0px">
+                    <div class="quotes">
+                        {!! $course->summary !!}
                     </div>
-
-                @endforeach
+                </div>
             </div>
         </div>
     </section>
