@@ -17,12 +17,12 @@ class InstructorFactory extends Factory
             'Dob' => $this->faker->date(),
             'gender' =>$this->faker->randomElement(['male', 'female','other']),
             'Bio' => $this->faker->realText(30),
-            'profile' =>'https://i.pravatar.cc/150?u='.$this->faker->uuid(),
+            'profile' => null,
             'link' => [
                     0 => [
-                        'icon' => base_path(), 
+                        'icon' => 'fab fa-twitter-square', 
                         'link' => $this->faker->url(), 
-                        'label' => $this->faker->catchPhrase 
+                        'label' => 'twitter' 
                     ]
                 ] 
         ];

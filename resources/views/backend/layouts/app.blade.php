@@ -35,13 +35,18 @@
     {{-- CSSFiles --}}
     <link id="pagestyle" href="{{ asset('backend/css/argon-dashboard.css?v=2.0.4') }}" rel="stylesheet" />
 
-    {{-- select2 --}}
-    {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" /> --}}
     <link href="{{ asset('backend/css/select2.min.css') }}" rel="stylesheet" />
+
+    <link rel="stylesheet" href="{{ asset('frontend/plugins/Videojs/css/video-js.min.css') }}">
 
     <link rel="stylesheet" href="{{ asset('backend/css/custom.css') }}">
 
     @stack('css')
+
+    <script>
+        /*to prevent Firefox FOUC, this must be here*/
+        let FF_FOUC_FIX;
+    </script>
 </head>
 <body class="g-sidenav-show dark-version bg-gray-600">
 
@@ -75,6 +80,7 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script src="{{ asset('plugins/bootstrap-5-jbvalidator/dist/jbvalidator.min.js') }}"></script>
     <script src="{{ asset('backend/js/select2.min.js') }}"></script>
+    <script src="{{ asset('frontend/plugins/Videojs/js/video.min.js') }}"></script>
     <script src="{{ asset('backend/js/custom.js') }}"></script>
     {{-- <script src="{{ asset('backend/js/bootstrap.min.js') }}"></script> --}}
 

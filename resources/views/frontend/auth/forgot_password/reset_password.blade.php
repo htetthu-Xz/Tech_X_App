@@ -9,7 +9,7 @@
                     <div class="row">
                         <div class="col-xl-8 col-lg-11 col-md-12">
                             <div class="hero__caption hero__caption2" style="padding-top: 100px">
-                                <h1 data-animation="bounceIn" data-delay="0.2s">Reset Password</h1>
+                                <h2 data-animation="bounceIn" data-delay="0.2s" class="text-light">Reset Password</h2>
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="{{ route('frontend.home') }}">Home</a></li>

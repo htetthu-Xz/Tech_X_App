@@ -72,14 +72,14 @@
                                         <h4 class="text-lg ">
                                             <u class="text-info">Photos</u>
                                         </h4>
-                                        <div class="mx-5 mt-4 row">
+                                        <div class="mx-5 mt-4 row text-start">
                                             @if ($episode->cover !== null)
                                                 <div class="col-sm-6">
                                                     <h6>
                                                         <u>Cover Photo</u>
                                                     </h6>
                                                     <div class="">
-                                                        <img src="{{ getEpisodePhotos($episode->cover) }}" class="mx-2" alt="cover" height="300px" width="350px">
+                                                        <img src="{{ getEpisodePhotos($episode->cover) }}" class="detail-img" alt="cover">
                                                     </div>
                                                 </div>
                                             @endif
@@ -89,7 +89,7 @@
                                                         <u>Image</u>
                                                     </h6>
                                                     <div class="">
-                                                        <img src="{{ getEpisodePhotos($episode->image) }}" class="mx-2" alt="cover" height="300px" width="350px">
+                                                        <img src="{{ getEpisodePhotos($episode->image) }}" class="detail-img" alt="cover">
                                                     </div>
                                                 </div>
                                             @endif
@@ -105,9 +105,21 @@
                                         <u class="text-success">Video</u>
                                     </h4>
                                     <div class="mx-5 mt-4">
-                                        <video class="w-100" autoplay loop muted>
-                                            <source src="{{ getEpisodes($episode->video) }}" type="video/mp4" />
-                                        </video>
+                                        <div class="">
+                                            <video
+                                                id="my-player"
+                                                class="video-js"
+                                                controls
+                                                preload="auto"
+                                                poster="{{ getEpisodePhotos($episode->cover) }}"
+                                                data-setup='{}'
+                                                width="780px"
+                                                height="500px"
+                                                seeking
+                                                >
+                                                <source src="{{ getEpisodes($episode->video) }}" type="video/mp4"></source>
+                                            </video>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -119,3 +131,9 @@
     </div>
 </div>
 @endsection
+
+@push('script')
+    <script>
+        let player = videojs('my-player');
+    </script>
+@endpush

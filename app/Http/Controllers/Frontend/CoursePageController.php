@@ -26,7 +26,7 @@ class CoursePageController extends Controller
             $result['status'] = 0;
             return json_encode($result);
         }
-        return json_encode($courses);
+        return json_encode($result);
     }
 
     public function search() 

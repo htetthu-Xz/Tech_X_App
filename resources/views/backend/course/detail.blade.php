@@ -72,14 +72,14 @@
                                         <h4 class="text-lg ">
                                             <u class="text-info">Photos</u>
                                         </h4>
-                                        <div class="mx-5 mt-4 row">
+                                        <div class="mx-5 mt-4 row text-start">
                                             @if ($course->cover_photo !== null)
                                                 <div class="col-sm-6">
                                                     <h6>
                                                         <u>Cover Photo</u>
                                                     </h6>
                                                     <div class="">
-                                                        <img src="{{ getCoursePhotos($course->cover_photo) }}" class="mx-2" alt="cover" height="300px" width="350px">
+                                                        <img src="{{ getCoursePhotos($course->cover_photo) }}" class="mx-2 detail-img" alt="cover">
                                                     </div>
                                                 </div>
                                             @endif
@@ -89,7 +89,7 @@
                                                         <u>Image</u>
                                                     </h6>
                                                     <div class="">
-                                                        <img src="{{ getCoursePhotos($course->image) }}" class="mx-2" alt="cover" height="300px" width="350px">
+                                                        <img src="{{ getCoursePhotos($course->image) }}" class="mx-2 detail-img" alt="cover">
                                                     </div>
                                                 </div>
                                             @endif

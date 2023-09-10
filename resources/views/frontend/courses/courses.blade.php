@@ -9,7 +9,7 @@
                     <div class="row">
                         <div class="col-xl-8 col-lg-11 col-md-12">
                             <div class="hero__caption hero__caption2" style="padding-top: 100px">
-                                <h1 data-animation="bounceIn" data-delay="0.2s">Our Courses</h1>
+                                <h2 data-animation="bounceIn" data-delay="0.2s" class="text-light">Our Courses</h2>
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="{{ route('frontend.home') }}">Home</a></li>
@@ -63,6 +63,8 @@
                     </form>
                 </aside>
             </div>
+            <div class="back my-2 w-100 d-flex justify-content-end">
+            </div>
             <div class="row append">
                 @foreach ($courses as $course)
                     <div class="col-lg-4 count">
@@ -70,7 +72,7 @@
                             <div class="properties__card">
                                 <div class="properties__img overlay1">
                                     <a href="{{ route('frontend.courses.detail', [$course->slug]) }}">
-                                        <img src="{{ getCoursePhotos($course->image) }}" alt="" style="max-height: 250px; max-width:300;">
+                                        <img src="{{ getCoursePhotos($course->cover_photo) }}" alt="" class="object-fit course-img-size">
                                     </a>
                                 </div>
                                 <div class="properties__caption">
@@ -108,7 +110,16 @@
 @push('script')
     <script>
         $(() => {
-            const base_path = "{{ getCoursePhotos('') }}";
+            const base_path = "{{ getCoursePhotos(null) }}";
+
+            function getNoPhoto(photo) {
+                if(photo === '') {
+                    return "{{ asset('storage/images/nophoto.jpg') }}"
+                } else {
+                    return base_path + '/' + photo
+                }
+            }
+
             console.log(base_path);
             const searchParams = new URLSearchParams(window.location.search);
             if(searchParams.has('search')) {
@@ -142,7 +153,7 @@
                                         <div class="properties__card">
                                             <div class="properties__img overlay1">
                                                 <a href="${url}">
-                                                    <img src="${base_path}/${course.image}" alt="" style="max-height: 250px; max-width:300;">
+                                                    <img src="${getNoPhoto(course.cover_photo)}" alt="" class="object-fit course-img-size">
                                                 </a>
                                             </div>
                                             <div class="properties__caption">
@@ -176,16 +187,15 @@
                 $.get("{{ route('frontend.courses.load') }}", {count:count}, function(res) {
                     let data = JSON.parse(res, true)
                     let result = data.data;
-
                     result.forEach(function(course) {
-                        let url = route('frontend.courses.detail', course.slug);
+                        let url = route('frontend.courses.detail', course.slug); //${base_path}/${course.image}
                         let template = `
                             <div class="col-lg-4 count ls">
                                 <div class="properties properties2 mb-30">
                                     <div class="properties__card">
                                         <div class="properties__img overlay1">
                                             <a href="${url}">
-                                                <img src="${base_path}/${course.image}" alt="" style="max-height: 250px; max-width:300;">
+                                                <img src="${getNoPhoto(course.cover_photo)}" alt="" class="object-fit course-img-size"">
                                             </a>
                                         </div>
                                         <div class="properties__caption">
@@ -235,6 +245,7 @@
                         $('.count').remove();
                         $('.load').remove();
                         $('.end').remove();
+                        $('.less').remove();
                         $('.no-match').remove()
                         let data = JSON.parse(res, true)
                         if(data.length == 0) {
@@ -252,7 +263,7 @@
                                             <div class="properties__card">
                                                 <div class="properties__img overlay1">
                                                     <a href="${url}">
-                                                        <img src="${base_path}/${course.image}" alt="" style="max-height: 250px; max-width:300;">
+                                                        <img src="${getNoPhoto(course.cover_photo)}" alt="" class="object-fit course-img-size">
                                                     </a>
                                                 </div>
                                                 <div class="properties__caption">
@@ -274,6 +285,9 @@
                                         </div>
                                     </div>
                                 `
+                                $('.back').append(`
+                                    <a href="{{ route('frontend.courses.index') }}" class="text-light bg-primary p-2 px-3 rounded mb-4"><i class="fa fa-angle-left mx-2"></i>Back</a>
+                                `);
                                 $('.append').append(template);   
                             });
                         }

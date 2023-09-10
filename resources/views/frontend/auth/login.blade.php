@@ -9,7 +9,7 @@
                     <div class="row">
                         <div class="col-xl-8 col-lg-11 col-md-12">
                             <div class="hero__caption hero__caption2" style="padding-top: 100px">
-                                <h1 data-animation="bounceIn" data-delay="0.2s">Login</h1>
+                                <h2 data-animation="bounceIn" data-delay="0.2s" class="text-light">Login</h2>
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="{{ route('frontend.home') }}">Home</a></li>
@@ -48,7 +48,7 @@
                         </div>
                     </div>
                     <div class="text-center">
-                        <button type="submit" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Sign in</button>
+                        <button type="submit" class="btn btn-lg btn-primary btn-lg mt-4 mb-0">Sign in</button>
                     </div>
                 </form>
                 <div class="text-center pt-3 px-lg-2 px-1">

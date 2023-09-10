@@ -7,6 +7,7 @@
     <title>{{ config('app.name') }}</title>
 
     <!-- CSS -->
+    <link rel="icon" type="image/png" href="{{ asset('frontend/img/logo/loder.png') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/slicknav.css') }}">

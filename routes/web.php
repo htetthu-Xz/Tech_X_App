@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Episode;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\RoleController;
 use App\Http\Controllers\Backend\UserController;
@@ -77,12 +76,8 @@ Route::group([
 //---------------------------- frontend --------------------------------//
 
 Route::group([
-    'middleware' => 'web'
+    'middleware' => 'guest-user'
 ], function () {
-    #Home
-    Route::get('/', [HomePageController::class, 'index'])->name('frontend.home');
-    Route::get('/load', [HomePageController::class, 'load'])->name('frontend.category.load');
-
     #Login
     Route::get('login', [UserLoginController::class, 'index'])->name('user.get.login');
     Route::post('login', [UserLoginController::class, 'login'])->name('user.login');
@@ -96,7 +91,7 @@ Route::group([
         Route::get('/', [EmailVerificationController::class, 'verify'])->name('verification.verify');
         Route::get('resend', [EmailVerificationController::class, 'resend'])->name('verification.resend');
     });
-    
+
     #forgot-password
     Route::get('forgot-password', [UserForgotPasswordController::class, 'getForgotForm'])->name('user.getForgot');
     Route::post('forgot-password', [UserForgotPasswordController::class, 'sendResetLink'])->name('user.sendResetLink');
@@ -104,16 +99,20 @@ Route::group([
     #reset-password
     Route::get('reset-password', [UserResetPasswordController::class, 'resetVerify'])->name('user.resetVerily');
     Route::post('reset-password', [UserResetPasswordController::class, 'reset'])->name('user.resetPassword');
-
-    #Course 
-    Route::get('courses', [CoursePageController::class, 'index'])->name('frontend.courses.index');
-    Route::get('course', [CoursePageController::class, 'loadMore'])->name('frontend.courses.load');
-    Route::get('course/search', [CoursePageController::class, 'search'])->name('frontend.courses.search');
-    Route::get('course/category-search', [CoursePageController::class, 'categorySearch'])->name('frontend.courses.category.search');
-    Route::get('courses/{course:slug}', [CoursePageController::class, 'show'])->name('frontend.courses.detail');
-    Route::get('courses/{course:slug}/episodes/{episode}', [EpisodePageController::class, 'showEpisode'])->name('frontend.courses.episode');
-    Route::get('courses/{course:slug}/episodes', [EpisodePageController::class, 'getVideo'])->name('frontend.courses.episodes.video');
 });
+
+#Home
+Route::get('/home', [HomePageController::class, 'index'])->name('frontend.home');
+Route::get('/load', [HomePageController::class, 'load'])->name('frontend.category.load');
+
+#Course 
+Route::get('courses', [CoursePageController::class, 'index'])->name('frontend.courses.index');
+Route::get('course', [CoursePageController::class, 'loadMore'])->name('frontend.courses.load');
+Route::get('course/search', [CoursePageController::class, 'search'])->name('frontend.courses.search');
+Route::get('course/category-search', [CoursePageController::class, 'categorySearch'])->name('frontend.courses.category.search');
+Route::get('courses/{course:slug}', [CoursePageController::class, 'show'])->name('frontend.courses.detail');
+Route::get('courses/{course:slug}/episodes/{episode}', [EpisodePageController::class, 'showEpisode'])->name('frontend.courses.episode');
+Route::get('courses/{course:slug}/episodes', [EpisodePageController::class, 'getVideo'])->name('frontend.courses.episodes.video');
 
 Route::group([
     'middleware' => 'auth'

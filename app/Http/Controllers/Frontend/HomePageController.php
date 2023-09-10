@@ -13,7 +13,7 @@ class HomePageController extends Controller
     public function index() : View 
     {
         $courses = Course::all();
-        $categories = Category::take(8)->get()->toBase()->pluck('title', 'slug')->toArray();
+        $categories = Category::take(6)->get()->toBase()->pluck('title', 'slug')->toArray();
         $instructors = Instructor::select('name', 'profile', 'Bio')->get()->toBase()->toArray();
         
         return view('frontend.home', ['courses' => $courses, 'categories' => $categories, 'instructors' => $instructors]);
@@ -21,8 +21,8 @@ class HomePageController extends Controller
 
     public function load()
     {
-        $categories = Category::skip(request()->count)->take(8)->get()->toBase()->toArray();
-        $max_count = request()->count + 8;
+        $categories = Category::skip(request()->count)->take(6)->get()->toBase()->toArray();
+        $max_count = request()->count + 6;
         $result['data'] = $categories;
 
         if(Category::count() - $max_count <= 0) {

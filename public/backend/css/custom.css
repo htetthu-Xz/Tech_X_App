@@ -111,3 +111,165 @@ input[type=number] {
 .admin_name {
     margin-bottom: 0px;
 }
+
+.e-font {
+    font-size: 50px;
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    visibility: hidden;
+    opacity: 0;
+    color: #8e8f91;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.c-font {
+    font-size: 50px;
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    visibility: hidden;
+    opacity: 0;
+    color: #8e8f91;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.i-font {
+    font-size: 50px;
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    visibility: hidden;
+    opacity: 0;
+    color: #8e8f91;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.v-font {
+    font-size: 30px;
+    position: absolute;
+    top: 2%;
+    right: 0;
+    visibility: hidden;
+    opacity: 0;
+    color: #8e8f91;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.pf-img {
+    position: relative;
+    width: 200px;
+    height: 150px;
+    transition: .5s;
+    object-fit: scale-down;
+}
+
+.cover-img {
+    position: relative;
+    width: 240px;
+    height: 180px;
+    transition: .5s;
+    object-fit: scale-down;
+}
+
+.i-img {
+    position: relative;
+    width: 240px;
+    height: 180px;
+    transition: .5s;
+    object-fit: scale-down;
+}
+
+.video__{
+    position: relative;
+    transition: .5s;
+}
+
+.v-box:hover .v-font {
+    visibility: visible;
+    opacity: 1;
+    transition: .5s;
+}
+
+.box:hover .e-font {
+    visibility: visible;
+    opacity: 1;
+    transition: .5s;
+}
+
+.i-box:hover .i-font {
+    visibility: visible;
+    opacity: 1;
+    transition: .5s;
+}
+
+.c-box:hover .c-font {
+    visibility: visible;
+    opacity: 1;
+    transition: .5s;
+}
+
+.e-font:hover {
+    color: #fafafa;
+}
+
+.i-font:hover {
+    color: #fafafa;
+}
+
+.c-font:hover {
+    color: #fafafa;
+}
+
+.v-font:hover {
+    color: #fafafa;
+}
+
+.box:hover .pf-img {
+    opacity: .3;
+    transition: .5s;
+}
+
+.i-box:hover .i-img {
+    opacity: .3;
+    transition: .5s;
+}
+
+.v-box:hover .video__ {
+    /* opacity: .3; */
+    transition: .5s;
+}
+
+.c-box:hover .cover-img {
+    opacity: .3;
+    transition: .5s;
+}
+
+.w-pf {
+    width: 264px;
+}
+
+.w-cover {
+    width: 300px;
+}
+
+.w-image {
+    width: 300px;
+}
+
+
+
+.detail-img {
+    height: 200px; 
+    width: 250px;
+    object-fit: scale-down;
+}
+
+
+/* .vjs-poster{
+    object-fit: cover;
+ } */

@@ -7,7 +7,7 @@
                         <!-- Logo -->
                         <div class="col-xl-2 col-lg-2">
                             <div class="logo">
-                                <a href="{{ route('frontend.home') }}"><img src="{{ asset('frontend/img/logo/logo.png') }}" alt=""></a>
+                                <a href="{{ route('frontend.home') }}"><img src="{{ asset('frontend/img/logo/logo4.png') }}" alt=""></a>
                             </div>
                         </div>
                         <div class="col-xl-10 col-lg-10">
@@ -24,7 +24,7 @@
                                                 <li>
                                                     <div class="user-info-dropdown">
                                                         <div class="dropdown">
-                                                            <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                                                            <a class="dropdown-toggle" style="padding-bottom: 10px" href="#" role="button" data-toggle="dropdown">
                                                                 <img class="avatar" src="{{ getProfile(auth()->user()->profile) }}" alt="" />
                                                                 <span class="user-name text-white">{{ auth()->user()->name }}</span>
                                                             </a>

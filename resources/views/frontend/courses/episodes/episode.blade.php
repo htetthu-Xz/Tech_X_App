@@ -9,7 +9,7 @@
                     <div class="row">
                         <div class="col-xl-8 col-lg-11 col-md-12">
                             <div class="hero__caption hero__caption2" style="padding-top: 100px">
-                                <h1 data-animation="bounceIn" data-delay="0.2s">Episodes</h1>
+                                <h2 data-animation="bounceIn" data-delay="0.2s" class="text-light">Episodes</h2>
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="{{ route('frontend.home') }}">Home</a></li>
@@ -32,7 +32,7 @@
                 <div class="col-lg-4">
                     <div class="d-flex justify-content-start align-items-center list-h">
                         <div class="mx-2 p-2">
-                            <img src="{{ getCoursePhotos($course->image) }}" alt="" class="h-round">
+                            <img src="{{ getCoursePhotos($course->cover_photo) }}" alt="" class="h-round object-fit">
                         </div>
                         <div class="d-flex flex-column">
                             <p class="mb-0 text-sm text-light">{{ $course->title }}</p>
@@ -53,7 +53,7 @@
                                                 ></i>
                                             </div>
                                             <div>
-                                                <p class="mb-0 text-sm text-light">Episode - {{ $loop->index + 1 }} | {{ $episode->title }}</p>
+                                                <p class="mb-0 text-sm text-light">Episode - {{ $loop->index + 1 }} | {{ Str::limit($episode->title, 20) }}</p>
                                                 <small class="mt-1 text-light">Duration : <span class="duration"></span></small>
                                             </div>
                                         </div>
@@ -70,7 +70,7 @@
                                                 ></i>
                                             </div>
                                             <div>
-                                                <p class="mb-0 text-sm text-light">Episode - {{ $loop->index + 1 }} | {{ $episode->title }}</p>
+                                                <p class="mb-0 text-sm text-light">Episode - {{ $loop->index + 1 }} | {{ Str::limit($episode->title, 20) }}</p>
                                                 <small class="mt-1 text-light">Duration : <span class="duration"></span></small>
                                             </div>
                                         </div>
@@ -97,7 +97,7 @@
                         <div></div>
                     </div>
                 </div>
-                <div class="col-lg-8 append">
+                <div class="col-lg-8 append vd-margin">
                     {{-- append data --}}
                 </div>
             </div>
@@ -133,17 +133,21 @@
                         <div class="card p-2 radious_">
                             <video
                                 id="my-player"
-                                class="video-js"
+                                class="video-js vd_"
                                 controls
                                 preload="auto"
                                 poster="${img_base_path}/${data.image}"
                                 data-setup='{}'
-                                width="780px"
-                                height="500px"
                                 seeking
                                 >
                                 <source src="${vd_base_path}/${data.video}" type="video/mp4"></source>
                             </video>
+                        </div>
+                        <div class="my-3 py-2">
+                            <h2><u>Summary</u></h2>
+                            <p class="ml-3">
+                                ${data.summary}
+                            </p>
                         </div>
                     `;
                     
@@ -208,13 +212,11 @@
                     <div class="card p-2 radious_">
                         <video
                             id="player${count}"
-                            class="video-js"
+                            class="video-js vd_"
                             controls
                             preload="auto"
                             poster="${img_path}/${data.image}"
                             data-setup='{}'
-                            width="780px"
-                            height="500px"
                             seeking
                             >
                             <source src="${vd_path}/${data.video}" type="video/mp4"></source>

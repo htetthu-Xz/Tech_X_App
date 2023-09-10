@@ -59,13 +59,25 @@
                         <label for="price" class="form-label">Price ( $ ) <span class="text-danger">*</span></label>
                         <input type="number" class="form-control" name="price" id="price" value="{{ $course->price }}" required>
                     </div>
-                    <div class="mb-3">
-                        <label for="cover_photo" class="form-label">Cover Photo <span class="text-danger">*</span></label>
-                        <input type="file" name="cover_photo" class="form-control" id="cover_photo">
-                    </div>
-                    <div class="mb-3">
-                        <label for="image" class="form-label">Image <span class="text-danger">*</span></label>
-                        <input type="file" name="image" class="form-control" id="image">
+                    <div class="d-flex justify-content-evenly">
+                        <div class="mb-4 cover-edit">
+                            <div class="card mb-3 w-cover p-3">
+                                <div class="py-3"><b>Cover Photo</b></div>
+                                <div class="align-items-center justify-content-center mb-2 c-box">
+                                    <img src="{{ getCoursePhotos($course->cover_photo) }}" class="mx-3 cover-img" alt="profile">
+                                    <i class="fas fa-edit ch c-font"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-4 image-edit">
+                            <div class="card mb-3 w-image p-3">
+                                <div class="py-3"><b>Image</b></div>
+                                <div class="align-items-center mb-2 i-box">
+                                    <img src="{{ getCoursePhotos($course->image) }}" class="mx-3 i-img" alt="profile">
+                                    <i class="fas fa-edit img i-font"></i>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="text-center">
                         <a href="{{ route('courses.index') }}" class="btn btn-dark mx-2">Cancel</a>
@@ -85,5 +97,29 @@
     $(document).ready(function() {
         $('.js-example-basic-multiple').select2();
     });
+
+    $(document).on('click', '.ch', () => {
+        let template = `
+            <div class="card p-3 mt-3">
+                <label for="cover_photo" class="form-label">Cover Photo <span class="text-danger">*</span></label>
+                <input type="file" name="cover_photo" class="form-control" id="cover_photo">
+            </div>
+        `;
+
+        $('.cover-edit').append(template);
+        $('.ch').removeClass('ch');
+    })
+
+    $(document).on('click', '.img', () => {
+        let template = `
+        <div class="card p-3 mt-3">
+            <label for="image" class="form-label">Image <span class="text-danger">*</span></label>
+            <input type="file" name="image" class="form-control" id="image">
+        </div>
+        `;
+
+        $('.image-edit').append(template);
+        $('.img').removeClass('img');
+    })
 </script>
 @endpush

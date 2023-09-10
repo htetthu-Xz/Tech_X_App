@@ -11,7 +11,7 @@
                             <div class="hero__caption">
                                 <h1 data-animation="fadeInLeft" data-delay="0.2s">Online learning<br> platform</h1>
                                 <p data-animation="fadeInLeft" data-delay="0.4s">Build skills with courses, certificates, and degrees online from world-class universities and companies</p>
-                                <a href="#" class="btn hero-btn" data-animation="fadeInLeft" data-delay="0.7s">Join for Free</a>
+                                <a href="{{ route('user.get.login') }}" class="btn hero-btn" data-animation="fadeInLeft" data-delay="0.7s">Join for Free</a>
                             </div>
                         </div>
                     </div>
@@ -74,7 +74,9 @@
                     <div class="properties pb-20">
                         <div class="properties__card">
                             <div class="properties__img overlay1">
-                                <a href="{{ route('frontend.courses.detail', [$course->slug]) }}"><img src="{{ getCoursephotos($course->image) }}" alt="" height="300"></a>
+                                <a href="{{ route('frontend.courses.detail', [$course->slug]) }}">
+                                    <img src="{{ getCoursephotos($course->image) }}" class="object-fit course-img-size"alt="">
+                                </a>
                             </div>
                             <div class="properties__caption">
                                 <h3><a href="{{ route('frontend.courses.detail', [$course->slug]) }}">{{ $course->title }}</a></h3>
@@ -96,9 +98,9 @@
         </div>
     </div>
 
-    <section class="about-area1 fix pt-10">
-        <div class="support-wrapper align-items-center">
-            <div class="left-content1">
+    <section class="about-area1 fix p-4 pt-10">
+        <div class="d-flex flex-md-row flex-sm-column flex-xs-column flex-xl-row justify-content-between align-items-center"> {{-- support-wrapper  left-content1 --}}
+            <div class="mx-4">
                 <div class="about-icon">
                     <img src="{{ asset('frontend/img/icon/about.svg') }}" alt="">
                 </div>
@@ -137,12 +139,11 @@
                     </div>
                 </div>
             </div>
-            <div class="right-content1">
+            <div class="">
                 <!-- img -->
                 <div class="right-img">
-                    <img src="{{ asset('frontend/img/gallery/about.png') }}" alt="">
-                    <div class="video-icon h-50 ml-0" >
-                        <img src="{{ asset('frontend/img/gallery/featured4.png') }}" alt="">
+                    <div class="h-50 ml-0" >
+                        <img src="{{ asset('frontend/img/gallery/featured4.png') }}" height="285px" class="feature-i" alt="">
                     </div>
                 </div>
             </div>
@@ -169,27 +170,20 @@
             <div class="row justify-content-center">
                 <div class="col-xl-7 col-lg-8">
                     <div class="section-tittle text-center mb-55">
-                        <h2>Explore top subjects</h2>
+                        <h2>Explore top Categories</h2>
                     </div>
                 </div>
             </div>
-            <div class="row append">
+            <div class="row append d-flex justify-content-center">
                 @foreach ($categories as $key => $category)
-                    <div class="col-lg-3 col-md-4 col-sm-6 count">
-                        <div class="single-topic text-center mb-30">
-                            <div class="topic-img">
-                                <img src="https://picsum.photos/200/140?random={{ $key }}&blur=2" alt="">
-                                <div class="topic-content-box">
-                                    <div class="topic-content">
-                                        <h3><a href="{{ route('frontend.courses.index').'?search='.$key }}">{{ $category }}</a></h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 my-4 mx-2 count btn_">
+                        <a href="{{ route('frontend.courses.index').'?search='.$key }}"><div class="text-center">
+                            {{ $category }}
+                        </div></a>
                     </div>
                 @endforeach
             </div>
-            <div class="row justify-content-center">
+            <div class="row justify-content-center mt-4">
                 <div class="col-xl-12">
                     <div class="section-tittle text-center mt-20 res">
                         <button class="border-btn text-dark load">View More Category</button>
@@ -290,7 +284,7 @@
 @endsection
 @push('script')
     <script>
-        $(() => {
+        $(() => { 
             $(document).on('click', '.load' , function() {
                 let count = $('.count').length
                 $.get("{{ route('frontend.category.load') }}", {count:count}, function(res) {
@@ -299,15 +293,10 @@
                     
                     result.forEach(function(category) {
                         let template = `
-                            <div class="col-lg-3 col-md-4 col-sm-6 count ls">
-                                <div class="single-topic text-center mb-30">
-                                    <div class="topic-img">
-                                        <img src="https://picsum.photos/200/140?random=${category.slug}&blur=2" alt="">
-                                        <div class="topic-content-box">
-                                            <div class="topic-content">
-                                                <h3><a href="{{ route('frontend.courses.index').'?search=' }}${category.slug}">${category.title}</a></h3>
-                                            </div>
-                                        </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6 count my-4 mx-2 btn_ ls">
+                                <div class="text-center">
+                                    <div>
+                                        <a href="{{ route('frontend.courses.index').'?search=' }}${category.slug}">${category.title}</a>
                                     </div>
                                 </div>
                             </div>

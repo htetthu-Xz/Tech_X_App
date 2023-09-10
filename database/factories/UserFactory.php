@@ -18,7 +18,7 @@ class UserFactory extends Factory
             'Dob' => $this->faker->date(),
             'address' => $this->faker->address(),
             'gender' =>$this->faker->randomElement(['male', 'female','other']),
-            'profile' =>'https://i.pravatar.cc/150?u='.$this->faker->uuid(),
+            'profile' => null,
             'remember_token' => Str::random(10),
         ];
     }

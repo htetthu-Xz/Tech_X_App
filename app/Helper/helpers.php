@@ -36,13 +36,21 @@ if(!function_exists('uploadImage')) {
 
 if(!function_exists('getProfile')) {
     function getProfile($profile) {
-        return asset('storage/images/profile/' . $profile);
+        if(null !== $profile) {
+            return asset('storage/images/profile/' . $profile);
+        } else {
+            return asset('storage/images/profile/noprofile.jpg');
+        }
     }
 }
 
 if(!function_exists('getCoursePhotos')) {
     function getCoursePhotos($photo) {
-        return asset('storage/images/course/' . $photo);
+        if('' !== $photo) {
+            return asset('storage/images/course/' . $photo);
+        } else {
+            return asset('storage/images/nophoto.jpg');
+        }
     }
 }
 

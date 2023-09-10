@@ -55,9 +55,14 @@
                             <option value="other" {{ $user->gender == 'other' ? 'selected' : '' }}>Other</option>
                         </select>
                     </div>
-                    <div class="mb-3">
-                        <label for="profile" class="form-label">Profile <span class="text-danger">*</span></label>
-                        <input type="file" name="profile" class="form-control" id="profile">
+                    <div class="mb-4 profile-edit">
+                        <div class="card mb-3 w-pf p-3">
+                            <div class="py-3"><b>Profile Picture</b></div>
+                            <div class="align-items-center mb-2 box">
+                                <img src="{{ getProfile($user->profile) }}" class="mx-3 pf-img" alt="profile">
+                                <i class="fas fa-edit pf e-font"></i>
+                            </div>
+                        </div>
                     </div>
                     <div class="text-center">
                         <a href="{{ route('users.index') }}" class="btn btn-dark mx-2">Cancel</a>
@@ -69,3 +74,16 @@
     </div>
 </div>
 @endsection 
+@push('script')
+    <script>
+        $(document).on('click', '.pf', () => {
+            let template = `
+                <label for="profile" class="form-label">Profile <span class="text-danger">*</span></label>
+                <input type="file" name="profile" class="form-control" id="profile">
+            `;
+
+            $('.profile-edit').append(template);
+            $('.pf').removeClass('pf');
+        })
+    </script>
+@endpush

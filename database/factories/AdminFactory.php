@@ -16,7 +16,7 @@ class AdminFactory extends Factory
             'address' => $this->faker->address(),
             'Dob' => $this->faker->date(),
             'gender' => $this->faker->randomElement(['male', 'female','other']),
-            'profile' => 'https://i.pravatar.cc/150?u='.$this->faker->uuid(),
+            'profile' => null,
         ];
     }
 }
