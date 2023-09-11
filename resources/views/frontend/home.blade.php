@@ -80,7 +80,7 @@
                             </div>
                             <div class="properties__caption">
                                 <h3><a href="{{ route('frontend.courses.detail', [$course->slug]) }}">{{ $course->title }}</a></h3>
-                                <p>{{ Str::limit($course->description, 100) }}</p>
+                                <p class="min-height-des">{{ Str::limit($course->description, 100) }}</p>
                                 <div class="properties__footer d-flex justify-content-between align-items-center">
                                     <div class="restaurant-name">
                                         <p>Episodes - <p class="f-3">{{ $course->Episode->count() }}</p></p>

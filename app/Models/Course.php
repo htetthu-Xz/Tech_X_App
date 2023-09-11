@@ -33,6 +33,6 @@ class Course extends Model
     public function setTitleAttribute($value) : Void 
     {
         $this->attributes['title'] = $value;
-        $this->attributes['slug'] = Str::slug($value);
+        $this->attributes['slug'] = Str::slug(Str::lower($value));
     }
 }

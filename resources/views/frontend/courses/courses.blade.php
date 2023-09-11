@@ -78,7 +78,7 @@
                                 <div class="properties__caption">
                                     <div style="min-height: 280px;">
                                         <h3><a href="{{ route('frontend.courses.detail', [$course->slug]) }}">{{ $course->title }}</a></h3>
-                                        <p>{{ Str::limit($course->description, 100) }}</p>
+                                        <p class="min-height-des">{{ Str::limit($course->description, 100) }}</p>
                                         <div class="properties__footer d-flex justify-content-between align-items-center">
                                             <div class="restaurant-name">
                                                 <p>Episodes - <p class="f-3">{{ $course->Episode->count() }}</p></p>
@@ -132,8 +132,9 @@
                 let data = searchParams.get('search'); 
                 let search = data.replaceAll('-', ' ').substring(0,6);
                 $('.__append').append(`<h4 class="mb-3">Category - ${data.toUpperCase()}</h4>`)
+                $('.back_').remove();
                 $('.search__').append(`
-                    <a href="{{ route('frontend.home') }}" class="text-light bg-primary p-2 px-3 rounded mb-4"><i class="fa fa-angle-left mx-2"></i>Back</a>
+                    <a href="{{ route('frontend.home') }}" class="text-light back_ bg-primary p-2 px-3 rounded mb-4"><i class="fa fa-angle-left mx-2"></i>Back</a>
                 `);
                 
                 $.get("{{ route('frontend.courses.category.search') }}", {search:search}, function(res) {
@@ -159,7 +160,7 @@
                                             <div class="properties__caption">
                                                 <div style="min-height: 280px;">
                                                     <h3><a href="${url}">${course.title}</a></h3>
-                                                    <p>${course.description.substring(0, 100)}...</p>
+                                                    <p class="min-height-des">${course.description.substring(0, 100)}...</p>
                                                     <div class="properties__footer d-flex justify-content-between align-items-center">
                                                         <div class="restaurant-name">
                                                             <p>Episodes - <p class="f-3">${course.episode.length}</p></p>
@@ -201,7 +202,7 @@
                                         <div class="properties__caption">
                                             <div style="min-height: 280px;">
                                                 <h3><a href="${url}">${course.title}</a></h3>
-                                                <p>${course.description.substring(0, 100)}...</p>
+                                                <p class="min-height-des">${course.description.substring(0, 100)}...</p>
                                                 <div class="properties__footer d-flex justify-content-between align-items-center">
                                                     <div class="restaurant-name">
                                                         <p>Episodes - <p class="f-3">${course.episode.length}</p></p>
@@ -246,7 +247,8 @@
                         $('.load').remove();
                         $('.end').remove();
                         $('.less').remove();
-                        $('.no-match').remove()
+                        $('.no-match').remove();
+                        $('.back_').remove();
                         let data = JSON.parse(res, true)
                         if(data.length == 0) {
                             $('.fix').append(`
@@ -269,7 +271,7 @@
                                                 <div class="properties__caption">
                                                     <div style="min-height: 280px;">
                                                         <h3><a href="${url}">${course.title}</a></h3>
-                                                        <p>${course.description.substring(0, 100)}...</p>
+                                                        <p class="min-height-des">${course.description.substring(0, 100)}...</p>
                                                         <div class="properties__footer d-flex justify-content-between align-items-center">
                                                             <div class="restaurant-name">
                                                                 <p>Episodes - <p class="f-3">${course.episode.length}</p></p>
@@ -285,11 +287,11 @@
                                         </div>
                                     </div>
                                 `
-                                $('.back').append(`
-                                    <a href="{{ route('frontend.courses.index') }}" class="text-light bg-primary p-2 px-3 rounded mb-4"><i class="fa fa-angle-left mx-2"></i>Back</a>
-                                `);
                                 $('.append').append(template);   
                             });
+                            $('.back').append(`
+                                <a href="{{ route('frontend.courses.index') }}" class="text-light back_ bg-primary p-2 px-3 rounded mb-4"><i class="fa fa-angle-left mx-2"></i>Back</a>
+                            `);
                         }
                     });
                 }
