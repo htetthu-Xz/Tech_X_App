@@ -111,6 +111,8 @@
 
     <script src="{{ asset('plugins/awesome-notifications/dist/index.var.js') }}"></script>
     <script src="{{ asset('plugins/bootstrap-5-jbvalidator/dist/jbvalidator.min.js') }}"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/handlebars/4.7.7/handlebars.min.js"></script>
 
     {{-- custom js --}}
     <script src="{{ asset('frontend/js/custom.js') }}"></script>

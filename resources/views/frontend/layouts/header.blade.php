@@ -19,9 +19,9 @@
                                             <li class="active" ><a href="{{ route('frontend.home') }}">Home</a></li>
                                             <li><a href="{{ route('frontend.courses.index') }}">Courses</a></li>
                                             <li><a href="{{ route('frontend.about') }}">About</a></li>
-                                            <li><a href="">Contact</a></li>
+                                            <li><a href="{{ route('frontend.contact') }}">Contact</a></li>
                                             @if(auth()->user())
-                                                <li>
+                                                <li class="mobile-res">
                                                     <div class="user-info-dropdown">
                                                         <div class="dropdown">
                                                             <a class="dropdown-toggle" style="padding-bottom: 10px" href="#" role="button" data-toggle="dropdown">

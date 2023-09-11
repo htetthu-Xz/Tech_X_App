@@ -10,13 +10,14 @@ use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Frontend\HomePageController;
 use App\Http\Controllers\Backend\Auth\LoginController;
 use App\Http\Controllers\Backend\InstructorController;
+use App\Http\Controllers\Frontend\AboutPageController;
 use App\Http\Controllers\Frontend\CoursePageController;
+use App\Http\Controllers\Frontend\ContactPageController;
 use App\Http\Controllers\Frontend\EpisodePageController;
 use App\Http\Controllers\Frontend\Auth\UserLoginController;
 use App\Http\Controllers\Backend\Auth\ResetPasswordController;
 use App\Http\Controllers\Frontend\Auth\UserRegisterController;
 use App\Http\Controllers\Backend\Auth\ForgotPasswordController;
-use App\Http\Controllers\Frontend\AboutPageController;
 use App\Http\Controllers\Frontend\Auth\EmailVerificationController;
 use App\Http\Controllers\Frontend\Auth\UserResetPasswordController;
 use App\Http\Controllers\Frontend\Auth\UserForgotPasswordController;
@@ -117,6 +118,9 @@ Route::get('courses/{course:slug}/episodes', [EpisodePageController::class, 'get
 
 #About
 Route::get('about', [AboutPageController::class, 'index'])->name('frontend.about');
+
+#contact us
+Route::get('contact', [ContactPageController::class, 'index'])->name('frontend.contact');
 
 Route::group([
     'middleware' => 'auth'

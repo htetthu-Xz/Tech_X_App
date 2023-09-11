@@ -371,7 +371,7 @@
 
 .btn_ {
     padding: 12px 20px;
-    background-color: #8A1C8F;
+    background-color: #B038B5;
     cursor: pointer;
     border-width: 1px;
     border-radius: 0 40px 0 40px;
@@ -501,6 +501,12 @@
 @media (max-width : 500px) {
     .breadcrumb a,li {
         font-size: 12px;
+    }
+}
+
+@media (max-width : 900px) {
+    .mobile-res {
+        margin-bottom: 150px;
     }
 }
 
