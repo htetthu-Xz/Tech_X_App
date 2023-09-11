@@ -23,20 +23,20 @@
             </div>
         </div>
     </section>
-    <div class="p-5 m-5">
-        <div class="card mx-auto w-login rounded shadow">
+    <div class="py-5 mx-2 my-5 row">
+        <div class="card mx-auto rounded shadow col-md-6 col-sm-12">
             <div class="card-body p-4">
                 <h2 class="my-2"><u>Sign in to your account</u></h2>
                 @include('frontend.layouts.page_info')
-                <form action="{{ route('user.login') }}" method="POST">
+                <form action="{{ route('user.login') }}" class="form-v" method="POST">
                     @csrf
                     <div class="form-group mb-3">
                         <label for="email">Email</label>
-                        <input type="email" name="email" class="form-control">
+                        <input type="email" name="email" class="form-control" required>
                     </div>
                     <div class="form-group mb-3">
                         <label for="password">Password</label>
-                        <input type="password" name="password" class="form-control">
+                        <input type="password" name="password" class="form-control" required>
                     </div>
                     <div class="form-check d-flex justify-content-between align-items-center">
                         <div class="d-flex justify-content-between">

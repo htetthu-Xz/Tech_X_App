@@ -1,7 +1,3 @@
-.w-login {
-    width: 750px;
-}
-
 .p-form-input {
     padding-top: 20px;
     padding-bottom: 20px;
@@ -468,7 +464,7 @@
 
 @media (max-width : 390px) {
     .instructor-img {
-        width: 290px;
+        width: 271px;
         height: 350px;
     }
     .vd_ {
@@ -499,6 +495,12 @@
     .res-ep-title {
         display: block;
         margin-top: 10px;
+    }
+}
+
+@media (max-width : 500px) {
+    .breadcrumb a,li {
+        font-size: 12px;
     }
 }
 

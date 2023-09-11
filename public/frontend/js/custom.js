@@ -7,3 +7,7 @@ function modifyUrl(title, url) {
         history.pushState(obj, obj.Title, obj.Url);
     }
 }
+
+let validator = $('form.form-v').jbvalidator({
+    errorMessage: true
+});

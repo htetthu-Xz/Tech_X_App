@@ -143,7 +143,7 @@
                                 <source src="${vd_base_path}/${data.video}" type="video/mp4"></source>
                             </video>
                         </div>
-                        <div class="my-3 py-2">
+                        <div class="my-3 py-2 summary">
                             <h2><u>Summary</u></h2>
                             <p class="ml-3">
                                 ${data.summary}
@@ -200,6 +200,7 @@
             $('.side-list').find('.fa-pause').removeClass('fas fa-pause m-active').addClass('fas fa-play m-play');
             $(this).find('i').removeClass('fas fa-play m-play').addClass('fas fa-pause m-active');
             $(this).removeClass('list-v').addClass('list-v-active');
+            $('.summary').remove();
 
             let last_url = $(location).attr('pathname').split("/").splice(0, 4).join("/");
             let url_path = last_url + '/' + $(this).find('.id').val();
@@ -221,6 +222,12 @@
                             >
                             <source src="${vd_path}/${data.video}" type="video/mp4"></source>
                         </video>
+                    </div>
+                    <div class="my-3 py-2 summary">
+                        <h2><u>Summary</u></h2>
+                        <p class="ml-3">
+                            ${data.summary}
+                        </p>
                     </div>
                 `;
                 $('.radious_').remove();

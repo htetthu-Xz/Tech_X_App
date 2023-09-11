@@ -110,6 +110,7 @@
     <script src="{{ asset('frontend/js/ajax_loader.js') }}"></script>
 
     <script src="{{ asset('plugins/awesome-notifications/dist/index.var.js') }}"></script>
+    <script src="{{ asset('plugins/bootstrap-5-jbvalidator/dist/jbvalidator.min.js') }}"></script>
 
     {{-- custom js --}}
     <script src="{{ asset('frontend/js/custom.js') }}"></script>

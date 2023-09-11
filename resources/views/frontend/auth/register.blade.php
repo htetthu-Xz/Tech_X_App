@@ -25,53 +25,63 @@
             </div>
         </div>
     </section>
-    <div class="p-5 m-5">
-        <div class="card mx-auto w-login rounded shadow">
+    <div class="py-5 mx-2 my-5 row">
+        <div class="card mx-auto rounded shadow col-md-6 col-sm-12">
             <div class="card-body p-4">
                 <h2 class="my-2"><u>Register Form</u></h2>
                 @include('frontend.layouts.page_info')
-                <form action="{{ route('user.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('user.store') }}" class="form-v" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <div class="form-group mb-3">
-                        <label for="email" class="form-label">Full Name <span class="text-danger">*</span></label>
-                        <input type="text" id="name" name="name" class="form-control">
+                    <div class="row">
+                        <div class="form-group mb-3 col-md-6 col-sm-12">
+                            <label for="email" class="form-label">Full Name <span class="text-danger">*</span></label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                        </div>
+                        <div class="form-group mb-3 col-md-6 col-sm-12">
+                            <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
                     </div>
-                    <div class="form-group mb-3">
-                        <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
-                        <input type="email" id="email" name="email" class="form-control">
+                    <div class="row">
+                        <div class="form-group  col-md-6 col-sm-12">
+                            <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
+                            <input type="password" name="password" class="form-control" data-v-min-length="8" id="password1">
+                        </div>
+                        <div class="form-group  col-md-6 col-sm-12">
+                            <label for="con-password" class="form-label">Confirm Password <span class="text-danger">*</span></label>
+                            <input type="password" id="con-password" data-v-equal="#password1" data-v-message="Password and Confirm Password does not match." data-v-min-length="8" name="password_confirmation" class="form-control">
+                        </div>
                     </div>
-                    <div class="form-group mb-3">
-                        <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
-                        <input type="password" name="password" class="form-control">
+                    <div class="row">
+                        <div class="form-group  col-md-6 col-sm-12">
+                            <label for="phone" class="form-label">Phone</label>
+                            <input type="text" id="phone" name="phone" class="form-control">
+                        </div>
+                        <div class="form-group  col-md-6 col-sm-12">
+                            <label for="gender">Gender <span class="text-danger">*</span></label>
+                            <select name="gender" id="gender" class="form-control" required>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="form-group mb-3">
-                        <label for="con-password" class="form-label">Confirm Password <span class="text-danger">*</span></label>
-                        <input type="password" id="con-password" name="password_confirmation" class="form-control">
+                    <div class="row">
+                        <div class="form-group  col-md-6 col-sm-12">
+                            <label for="address">Address</label>
+                            <textarea class="form-control" name="address" id="address"></textarea>
+                        </div>
+                        <div class="form-group  col-md-6 col-sm-12">
+                            <label for="dob" class="form-label">Date of Birth</label>
+                            <input type="text" id="dob" name="dob" class="form-control w-100">
+                        </div>
                     </div>
-                    <div class="form-group mb-3">
-                        <label for="phone" class="form-label">Phone</label>
-                        <input type="text" id="phone" name="phone" class="form-control">
-                    </div>
-                    <div class="form-group mb-3">
-                        <label for="dob" class="form-label">Date of Birth</label>
-                        <input type="text" id="dob" name="dob" class="form-control w-100">
-                    </div>
-                    <div class="form-group mb-3">
-                        <label for="address">Address</label>
-                        <textarea class="form-control" name="address" id="address"></textarea>
-                    </div>
-                    <div class="form-group mb-3">
-                        <label for="gender">Gender <span class="text-danger">*</span></label>
-                        <select name="gender" id="gender" class="form-control">
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                        </select>
-                    </div>
-                    <div class="form-group mb-3">
-                        <label for="profile">Profile</label>
-                        <div class="custom-file">
-                            <input type="file" name="profile" class="custom-file-input" id="profile">
-                            <label class="custom-file-label" for="profile">Choose file</label>
+                    <div class="row">
+                        <div class="form-group col-md-6 col-sm-12">
+                            <label for="profile">Profile</label>
+                            <div class="custom-file">
+                                <input type="file" name="profile" class="custom-file-input" id="profile">
+                                <label class="custom-file-label" for="profile">Choose file</label>
+                            </div>
                         </div>
                     </div>
                     <div class="text-center">

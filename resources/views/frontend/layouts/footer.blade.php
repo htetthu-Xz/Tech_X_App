@@ -3,10 +3,10 @@
        <!-- Footer Start-->
        <div class="footer-area footer-padding">
            <div class="container">
-               <div class="row justify-content-between">
+               <div class="row justify-content-center">
                    <div class="col-xl-4 col-lg-5 col-md-4 col-sm-6">
                        <div class="single-footer-caption mb-50">
-                           <div class="single-footer-caption mb-30">
+                           <div class="single-footer-caption text-center mb-30">
                                <!-- logo -->
                                <div class="footer-logo mb-25">
                                    <a href="index.html"><img src="{{ asset('frontend/img/logo/logo4.png') }}" alt=""></a>
@@ -25,7 +25,7 @@
                            </div>
                        </div>
                    </div>
-                   <div class="col-xl-2 col-lg-3 col-md-4 col-sm-5">
+                   {{-- <div class="col-xl-2 col-lg-3 col-md-4 col-sm-5">
                        <div class="single-footer-caption mb-50">
                            <div class="footer-tittle">
                                <h4>Our solutions</h4>
@@ -66,7 +66,7 @@
                                </ul>
                            </div>
                        </div>
-                   </div>
+                   </div> --}}
                </div>
            </div>
        </div>
