@@ -18,7 +18,7 @@
                                         <ul id="navigation">                                                                                          
                                             <li class="active" ><a href="{{ route('frontend.home') }}">Home</a></li>
                                             <li><a href="{{ route('frontend.courses.index') }}">Courses</a></li>
-                                            <li><a href="">About</a></li>
+                                            <li><a href="{{ route('frontend.about') }}">About</a></li>
                                             <li><a href="">Contact</a></li>
                                             @if(auth()->user())
                                                 <li>

@@ -195,13 +195,11 @@
     <section class="about-area3 fix">
         <div class="support-wrapper align-items-center">
             <div class="right-content3">
-                <!-- img -->
                 <div class="right-img">
                     <img src="{{ asset('frontend/img/gallery/about3.png') }}" alt="">
                 </div>
             </div>
             <div class="left-content3">
-                <!-- section tittle -->
                 <div class="section-tittle section-tittle2 mb-20">
                     <div class="front-text">
                         <h2 class="">Learner outcomes on courses you will take</h2>

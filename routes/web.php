@@ -16,6 +16,7 @@ use App\Http\Controllers\Frontend\Auth\UserLoginController;
 use App\Http\Controllers\Backend\Auth\ResetPasswordController;
 use App\Http\Controllers\Frontend\Auth\UserRegisterController;
 use App\Http\Controllers\Backend\Auth\ForgotPasswordController;
+use App\Http\Controllers\Frontend\AboutPageController;
 use App\Http\Controllers\Frontend\Auth\EmailVerificationController;
 use App\Http\Controllers\Frontend\Auth\UserResetPasswordController;
 use App\Http\Controllers\Frontend\Auth\UserForgotPasswordController;
@@ -113,6 +114,9 @@ Route::get('course/category-search', [CoursePageController::class, 'categorySear
 Route::get('courses/{course:slug}', [CoursePageController::class, 'show'])->name('frontend.courses.detail');
 Route::get('courses/{course:slug}/episodes/{episode}', [EpisodePageController::class, 'showEpisode'])->name('frontend.courses.episode');
 Route::get('courses/{course:slug}/episodes', [EpisodePageController::class, 'getVideo'])->name('frontend.courses.episodes.video');
+
+#About
+Route::get('about', [AboutPageController::class, 'index'])->name('frontend.about');
 
 Route::group([
     'middleware' => 'auth'
