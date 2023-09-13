@@ -6,7 +6,7 @@
         <div class="text-end">
             <a href="{{ route('admins.create') }}" class="btn btn-primary">
                 Create Admin
-                <i class="fas fa-user-plus mx-2"></i>
+                <i class="fas fa-user-plus mx-1"></i>
             </a>
         </div>
         <div class="card mb-4">
