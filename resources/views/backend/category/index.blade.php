@@ -6,7 +6,7 @@
         <div class="text-end ">
             <a href="{{ route('categories.create') }}" class="btn btn-primary">
                 Create Category
-                <i class="ni ni ni-fat-add align-text-bottom"></i>
+                <i class="fas fa-plus mx-1"></i>
             </a>
         </div>
         <div class="card mb-4">
@@ -18,10 +18,10 @@
                     <table class="table align-items-center mb-0" id="categoryTable">
                         <thead>
                             <tr>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Title</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Slug</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Created Date</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
+                                <th class="text-uppercase text-secondary text-xs font-weight-bolder ps-2">Title</th>
+                                <th class="text-uppercase text-secondary text-xs font-weight-bolder">Slug</th>
+                                <th class="text-uppercase text-secondary text-xs font-weight-bolder">Created Date</th>
+                                <th class="text-uppercase text-secondary text-xs font-weight-bolder">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -46,17 +46,17 @@
                     {
                         data:'title',
                         name:'title',
-                        class: 'text-sm mb-0'
+                        class: 'text-sm text-light mb-0'
                     },
                     {
                         data:'slug',
                         name:'slug',
-                        class: 'text-secondary text-xs font-weight-bold'
+                        class: 'text-sm text-light'
                     },
                     {
                         data:'created_date',
                         name:'created_date',
-                        class: 'text-secondary text-xs font-weight-bold align-middle',
+                        class: 'text-sm text-light align-middle',
                     },
                     {
                         data:'action',

@@ -19,6 +19,6 @@ class Category extends Model
 
     public function setTitleAttribute($value) : Void {
         $this->attributes['title'] = $value;
-        $this->attributes['slug'] = Str::slug($this->attributes['title']);
+        $this->attributes['slug'] = Str::slug(Str::lower($value));
     }
 }

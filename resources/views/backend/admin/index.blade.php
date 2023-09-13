@@ -18,12 +18,12 @@
                     <table class="table align-items-center mb-0" id="adminTable">
                         <thead>
                             <tr>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Name (Email)</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder">phone</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Gender</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Date of Birth</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Created Date</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Action</th>
+                                <th class="text-uppercase text-secondary text-xs font-weight-bolder">Name (Email)</th>
+                                <th class="text-uppercase text-secondary text-xs font-weight-bolder">phone</th>
+                                <th class="text-uppercase text-secondary text-xs font-weight-bolder">Gender</th>
+                                <th class="text-uppercase text-secondary text-xs font-weight-bolder">Date of Birth</th>
+                                <th class="text-uppercase text-secondary text-xs font-weight-bolder">Created Date</th>
+                                <th class="text-uppercase text-secondary text-xs font-weight-bolder">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -52,22 +52,22 @@
                     {
                         data:'phone',
                         name:'phone',
-                        class: 'text-light text-xs font-weight-bold mb-0'
+                        class: 'text-light text-sm mb-0'
                     },
                     {
                         data:'gender',
                         name:'gender',
-                        class: 'text-uppercase text-xs font-weight-bold text-light mb-0 align-middle'
+                        class: 'text-uppercase text-sm text-light mb-0 align-middle'
                     },
                     {
                         data:'Dob',
                         name:'Dob',
-                        class: 'text-light text-xs font-weight-bold align-middle'
+                        class: 'text-light text-sm align-middle'
                     },
                     {
                         data:'created_date',
                         name:'created_date',
-                        class: 'text-light text-xs font-weight-bold align-middle',
+                        class: 'text-light text-sm align-middle',
                     },
                     {
                         data:'action',
