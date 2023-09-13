@@ -100,13 +100,13 @@
                     <hr class="w-25 border-warning">
                 </div>
                 <div class="d-flex mt-3 justify-content-around align-items-center">
-                    <a class="btn-github" href="{{ route('user.github.login') }}">
+                    <a class="btn-github rounded" href="{{ route('user.socialite.login', 'github') }}">
                         <span class="btn-gradient">
                             <i class="fab fa-github"></i>
                         </span>
                         <span class="btn-text">Github</span>
                     </a>
-                    <a class="btn-google" href="">
+                    <a class="btn-google rounded" href="{{ route('user.socialite.login', 'google') }}">
                         <span class="btn-gradient">
                             <i class="fab fa-google"></i>
                         </span>

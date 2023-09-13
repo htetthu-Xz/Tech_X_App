@@ -84,9 +84,9 @@ Route::group([
     Route::get('login', [UserLoginController::class, 'index'])->name('user.get.login');
     Route::post('login', [UserLoginController::class, 'login'])->name('user.login');
 
-    #github login
-    Route::get('auth/github', [UserLoginController::class, 'githubLogin'])->name('user.github.login');
-    Route::get('auth/github/callback', [UserLoginController::class, 'githubCallback'])->name('user.github.callback');
+    #socialite login
+    Route::get('auth/{provider}', [UserLoginController::class, 'socialiteLogin'])->name('user.socialite.login');
+    Route::get('auth/{provider}/callback', [UserLoginController::class, 'socialiteCallback'])->name('user.socialite.callback');
 
     #Register
     Route::get('register', [UserRegisterController::class, 'index'])->name('user.get.register');

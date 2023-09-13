@@ -53,17 +53,25 @@ class UserLoginController extends Controller
         return redirect()->route('user.get.login');
     }
 
-    public function githubLogin() 
+    public function socialiteLogin(String $provider) 
     {   
-        return Socialite::driver('github')->redirect();
+        if(false === in_array($provider, ['github', 'google'])) {
+            return back()->withErrors(['err' => 'Invalid method !']);
+        }
+        return Socialite::driver($provider)->redirect();
     }
 
-    public function githubCallback(Request $request) 
+    public function socialiteCallback(String $provider, Request $request) 
     {
         if($request->error) {
             return redirect()->route('user.get.login');
         }
-        $user = Socialite::driver('github')->user();
+
+        if(false === in_array($provider, ['github', 'google'])) {
+            return back()->withErrors(['err' => 'Invalid method !']);
+        }
+
+        $user = Socialite::driver($provider)->user();
         
         $user = User::firstOrCreate([
 
@@ -82,4 +90,5 @@ class UserLoginController extends Controller
 
         return redirect()->route('frontend.home');
     }
+
 }
