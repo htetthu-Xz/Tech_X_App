@@ -3,7 +3,6 @@
 @section('content')
 <div class="row">
     <div class="col-12">
-        {{-- @include('backend.layouts.page_info') --}}
         <div class="text-end">
             <a href="{{ route('courses.create') }}" class="btn btn-primary">
                 Create Course

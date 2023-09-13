@@ -56,7 +56,11 @@ if(!function_exists('getCoursePhotos')) {
 
 if(!function_exists('getEpisodePhotos')) {
     function getEpisodePhotos($photo) {
-        return asset('storage/images/episode/' . $photo);
+        if('' !== $photo) {
+            return asset('storage/images/episode/' . $photo);
+        } else {
+            return asset('storage/images/nophoto.jpg');
+        }
     }
 }
 

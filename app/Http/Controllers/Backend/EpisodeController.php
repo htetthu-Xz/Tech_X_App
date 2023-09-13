@@ -26,9 +26,6 @@ class EpisodeController extends Controller
                     ->addColumn('created_date', function ($episode) {
                         return Carbon::parse($episode->created_at)->format('d M, Y');
                     })
-                    ->addColumn('summary', function($episode) {
-                        return Str::limit($episode->summary, 18);
-                    })
                     ->addColumn('course', function($episode) {
                         return $episode->Course->title;
                     })
