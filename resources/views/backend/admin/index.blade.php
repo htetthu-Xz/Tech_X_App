@@ -18,12 +18,12 @@
                     <table class="table align-items-center mb-0" id="adminTable">
                         <thead>
                             <tr>
-                                <th class="text-uppercase text-secondary text-xs font-weight-bolder">Name (Email)</th>
-                                <th class="text-uppercase text-secondary text-xs font-weight-bolder">phone</th>
-                                <th class="text-uppercase text-secondary text-xs font-weight-bolder">Gender</th>
-                                <th class="text-uppercase text-secondary text-xs font-weight-bolder">Date of Birth</th>
-                                <th class="text-uppercase text-secondary text-xs font-weight-bolder">Created Date</th>
-                                <th class="text-uppercase text-secondary text-xs font-weight-bolder">Action</th>
+                                <th class="text-uppercase text-xs font-weight-bolder">Name (Email)</th>
+                                <th class="text-uppercase text-xs font-weight-bolder">phone</th>
+                                <th class="text-uppercase text-xs font-weight-bolder">Gender</th>
+                                <th class="text-uppercase text-xs font-weight-bolder">Date of Birth</th>
+                                <th class="text-uppercase text-xs font-weight-bolder">Created Date</th>
+                                <th class="text-uppercase text-xs font-weight-bolder">Action</th>
                             </tr>
                         </thead>
                         <tbody>

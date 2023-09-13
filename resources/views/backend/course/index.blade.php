@@ -7,7 +7,7 @@
         <div class="text-end">
             <a href="{{ route('courses.create') }}" class="btn btn-primary">
                 Create Course
-                <i class="ni ni-book-bookmark align-text-bottom"></i>
+                <i class="fas fa-plus mx-1"></i>
             </a>
         </div>
         <div class="card mb-4">
@@ -19,11 +19,11 @@
                     <table class="table align-items-center mb-0" id="adminTable">
                         <thead>
                             <tr>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Title</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Instructor</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Description</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Created Date</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
+                                <th class="text-uppercase text-xs font-weight-bolder">Title</th>
+                                <th class="text-uppercase text-xs font-weight-bolder ps-2">Instructor</th>
+                                <th class="text-uppercase text-xs font-weight-bolder">Description</th>
+                                <th class="text-uppercase text-xs font-weight-bolder">Created Date</th>
+                                <th class="text-uppercase text-xs font-weight-bolder">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -49,22 +49,22 @@
                 {
                     data:'title',
                     name:'title',
-                    class: 'mb-0 text-sm'
+                    class: 'mb-0 text-light text-sm'
                 },
                 {
                     data:'instructor',
                     name:'instructor',
-                    class: 'mb-0 text-sm'
+                    class: 'mb-0 text-light text-sm'
                 },
                 {
                     data:'description',
                     name:'description',
-                    class: 'text-xs mb-0 align-middle'
+                    class: 'text-light text-sm mb-0 align-middle'
                 },
                 {
                     data:'created_date',
                     name:'created_date',
-                    class: 'text-secondary text-xs font-weight-bold align-middle',
+                    class: 'text-light text-sm align-middle',
                 },
                 {
                     data:'action',

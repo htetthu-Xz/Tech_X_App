@@ -18,10 +18,10 @@
                     <table class="table align-items-center mb-0" id="categoryTable">
                         <thead>
                             <tr>
-                                <th class="text-uppercase text-secondary text-xs font-weight-bolder ps-2">Title</th>
-                                <th class="text-uppercase text-secondary text-xs font-weight-bolder">Slug</th>
-                                <th class="text-uppercase text-secondary text-xs font-weight-bolder">Created Date</th>
-                                <th class="text-uppercase text-secondary text-xs font-weight-bolder">Action</th>
+                                <th class="text-uppercase text-xs font-weight-bolder ps-2">Title</th>
+                                <th class="text-uppercase text-xs font-weight-bolder">Slug</th>
+                                <th class="text-uppercase text-xs font-weight-bolder">Created Date</th>
+                                <th class="text-uppercase text-xs font-weight-bolder">Action</th>
                             </tr>
                         </thead>
                         <tbody>
