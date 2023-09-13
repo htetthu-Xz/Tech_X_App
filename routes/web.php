@@ -84,6 +84,10 @@ Route::group([
     Route::get('login', [UserLoginController::class, 'index'])->name('user.get.login');
     Route::post('login', [UserLoginController::class, 'login'])->name('user.login');
 
+    #github login
+    Route::get('auth/github', [UserLoginController::class, 'githubLogin'])->name('user.github.login');
+    Route::get('auth/github/callback', [UserLoginController::class, 'githubCallback'])->name('user.github.callback');
+
     #Register
     Route::get('register', [UserRegisterController::class, 'index'])->name('user.get.register');
     Route::post('register', [UserRegisterController::class, 'store'])->name('user.store');

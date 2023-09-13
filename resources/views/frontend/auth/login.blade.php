@@ -1,5 +1,48 @@
 @extends('frontend.layouts.app')
 
+@push('css')
+    <style>
+        .btn-google{
+            font-size:23px;
+            padding:0px 20px;
+            color: #fff;
+            background-color: #4285F4;
+            border:none;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            width:230px;
+        }
+
+        .btn-github{
+            font-size:23px;
+            padding:0px 20px;
+            color: #fff;
+            background-color: #5a5a5a;
+            border:none;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            width:230px;
+        }
+
+        .btn-text{
+            width:60%;
+        }
+
+        .btn-gradient {    
+            width:40%;
+            position: relative;
+            display: inline-block;
+            left:-20px;
+            background: rgba(0, 0, 0, 0.15);
+            border-top-right-radius: 60px;
+            padding: 8px 24px 8px 16px;
+            box-shadow: 2px 0px 0px 0px rgba(78, 72, 72, 0.4);
+        }
+    </style>
+@endpush
+
 @section('content')
 <main>
     <section class="slider-area slider-area2 b-heigh">
@@ -51,6 +94,25 @@
                         <button type="submit" class="btn btn-lg btn-primary btn-lg mt-4 mb-0">Sign in</button>
                     </div>
                 </form>
+                <div class="d-flex mt-3 justify-content-around align-items-center">
+                    <hr class="w-25 border-warning">
+                    <span>Or sign in with</span>
+                    <hr class="w-25 border-warning">
+                </div>
+                <div class="d-flex mt-3 justify-content-around align-items-center">
+                    <a class="btn-github" href="{{ route('user.github.login') }}">
+                        <span class="btn-gradient">
+                            <i class="fab fa-github"></i>
+                        </span>
+                        <span class="btn-text">Github</span>
+                    </a>
+                    <a class="btn-google" href="">
+                        <span class="btn-gradient">
+                            <i class="fab fa-google"></i>
+                        </span>
+                        <span class="btn-text">Google</span>
+                    </a>
+                </div>
                 <div class="text-center pt-3 px-lg-2 px-1">
                     <p class="text-sm mx-auto">
                         Don't have an account?

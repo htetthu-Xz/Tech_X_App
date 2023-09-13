@@ -6,8 +6,10 @@ use App\Models\User;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\RedirectResponse;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\RedirectResponse;
+use Laravel\Socialite\Facades\Socialite;
 
 class UserLoginController extends Controller
 {
@@ -49,5 +51,35 @@ class UserLoginController extends Controller
         Auth::logout();
 
         return redirect()->route('user.get.login');
+    }
+
+    public function githubLogin() 
+    {   
+        return Socialite::driver('github')->redirect();
+    }
+
+    public function githubCallback(Request $request) 
+    {
+        if($request->error) {
+            return redirect()->route('user.get.login');
+        }
+        $user = Socialite::driver('github')->user();
+        
+        $user = User::firstOrCreate([
+
+            'email' => $user->getEmail()
+        ], [
+            'name' => $user->getName(),
+            'email' => $user->getEmail(),
+            'password' => $user->getName(),
+            'phone' => '',
+            'dob' => Carbon::now()->format('Y-m-d'),
+            'gender' => '',
+            'profile' => null
+        ]);
+
+        Auth::login($user);
+
+        return redirect()->route('frontend.home');
     }
 }
