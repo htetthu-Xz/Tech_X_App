@@ -79,7 +79,7 @@
     <script>
         $(document).on('click', '.pf', () => {
             let template = `
-                <label for="profile" class="form-label">Profile <span class="text-danger">*</span></label>
+                <label for="profile" class="form-label">Profile </label>
                 <input type="file" name="profile" class="form-control" id="profile">
             `;
 

@@ -6,7 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ config('app.name') }}</title>
 
-    <link rel="icon" type="image/png" href="{{ asset('backend/images/techX.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('storage/images/loder.png') }}">
+
+    {{-- <link rel="stylesheet" href="{{ asset('backend/css/fontawesome-all.min.css') }}" /> --}}
 
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
 
@@ -33,7 +35,7 @@
     <link href="{{ asset('backend/css/nucleo-svg.css') }}" rel="stylesheet" />
 
     {{-- CSSFiles --}}
-    <link id="pagestyle" href="{{ asset('backend/css/argon-dashboard.css?v=2.0.4') }}" rel="stylesheet" />
+    <link id="pagestyle" href="{{ asset('backend/css/argon-dashboard.css') }}" rel="stylesheet" />
 
     <link href="{{ asset('backend/css/select2.min.css') }}" rel="stylesheet" />
 
@@ -44,7 +46,6 @@
     @stack('css')
 
     <script>
-        /*to prevent Firefox FOUC, this must be here*/
         let FF_FOUC_FIX;
     </script>
 </head>
