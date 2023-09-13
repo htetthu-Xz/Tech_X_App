@@ -15,7 +15,7 @@ class CreateInstructorsTable extends Migration
             $table->string('phone')->unique();
             $table->string('password');
             $table->text('address')->nullable();
-            $table->date('Dob');
+            $table->date('dob');
             $table->string('gender');
             $table->text('Bio');
             $table->string('profile')->nullable();

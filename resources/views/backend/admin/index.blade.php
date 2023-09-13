@@ -60,8 +60,8 @@
                         class: 'text-uppercase text-sm text-light mb-0 align-middle'
                     },
                     {
-                        data:'Dob',
-                        name:'Dob',
+                        data:'dob',
+                        name:'dob',
                         class: 'text-light text-sm align-middle'
                     },
                     {

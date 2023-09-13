@@ -13,10 +13,10 @@ class CreateAdminsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('phone')->unique();
+            $table->string('phone');
             $table->string('password');
             $table->text('address')->nullable();
-            $table->date('Dob');
+            $table->date('dob');
             $table->string('gender');
             $table->string('profile')->nullable();
             $table->rememberToken()->nullable();

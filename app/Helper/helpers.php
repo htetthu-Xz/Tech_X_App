@@ -69,3 +69,13 @@ if(!function_exists('getEpisodes')) {
         return asset('storage/images/episode/video/' . $video);
     }
 }
+
+if(!function_exists('getRole')) {
+    function getRole($value) {
+        if(empty($value)) {
+            return 'No Role';
+        } else {
+            return $value[0]['name'];
+        }
+    }
+}

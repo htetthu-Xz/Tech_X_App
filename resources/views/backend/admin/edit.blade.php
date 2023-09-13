@@ -45,7 +45,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="dob" class="form-label">Date of Birth <span class="text-danger">*</span></label>
-                        <input type="text" name="dob" class="form-control" id="dob" value="{{ $admin->Dob }}" data-v-min="3" data-v-message="This field is required!" required>
+                        <input type="text" name="dob" class="form-control" id="dob" value="{{ $admin->dob }}" data-v-min="3" data-v-message="This field is required!" required>
                     </div>
                     <div class="mb-3">
                         <label for="gender" class="form-label">Gender <span class="text-danger">*</span></label>

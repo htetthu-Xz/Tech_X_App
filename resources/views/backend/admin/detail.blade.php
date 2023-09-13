@@ -30,7 +30,7 @@
                                     <img src="{{ getProfile($admin->profile) }}" alt="avatar"
                                         class="rounded-circle img-fluid" style="width: 150px;">
                                     <h5 class="my-3">{{ $admin->name }}</h5>
-                                    <p class="text-muted mb-1">{{ $admin->roles->pluck('name')[0]; }}</p>
+                                    <p class="text-muted mb-1">Role : {{ getRole($admin->roles->toBase()->toArray()) }}</p>
                                     <div class="my-2">
                                         <a href="{{ route('admins.edit', [$admin->id]) }}" class="btn btn-primary">Edit</a>
                                     </div>
@@ -81,7 +81,7 @@
                                             <p class="mb-0">Date of Birth</p>
                                         </div>
                                         <div class="col-sm-9">
-                                            <p class="text-muted mb-0">{{ $admin->Dob }}</p>
+                                            <p class="text-muted mb-0">{{ $admin->dob }}</p>
                                         </div>
                                     </div>
                                     <hr>

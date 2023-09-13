@@ -15,7 +15,7 @@ class UserFactory extends Factory
             'phone' => $this->faker->unique()->e164PhoneNumber(),
             'email_verified_at' => now(),
             'password' => $this->faker->md5(),
-            'Dob' => $this->faker->date(),
+            'dob' => $this->faker->date(),
             'address' => $this->faker->address(),
             'gender' =>$this->faker->randomElement(['male', 'female','other']),
             'profile' => null,

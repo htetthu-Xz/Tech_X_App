@@ -14,8 +14,8 @@ class InstructorFactory extends Factory
             'phone' => $this->faker->unique()->e164PhoneNumber(),
             'password' => $this->faker->md5(),
             'address' => $this->faker->address(),
-            'Dob' => $this->faker->date(),
-            'gender' =>$this->faker->randomElement(['male', 'female','other']),
+            'dob' => $this->faker->date(),
+            'gender' =>$this->faker->randomElement(['male', 'female', 'other']),
             'Bio' => $this->faker->realText(30),
             'profile' => null,
             'link' => [
