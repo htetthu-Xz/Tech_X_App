@@ -34,7 +34,7 @@
             </div>
         </div>
         <div class="text-start">
-            <a href="{{ url()->previous() }}" class="btn btn-dark">
+            <a href="{{ route('courses.index') }}" class="btn btn-dark">
                 <i class="ri-arrow-left-s-line align-middle"></i>
                 back
             </a>

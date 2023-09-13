@@ -48,6 +48,8 @@ class EpisodeController extends Controller
     {
         $attributes = $request->validated();
 
+        $attributes['course_id'] = $id;
+
         $attributes['privacy'] = $this->modifyPrivacy($attributes);
 
         $attributes['cover'] = $this->setFile($request, 'cover', 'public/images/episode/');

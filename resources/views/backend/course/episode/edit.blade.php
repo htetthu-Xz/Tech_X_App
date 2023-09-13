@@ -43,12 +43,12 @@
                 <form class="form-style form-v" action="{{ route('episodes.update',[$episode->Course->id, $episode->id]) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PATCH')
-                    <div class="mb-3">
+                    {{-- <div class="mb-3">
                         <label for="course" class="form-label">Course <span class="text-danger">*</span></label>
                         <select name="course_id" id="course" class="form-control" readonly="readonly">
                             <option value="{{ $episode->Course->id }}">{{ $episode->Course->title }}</option>
                         </select>
-                    </div>
+                    </div> --}}
                     <div class="mb-3">
                         <label for="title" class="form-label">Title <span class="text-danger">*</span></label>
                         <input type="text" name="title" class="form-control" id="name" value="{{ $episode->title }}" required>

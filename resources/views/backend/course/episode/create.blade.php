@@ -18,12 +18,12 @@
                 @include('backend.layouts.page_info')
                 <form class="form-style form-v" action="{{ route('episodes.store',[$course->id]) }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <div class="mb-3">
+                    {{-- <div class="mb-3">
                         <label for="course" class="form-label">Course <span class="text-danger">*</span></label>
                         <select name="course_id" id="course" class="form-control" readonly="readonly">
                             <option value="{{ $course->id }}">{{ $course->title }}</option>
                         </select>
-                    </div>
+                    </div> --}}
                     <div class="mb-3">
                         <label for="title" class="form-label">Title <span class="text-danger">*</span></label>
                         <input type="text" name="title" class="form-control" id="name" required>
