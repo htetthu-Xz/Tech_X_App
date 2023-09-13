@@ -39,7 +39,7 @@ if(!function_exists('getProfile')) {
         if(null !== $profile) {
             return asset('storage/images/profile/' . $profile);
         } else {
-            return asset('storage/images/profile/noprofile.jpg');
+            return asset('img/noprofile.jpg');
         }
     }
 }
@@ -49,7 +49,7 @@ if(!function_exists('getCoursePhotos')) {
         if('' !== $photo) {
             return asset('storage/images/course/' . $photo);
         } else {
-            return asset('storage/images/nophoto.jpg');
+            return asset('img/nophoto.jpg');
         }
     }
 }
@@ -59,7 +59,7 @@ if(!function_exists('getEpisodePhotos')) {
         if('' !== $photo) {
             return asset('storage/images/episode/' . $photo);
         } else {
-            return asset('storage/images/nophoto.jpg');
+            return asset('img/nophoto.jpg');
         }
     }
 }
