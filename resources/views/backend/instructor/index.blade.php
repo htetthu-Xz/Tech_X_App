@@ -63,7 +63,7 @@
                     {
                         data:'Dob',
                         name:'Dob',
-                        class: 'text-light text-smd align-middle'
+                        class: 'text-light text-sm align-middle'
                     },
                     {
                         data:'created_date',

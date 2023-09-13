@@ -7,7 +7,7 @@
         <div class="text-end">
             <a href="{{ route('roles.create') }}" class="btn btn-primary">
                 Create Role
-                <i class="ni ni-fat-add align-text-bottom"></i>
+                <i class="fas fa-plus mx-1"></i>
             </a>
         </div>
         <div class="card mb-4">
@@ -19,9 +19,9 @@
                     <table class="table align-items-center mb-0" id="adminTable">
                         <thead>
                             <tr>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Created_date</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
+                                <th class="text-uppercase text-xs font-weight-bolder">Name</th>
+                                <th class="text-uppercase text-xs font-weight-bolder ps-2">Created_date</th>
+                                <th class="text-uppercase text-xs font-weight-bolder">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -46,12 +46,13 @@
             columns: [
                 {
                     data:'name',
-                    name:'name'
+                    name:'name',
+                    class: 'text-light text-sm'
                 },
                 {
                     data:'created_date',
                     name:'created_date',
-                    class: 'text-xs text-secondary mb-0'
+                    class: 'text-light text-sm mb-0'
                 },
                 {
                     data:'action',
