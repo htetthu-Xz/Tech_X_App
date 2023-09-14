@@ -1,4 +1,4 @@
 let validator = $('form.form-v').jbvalidator({
-    errorMessage: true
+    errorMessage: true,
+    successClass: true,
 });
-

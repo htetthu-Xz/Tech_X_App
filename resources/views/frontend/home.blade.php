@@ -99,7 +99,7 @@
     </div>
 
     <section class="about-area1 fix p-4 pt-10">
-        <div class="d-flex flex-md-row flex-sm-column flex-xs-column flex-xl-row justify-content-between align-items-center"> {{-- support-wrapper  left-content1 --}}
+        <div class="d-flex flex-md-row flex-sm-column flex-xs-column flex-xl-row justify-content-around align-items-center"> {{-- support-wrapper  left-content1 --}}
             <div class="mx-4">
                 <div class="about-icon">
                     <img src="{{ asset('frontend/img/icon/about.svg') }}" alt="">
@@ -193,7 +193,7 @@
         </div>
     </div>
     <section class="about-area3 fix">
-        <div class="support-wrapper align-items-center">
+        <div class="support-wrapper align-items-center justify-content-around">
             <div class="right-content3">
                 <div class="right-img">
                     <img src="{{ asset('frontend/img/gallery/about3.png') }}" alt="">

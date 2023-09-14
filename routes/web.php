@@ -108,7 +108,7 @@ Route::group([
 });
 
 #Home
-Route::get('/home', [HomePageController::class, 'index'])->name('frontend.home');
+Route::get('/', [HomePageController::class, 'index'])->name('frontend.home');
 Route::get('/load', [HomePageController::class, 'load'])->name('frontend.category.load');
 
 #Course 

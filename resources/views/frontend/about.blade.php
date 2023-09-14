@@ -63,7 +63,7 @@
             </div>
         </div>
         <section class="about-area1 fix p-4 pt-10">
-            <div class="d-flex flex-md-row flex-sm-column flex-xs-column flex-xl-row justify-content-between align-items-center"> {{-- support-wrapper  left-content1 --}}
+            <div class="d-flex flex-md-row flex-sm-column flex-xs-column flex-xl-row justify-content-around align-items-center"> {{-- support-wrapper  left-content1 --}}
                 <div class="mx-4">
                     <div class="about-icon">
                         <img src="{{ asset('frontend/img/icon/about.svg') }}" alt="">

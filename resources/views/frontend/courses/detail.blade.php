@@ -37,13 +37,13 @@
                                 {{ $course->title }}
                             </h2>
                             <h4 class="my-2">
-                                <u>Description</u>
+                                Description
                             </h4>
                             <p class="excert">
                                 {{ $course->description }}
                             </p>
                             <div class="mb-4">
-                                <h4 class="my-2"><u>Summary</u></h4>
+                                <h4 class="my-2">Summary</h4>
                                 <div class="quote-wrapper">
                                     <div class="quotes">
                                         {!! $course->summary !!}
@@ -51,7 +51,7 @@
                                 </div>
                             </div>
                             <h4 class="my-3">
-                                <u>Episodes</u>
+                                Episodes
                             </h4>
                             <div class="my2">
                                 @foreach ($course->Episode as $episode)

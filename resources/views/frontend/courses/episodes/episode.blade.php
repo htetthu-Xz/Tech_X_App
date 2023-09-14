@@ -114,6 +114,7 @@
             $.get(route('frontend.courses.episodes.video', "{{ $course->slug }}"), {id:id}, function(res) {
                 let data = JSON.parse(res, true);
                 let template;
+                $('.summary').remove();
                 if(data.privacy == 'private') {
                     template = `
                         <div class="card p-2 radious_ h-100 bg-secondary">
@@ -123,7 +124,6 @@
                                 <p >To view private video you have to enroll this course.</p>
                                 <div class="flex mt-2">
                                     <a href="#" class="en-now">Enroll Now</a>
-                                    <a href="{{ route('user.get.login') }}" class="in-now">Log In</a>
                                 </div>
                             </div>
                         </div>
@@ -144,7 +144,7 @@
                             </video>
                         </div>
                         <div class="my-3 py-2 summary">
-                            <h2><u>Summary</u></h2>
+                            <h2>Summary</h2>
                             <p class="ml-3">
                                 ${data.summary}
                             </p>
@@ -171,6 +171,7 @@
                 modifyUrl('Texh X App', url_path);
 
                 $('.radious_').remove();
+                $('.summary').remove();
 
                 let template = `
                     <div class="card p-2 radious_ h-100 bg-secondary">
@@ -180,7 +181,6 @@
                             <p >To view private video you have to enroll this course.</p>
                             <div class="flex mt-2">
                                 <a href="#" class="en-now">Enroll Now</a>
-                                <a href="{{ route('user.get.login') }}" class="in-now">Log In</a>
                             </div>
                         </div>
                     </div>
@@ -224,7 +224,7 @@
                         </video>
                     </div>
                     <div class="my-3 py-2 summary">
-                        <h2><u>Summary</u></h2>
+                        <h2>Summar</h2>
                         <p class="ml-3">
                             ${data.summary}
                         </p>
