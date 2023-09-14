@@ -14,7 +14,7 @@ class EpisodeFactory extends Factory
             'summary' => $this->faker->text(100),
             'cover' => '',
             'image' => '',
-            'video' => '//vjs.zencdn.net/v/oceans.mp4',
+            'video' => '',
             'privacy' => 'public'
         ];
     }

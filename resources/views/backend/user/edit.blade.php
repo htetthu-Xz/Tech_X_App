@@ -55,15 +55,22 @@
                             <option value="other" {{ $user->gender == 'other' ? 'selected' : '' }}>Other</option>
                         </select>
                     </div>
-                    <div class="mb-4 profile-edit">
-                        <div class="card mb-3 w-pf p-3">
-                            <div class="py-3"><b>Profile Picture</b></div>
-                            <div class="align-items-center mb-2 box">
-                                <img src="{{ getProfile($user->profile) }}" class="mx-3 pf-img" alt="profile">
-                                <i class="fas fa-edit pf e-font"></i>
+                    @if ($user->profile == '')
+                        <div class="mb-3">
+                            <label for="profile" class="form-label">Profile </label>
+                            <input type="file" name="profile" class="form-control" id="profile">
+                        </div>
+                    @else
+                        <div class="mb-4 profile-edit">
+                            <div class="card mb-3 w-pf p-3">
+                                <div class="py-3"><b>Profile Picture</b></div>
+                                <div class="align-items-center mb-2 box">
+                                    <img src="{{ getProfile($user->profile) }}" class="mx-3 pf-img" alt="profile">
+                                    <i class="fas fa-edit pf e-font"></i>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @endif
                     <div class="text-center">
                         <a href="{{ route('users.index') }}" class="btn btn-dark mx-2">Cancel</a>
                         <button type="submit" class="btn btn-primary">Submit</button>
@@ -78,7 +85,7 @@
     <script>
         $(document).on('click', '.pf', () => {
             let template = `
-                <label for="profile" class="form-label">Profile <span class="text-danger">*</span></label>
+                <label for="profile" class="form-label">Profile </label>
                 <input type="file" name="profile" class="form-control" id="profile">
             `;
 

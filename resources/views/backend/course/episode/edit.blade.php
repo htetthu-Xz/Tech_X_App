@@ -69,39 +69,62 @@
                             <small><i class="ni ni-world-2 mx-1"></i>Public</small>                        
                         </div>
                     </div>
+                    @if ($episode->cover == '')
+                        <div class="mb-3">
+                            <label for="cover" class="form-label">Cover Photo </label>
+                            <input type="file" class="form-control" name="cover" id="cover" value="">
+                        </div>
+                    @endif
+                    @if ($episode->image == '')
+                        <div class="mb-3">
+                            <label for="image" class="form-label">Image </label>
+                            <input type="file" class="form-control" name="image" id="image" value="">
+                        </div>
+                    @endif
                     <div class="d-flex justify-content-evenly">
-                        <div class="mb-4 cover-edit">
-                            <div class="card mb-3 w-cover p-3">
-                                <div class="py-3"><b>Cover Photo</b></div>
-                                <div class="align-items-center justify-content-center mb-2 c-box">
-                                    <img src="{{ getEpisodePhotos($episode->cover) }}" class="mx-3 cover-img" alt="profile">
-                                    <i class="fas fa-edit ch c-font"></i>
+                        @if ($episode->cover !== '')
+                            <div class="mb-4 cover-edit">
+                                <div class="card mb-3 w-cover p-3">
+                                    <div class="py-3"><b>Cover Photo</b></div>
+                                    <div class="align-items-center justify-content-center mb-2 c-box">
+                                        <img src="{{ getEpisodePhotos($episode->cover) }}" class="mx-3 cover-img" alt="profile">
+                                        <i class="fas fa-edit ch c-font"></i>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="mb-4 image-edit">
-                            <div class="card mb-3 w-image p-3">
-                                <div class="py-3"><b>Image</b></div>
-                                <div class="align-items-center mb-2 i-box">
-                                    <img src="{{ getEpisodePhotos($episode->image) }}" class="mx-3 i-img" alt="profile">
-                                    <i class="fas fa-edit img i-font"></i>
+                        @endif
+                        @if ($episode->image !== '')
+                            <div class="mb-4 image-edit">
+                                <div class="card mb-3 w-image p-3">
+                                    <div class="py-3"><b>Image</b></div>
+                                    <div class="align-items-center mb-2 i-box">
+                                        <img src="{{ getEpisodePhotos($episode->image) }}" class="mx-3 i-img" alt="profile">
+                                        <i class="fas fa-edit img i-font"></i>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        @endif
                     </div>
-                    <div class="mb-4 v-edit">
-                        <div class="d-flex justify-content-center">
-                            <div class="card p-3 w-50">
-                                <div class="pt-2 pb-4"><b>Video</b></div>
-                                <div class="con card p-3 v-box">
-                                    <video class="vd video__" controls>
-                                        <source src="{{ getEpisodes($episode->video) }}" type="video/mp4">
-                                    </video>
-                                    <i class="fas fa-edit vd__ v-font"></i>
+                    @if ($episode->video == '')
+                        <div class="mb-3">
+                            <label for="video" class="form-label">Video </label>
+                            <input type="file" class="form-control" name="video" id="video" value="">
+                        </div>
+                    @else
+                        <div class="mb-4 v-edit">
+                            <div class="d-flex justify-content-center">
+                                <div class="card p-3 w-50">
+                                    <div class="pt-2 pb-4"><b>Video</b></div>
+                                    <div class="con card p-3 v-box">
+                                        <video class="vd video__" controls>
+                                            <source src="{{ getEpisodes($episode->video) }}" type="video/mp4">
+                                        </video>
+                                        <i class="fas fa-edit vd__ v-font"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    @endif
                     <div class="text-center">
                         <a href="{{ route('episodes.index', [$episode->Course->id]) }}" class="btn btn-dark mx-2">Cancel</a>
                         <button type="submit" class="btn btn-primary">Submit</button>

@@ -59,15 +59,22 @@
                         <label for="bio" class="form-label">Bio</label>
                         <textarea name="bio" id="bio" rows="2" class="form-control" required>{{ $instructor->Bio }}</textarea>
                     </div>
-                    <div class="mb-4 profile-edit">
-                        <div class="card mb-3 w-pf p-3">
-                            <div class="py-3"><b>Profile Picture</b></div>
-                            <div class="align-items-center mb-2 box">
-                                <img src="{{ getProfile($instructor->profile) }}" class="mx-3 pf-img" alt="profile">
-                                <i class="fas fa-edit pf e-font"></i>
+                    @if ($instructor->profile == '')
+                        <div class="mb-3">
+                            <label for="profile" class="form-label">Profile</label>
+                            <input type="file" name="profile" class="form-control" id="profile">
+                        </div>
+                    @else
+                        <div class="mb-4 profile-edit">
+                            <div class="card mb-3 w-pf p-3">
+                                <div class="py-3"><b>Profile Picture</b></div>
+                                <div class="align-items-center mb-2 box">
+                                    <img src="{{ getProfile($instructor->profile) }}" class="mx-3 pf-img" alt="profile">
+                                    <i class="fas fa-edit pf e-font"></i>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @endif
                     <div class="mb-3">
                         <label for="profile" class="form-label">Link <span class="text-danger">*</span></label>
                         <div class="pt-2 pb-2 rounded m-3 b-color append">
@@ -124,7 +131,7 @@
     <script>
         $(document).on('click', '.pf', () => {
             let template = `
-                <label for="profile" class="form-label">Profile <span class="text-danger">*</span></label>
+                <label for="profile" class="form-label">Profile </label>
                 <input type="file" name="profile" class="form-control" id="profile">
             `;
 
